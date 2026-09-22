@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,27 +10,139 @@
 
 <body>
 
-    <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="restaurants.html">Restaurants</a>
-        <a href="menu.html" class="active">Menu</a>
-        <a href="recipes.html">Recipes</a>
-        <a href="team.html">Our Team</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<div class="dariya-layout">
+
+    <header class="site-header">
+
+        <div class="logo">LE AUDACI</div>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="team.html">Our Team</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <aside class="sidebar">
+
+        <p class="menu-eyebrow">MENU</p>
+
+        <h3>Explore</h3>
+
+        <a href="#antipasti">Antipasti</a>
+        <a href="#pasta">Pasta</a>
+        <a href="#pizza">Pizza</a>
+        <a href="#dolce">Dolce</a>
+
+        <div class="sidebar-note">
+            <p>Simple ingredients.</p>
+            <p>Bold Italian flavors.</p>
+        </div>
+
+    </aside>
+
 
     <main class="menu-page">
 
         <section class="menu-header">
+
             <p class="menu-eyebrow">LE AUDACI</p>
+
             <h1>Italian Menu</h1>
+
             <p>
                 Simple ingredients. Bold flavors.
                 A taste of Italy in every dish.
             </p>
+
         </section>
 
-        <section class="menu-section">
+
+        <section class="featured-section">
+
+            <div class="menu-heading">
+                <span>FEATURED</span>
+                <h2>Our Favorites</h2>
+            </div>
+
+            <div class="menu-cards">
+
+                <div class="menu-card">
+
+                    <img src="images/carbonara.jpg" alt="Spaghetti Carbonara">
+
+                    <div class="menu-card-content">
+
+                        <h3>Spaghetti Carbonara</h3>
+
+                        <p>
+                            A classic Italian pasta with pancetta,
+                            Pecorino Romano and black pepper.
+                        </p>
+
+                        <a href="recipes.html" class="card-button">
+                            View Recipe
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img src="images/pizza.jpg" alt="Margherita Pizza">
+
+                    <div class="menu-card-content">
+
+                        <h3>Margherita Pizza</h3>
+
+                        <p>
+                            Fresh mozzarella, tomato sauce,
+                            basil and olive oil.
+                        </p>
+
+                        <a href="recipes.html" class="card-button">
+                            View Recipe
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img src="images/carbonara.jpg" alt="Italian Pasta">
+
+                    <div class="menu-card-content">
+
+                        <h3>Italian Pasta</h3>
+
+                        <p>
+                            Traditional pasta made with simple
+                            ingredients and bold flavors.
+                        </p>
+
+                        <a href="#pasta" class="card-button">
+                            View Menu
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="menu-section" id="antipasti">
 
             <div class="menu-heading">
                 <span>01</span>
@@ -68,7 +179,8 @@
 
         </section>
 
-        <section class="menu-section">
+
+        <section class="menu-section" id="pasta">
 
             <div class="menu-heading">
                 <span>02</span>
@@ -105,7 +217,8 @@
 
         </section>
 
-        <section class="menu-section">
+
+        <section class="menu-section" id="pizza">
 
             <div class="menu-heading">
                 <span>03</span>
@@ -142,7 +255,8 @@
 
         </section>
 
-        <section class="menu-section">
+
+        <section class="menu-section" id="dolce">
 
             <div class="menu-heading">
                 <span>04</span>
@@ -179,6 +293,7 @@
 
         </section>
 
+
         <section class="choice-section">
 
             <div class="choice-number">04 / 04</div>
@@ -200,6 +315,7 @@
 
         </section>
 
+
         <section class="about-site">
 
             <h2>About the Team Members</h2>
@@ -215,12 +331,17 @@
 
     </main>
 
+
     <footer>
+
         <p>LE AUDACI</p>
         <p>Italian Food Guide</p>
         <p>Created by: Assiya · Dariya · Akerke</p>
         <p>© 2026 LE AUDACI</p>
+
     </footer>
+
+</div>
 
 </body>
 </html>
