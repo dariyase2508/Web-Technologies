@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Le Audaci</title>
-    <!-- Подключаем общий файл стилей -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Created by Akerke -->
 </head>
+
 <body>
-    <!-- Общая навигация -->
+
     <nav class="nav-menu">
         <a href="index.html">Home</a>
         <a href="restaurants.html">Restaurants</a>
@@ -18,27 +20,43 @@
         <a href="contact.html" class="active">Contact</a>
     </nav>
 
-    <main id="main-content"> 
-        <h1>Book a Table or Contact Us</h1>
-        <p style="text-align: center;">Have a question or want to make a reservation? Fill out the form below!</p>
+    <main class="contact-section">
 
-        <!-- Контактная форма -->
-        <div class="form-container">
-            <form action="#" method="POST" id="contact-form">
-                
-                <!-- 1. Текстовое поле (Имя) -->
+        <h1>Book a Table or Contact Us</h1>
+
+        <p class="contact-intro">
+            Have a question or want to make a reservation?
+            Fill out the form below!
+        </p>
+
+        <img src="images/restaurant4.jpg" alt="Italian restaurant" class="contact-image">
+
+        <div class="contact-form">
+
+            <form id="contact-form" action="#" method="POST">
+
                 <div class="form-group">
                     <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
                 </div>
 
-                <!-- 2. Email -->
                 <div class="form-group">
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
                 </div>
 
-                <!-- 3. Выбор опции (Dropdown) -->
                 <div class="form-group">
                     <label for="reason">Reason for contact:</label>
                     <select id="reason" name="reason">
@@ -48,21 +66,29 @@
                     </select>
                 </div>
 
-                <!-- 4. Текстовое поле (Сообщение) -->
                 <div class="form-group">
                     <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your message here..."
+                    ></textarea>
                 </div>
 
-                <!-- 5. Кнопка Submit -->
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+
             </form>
+
         </div>
+
     </main>
 
-    <!-- Обязательный футер -->
     <footer>
         <p>&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
     </footer>
+
 </body>
 </html>
