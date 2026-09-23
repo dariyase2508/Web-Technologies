@@ -3,69 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Audaci - Italian Restaurant Guide</title>
+    <title>LE AUDACI - Italian Restaurant Guide</title>
     <link rel="stylesheet" href="css/style.css">
-
     <!-- Created by Assiya -->
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html" style="color: white; text-decoration: none">LE AUDACI</a>
+        </div>   
 
-    <!-- Navigation Menu -->
-    <nav class="nav-menu">
-        <a href="index.html" class="active">Home</a>
-        <a href="restaurants.html">Restaurants</a>
-        <a href="menu.html">Menu</a>
-        <a href="recipes.html">Recipes</a>
-        <a href="team.html">Our Team</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="menu.html">Menu</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="team.html">Our Team</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
     <!-- Main Content -->
     <main id="main-content">
 
         <h1>Welcome to Le Audaci!</h1>
 
-        <p>Your ultimate guide to the most authentic restaurants across Italy.</p>
+        <p style="text-align: center; margin-bottom: 30px;">Your ultimate guide to the most authentic restaurants across Italy.</p>
 
-        <section class="gallery">
-            <h2>Featured Italian Dishes of the Week</h2>
+        <section class="gallery-section">
+            <h2>Our Culinary Gallery</h2>
 
-            <img src="images/dish1.jpg" alt="Neapolitan Pizza" class="food-img">
-            <img src="images/dish2.jpg" alt="Spaghetti Carbonara" class="food-img">
-            <img src="images/dish3.jpg" alt="Lasagna Bolognese" class="food-img">
+            <div class="recipe-gallery">
+                <div class="gallery-item">
+                    <img src="images/dish1.jpg" alt="Neapolitan Pizza">
+                    <div class="gallery-caption">Neapolitan Pizza</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish2.jpg" alt="Spaghetti Carbonara">
+                    <div class="gallery-caption">Spaghetti Carbonara</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish3.jpg" alt="Lasagna Bolognese">
+                    <div class="gallery-caption">Lasagna Bolognese</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish4.jpg" alt="Italian Gelato">
+                    <div class="gallery-caption">Italian Gelato</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish5.jpg" alt="Seafood Risotto">
+                    <div class="gallery-caption">Seafood Risotto</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish6.jpg" alt="Florentine Steak">
+                    <div class="gallery-caption">Florentine Steak</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish7.jpg" alt="Tiramisu">
+                    <div class="gallery-caption">Traditional Tiramisu</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish8.jpg" alt="Ravioli">
+                    <div class="gallery-caption">Spinach Ravioli</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dish9.jpg" alt="Espresso">
+                    <div class="gallery-caption">Italian Espresso</div>
+                </div>
+            </div> <!-- 👈 Properly closes all items inside the grid container -->
         </section>
 
         <section class="about-site">
-
             <h2>About Us</h2>
-
             <p>
                 We aggregate top-rated Italian restaurants, share authentic regional recipes
                 and help you find the ideal dining experience in Italy.
             </p>
 
-            <h3>What You Will Find Here:</h3>
-
+            <h3 style="margin-top: 15px;">What You Will Find Here:</h3>
             <ul>
                 <li>Curated catalog of top pizzerias and trattorias across Italy</li>
                 <li>Detailed step-by-step recipes from traditional Italian chefs</li>
                 <li>Easy navigation by regions and food categories</li>
             </ul>
-
         </section>
 
         <section class="about-site">
-
             <h2>About the Team Members</h2>
-
             <h3>Assiya</h3>
-
             <p>
                 Assiya is a Software Engineering student and is responsible
                 for the homepage and restaurant pages of Le Audaci.
             </p>
-
         </section>
 
     </main>
