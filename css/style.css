@@ -208,7 +208,7 @@ th {
 /* =========================
    GRID PAGE LAYOUT
    ========================= */
-
+.assiya-layout,
 .dariya-layout {
     min-height: 100vh;
     display: grid;
@@ -287,7 +287,7 @@ th {
     color: #666666;
     font-size: 14px;
 }
-
+.assiya-layout > footer,
 .dariya-layout > footer {
     grid-area: footer;
 }
@@ -781,6 +781,7 @@ footer p {
    ========================= */
 
 @media (max-width: 900px) {
+    .assiya-layout,
     .dariya-layout {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr auto;
@@ -889,4 +890,27 @@ footer p {
     .choice-section {
         padding: 25px;
     }
+}
+/* =========================
+   SIDEBAR LINKS STYLING
+   ========================= */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;                  /* Каждая ссылка на новой строке */
+    color: #4a4a4a;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0; /* Тонкая полоска снизу */
+    transition: color 0.2s ease;
+}
+
+.sidebar a:hover {
+    color: #8b0000;                  /* Акцентный бордовый цвет при наведении */
+    font-weight: 600;
 }

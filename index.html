@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <div class="assiya-layout">
+
     <header class="site-header">
         <div class="logo">
             <a href="index.html" style="color: white; text-decoration: none">LE AUDACI</a>
@@ -23,6 +25,17 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+    <aside class="sidebar">
+        <p class="sidebar-category">HOME</p>
+        <h3>Quick Links</h3>
+
+        <a href="#about">About Us</a>
+        <a href="#gallery">Culinary Gallery</a>
+        <a href="restaurants.html">Restaurants</a>
+
+        <div class="sidebar-note">
+            <p>Explore authentic Italian cuisine and discover the best restaurants across Italy.</p>
+    </aside>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -34,7 +47,7 @@
         <section class="gallery-section">
             <h2>Our Culinary Gallery</h2>
 
-            <div class="recipe-gallery">
+            <div class="recipe-gallery" id="gallery">
                 <div class="gallery-item">
                     <img src="images/dish1.jpg" alt="Neapolitan Pizza">
                     <div class="gallery-caption">Neapolitan Pizza</div>
@@ -71,10 +84,10 @@
                     <img src="images/dish9.jpg" alt="Espresso">
                     <div class="gallery-caption">Italian Espresso</div>
                 </div>
-            </div> <!-- 👈 Properly closes all items inside the grid container -->
+            </div> 
         </section>
 
-        <section class="about-site">
+        <section class="about-site" id="about">
             <h2>About Us</h2>
             <p>
                 We aggregate top-rated Italian restaurants, share authentic regional recipes
