@@ -3,73 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LE AUDACI - Our Team</title>
+    <title>LE AUDACI — Meet Our Team</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 & Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Created by Assiya, Dariya and Akerke -->
 </head>
-
 <body>
+
+    <!-- Единая шапка сайта -->
     <header class="site-header">
         <div class="logo">
-            <a href="index.html" style="color: white; text-decoration: none">LE AUDACI</a>
-
+            <a href="index.html">LE AUDACI</a>
         </div>
-
-    <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="restaurants.html">Restaurants</a>
-        <a href="menu.html">Menu</a>
-        <a href="recipes.html">Recipes</a>
-        <a href="team.html" class="active">Our Team</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="menu.html">Menu</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="team.html" class="active">Our Team</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
 
-    <main class="team-section">
+    <!-- Главная секция команды -->
+    <main class="team-section py-4">
 
-        <h1>Meet Our Team</h1>
+        <!-- Заголовок страницы -->
+        <section class="container text-center mb-5 py-2">
+            <p class="eyebrow">THE PEOPLE BEHIND THE PROJECT</p>
+            <h1 class="mb-3">Meet Our Team</h1>
+            <p class="lead max-w-600 mx-auto">
+                Discover the creators behind Le Audaci and our curated Italian culinary guide.
+            </p>
+        </section>
 
-        <p class="team-intro">
-            We are the creators behind the ultimate Italian restaurant guide.
-        </p>
+        <!-- Карточки авторов -->
+        <section class="team-container container mb-5">
 
-        <section class="team-container">
+            <!-- Akerke -->
+            <article class="team-card glass-card">
+                <img src="images/akerke.jpg" class="profile-img" alt="Akerke">
+                <div class="team-card-content">
+                    <h2 class="h3 mb-1">Akerke</h2>
+                    <p class="team-role mb-3">Web Developer</p>
+                    <p class="mb-0">
+                        Worked on the restaurant guide structure, page layouts, and core HTML architecture.
+                    </p>
+                </div>
+            </article>
 
-            <div class="team-card">
-                <img src="images/akerke.jpg" alt="Akerke" class="profile-img">
-                <h2>Akerke</h2>
-                <p>
-                    Software Engineering student. Focused on global styling,
-                    HTML structure, and UI layout.
+            <!-- Dariya -->
+            <article class="team-card glass-card">
+                <img src="images/dariya.jpg" class="profile-img" alt="Dariya">
+                <div class="team-card-content">
+                    <h2 class="h3 mb-1">Dariya</h2>
+                    <p class="team-role mb-3">Content & Design</p>
+                    <p class="mb-0">
+                        Designed the menu layouts, curated traditional recipes, and developed the visual identity of Le Audaci.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Assiya -->
+            <article class="team-card glass-card">
+                <img src="images/assiya.jpg" class="profile-img" alt="Assiya">
+                <div class="team-card-content">
+                    <h2 class="h3 mb-1">Assiya</h2>
+                    <p class="team-role mb-3">Web Developer</p>
+                    <p class="mb-0">
+                        Organized restaurant catalog data, comparison tables, and user interaction details across the site.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Миссия / Цель проекта -->
+        <section class="container max-w-850 mx-auto my-5">
+            <div class="glass-card text-center p-4 p-md-5">
+                <span class="eyebrow">OUR MISSION</span>
+                <h2 class="mb-3">Our Goal</h2>
+                <p class="lead max-w-600 mx-auto mb-0">
+                    Our mission is to bring authentic Italian gastronomy, traditional home recipes, and restaurant culture to food lovers around the world in a clean, modern, and engaging visual guide.
                 </p>
             </div>
-
-            <div class="team-card">
-                <img src="images/dariya.jpg" alt="Dariya" class="profile-img">
-                <h2>Dariya</h2>
-                <p>
-                    Software Engineering student. Passionate about authentic
-                    recipes and web content.
-                </p>
-            </div>
-
-            <div class="team-card">
-                <img src="images/assiya.jpg" alt="Assiya" class="profile-img">
-                <h2>Assiya</h2>
-                <p>
-                    Software Engineering student. Responsible for forms,
-                    tables, and project architecture.
-                </p>
-            </div>
-
         </section>
 
     </main>
 
+    <!-- Единый подвал -->
     <footer>
         <p>&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

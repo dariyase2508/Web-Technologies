@@ -1,21 +1,26 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LE AUDACI — Recipes</title>
+    <title>LE AUDACI — Traditional Italian Recipes</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 & Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Created by Dariya -->
 </head>
-
 <body>
 
-<div class="dariya-layout">
-
+    <!-- Единая шапка сайта -->
     <header class="site-header">
-
-        <div class="logo">LE AUDACI</div>
-
+        <div class="logo">
+            <a href="index.html">LE AUDACI</a>
+        </div>
         <nav class="main-nav">
             <a href="index.html">Home</a>
             <a href="restaurants.html">Restaurants</a>
@@ -24,241 +29,197 @@
             <a href="team.html">Our Team</a>
             <a href="contact.html">Contact</a>
         </nav>
-
     </header>
 
+    <!-- Главная раскладка -->
+    <main class="dariya-layout container-fluid py-4 px-0">
 
-    <aside class="sidebar">
+        <!-- Боковое меню -->
+        <aside class="sidebar">
+            <h2>Recipes</h2>
+            <ul>
+                <li><a href="#carbonara">Carbonara</a></li>
+                <li><a href="#margherita">Margherita Pizza</a></li>
+                <li><a href="#gallery">Food Gallery</a></li>
+                <li><a href="#rules">Culinary Rules</a></li>
+            </ul>
+        </aside>
 
-        <p class="menu-eyebrow">RECIPES</p>
+        <!-- Страница рецептов -->
+        <div class="recipes-page mx-auto">
 
-        <h3>Explore</h3>
+            <!-- Заголовок страницы -->
+            <section class="recipes-header text-center mb-5 py-2">
+                <p class="eyebrow">STEP-BY-STEP CULINARY GUIDES</p>
+                <h1 class="mb-3">Italian Recipes</h1>
+                <p class="lead max-w-600 mx-auto">
+                    Master the secrets of authentic Italian home cooking with traditional recipes passed down through generations.
+                </p>
+            </section>
 
-        <a href="#carbonara">Carbonara</a>
-        <a href="#pizza-recipe">Margherita Pizza</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#rules">Italian Rules</a>
+            <!-- Рецепт 1: Carbonara -->
+            <section id="carbonara" class="recipe glass-card mb-5 p-4 p-md-5">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <img src="images/carbonara.jpg" class="img-fluid recipe-image rounded-4" alt="Spaghetti Carbonara">
+                    </div>
+                    <div class="col-12 col-lg-6 recipe-content">
+                        <span class="badge-vibey">Prep: 15 mins • Easy ⏱️</span>
+                        <h2 class="mb-3">Classic Spaghetti Carbonara</h2>
 
-        <div class="sidebar-note">
-            <p>Traditional dishes.</p>
-            <p>No unnecessary rules.</p>
+                        <h3 class="h5 text-terracotta mt-3">Ingredients</h3>
+                        <ul class="mb-4">
+                            <li>350g Spaghetti or Rigatoni</li>
+                            <li>4 fresh Egg yolks + 1 whole Egg</li>
+                            <li>100g Pecorino Romano cheese (finely grated)</li>
+                            <li>150g Guanciale (cured pork cheek)</li>
+                            <li>Freshly cracked black pepper</li>
+                        </ul>
+
+                        <h3 class="h5 text-terracotta">Method</h3>
+                        <p class="mb-0">
+                            Cook spaghetti in salted boiling water until al dente. In a pan, crisp the guanciale over medium heat until golden. Whisk egg yolks with grated Pecorino and black pepper in a bowl. Toss hot pasta with guanciale fat, remove from heat, and quickly stir in the egg mixture with a splash of pasta water until creamy.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Рецепт 2: Pizza Margherita -->
+            <section id="margherita" class="recipe glass-card mb-5 p-4 p-md-5">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-lg-6 order-lg-2">
+                        <img src="images/pizza.jpg" class="img-fluid recipe-image rounded-4" alt="Margherita Pizza">
+                    </div>
+                    <div class="col-12 col-lg-6 order-lg-1 recipe-content">
+                        <span class="badge-vibey">Prep: 25 mins • Medium 🍕</span>
+                        <h2 class="mb-3">Neapolitan Margherita Pizza</h2>
+
+                        <h3 class="h5 text-terracotta mt-3">Ingredients</h3>
+                        <ul class="mb-4">
+                            <li>250g Fermented Pizza Dough</li>
+                            <li>100g San Marzano crushed tomatoes</li>
+                            <li>120g Fresh Fior di Latte Mozzarella</li>
+                            <li>Fresh Basil leaves</li>
+                            <li>Extra Virgin Olive Oil & Salt</li>
+                        </ul>
+
+                        <h3 class="h5 text-terracotta">Method</h3>
+                        <p class="mb-0">
+                            Stretch dough ball gently by hand onto a baking tray or pizza stone. Spread crushed tomatoes evenly, add torn mozzarella pieces, and season with salt and olive oil. Bake at maximum oven temperature (250°C+) until crust rises with charred leopard spots. Top with fresh basil before serving.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Карусель рецептов -->
+            <section id="gallery" class="mb-5 glass-card p-4">
+                <div class="text-center mb-4">
+                    <span class="eyebrow">VISUAL INSPIRATION</span>
+                    <h2>Italian Culinary Gallery</h2>
+                </div>
+
+                <div id="recipeCarousel" class="carousel slide rounded-3 overflow-hidden" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                        <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/carbonara.jpg" class="d-block w-100 recipe-carousel-image" alt="Spaghetti Carbonara">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/pizza.jpg" class="d-block w-100 recipe-carousel-image" alt="Margherita Pizza">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/bruschetta.jpg" class="d-block w-100 recipe-carousel-image" alt="Bruschetta">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/caprese.jpg" class="d-block w-100 recipe-carousel-image" alt="Caprese Salad">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/tiramisu.jpg" class="d-block w-100 recipe-carousel-image" alt="Tiramisu">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/panna-cotta.jpg" class="d-block w-100 recipe-carousel-image" alt="Panna Cotta">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/lasagna.jpg" class="d-block w-100 recipe-carousel-image" alt="Lasagna">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/pasta.jpg" class="d-block w-100 recipe-carousel-image" alt="Italian Pasta">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/italian-dessert.jpg" class="d-block w-100 recipe-carousel-image" alt="Italian Dessert">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Правила кулинарии -->
+            <section id="rules" class="rules-section glass-card p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <span class="eyebrow">PHILOSOPHY</span>
+                    <h2>Italian Cooking Golden Rules</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-md-4">
+                        <div class="rule h-100">
+                            <h3 class="h5 mb-2">1. Organic Ingredients</h3>
+                            <p class="mb-0">
+                                Italian cuisine relies on 3–4 peak-season ingredients. Always choose extra virgin olive oil, fresh herbs, and real DOP cheeses.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="rule h-100">
+                            <h3 class="h5 mb-2">2. Simplicity Over Heavy Heavy Heavy Sauces</h3>
+                            <p class="mb-0">
+                                No heavy cream in Carbonara or ketchup on pizza. Let the natural flavors of ripe tomatoes, garlic, and basil shine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="rule h-100">
+                            <h3 class="h5 mb-2">3. Respecting Heritage</h3>
+                            <p class="mb-0">
+                                Traditional Italian recipes represent regional identity. Preserve classical techniques while cooking with passion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
-
-    </aside>
-
-
-    <main class="recipes-page">
-
-        <section class="recipes-header">
-
-            <p class="menu-eyebrow">LE AUDACI</p>
-
-            <h1>Italian Recipes</h1>
-
-            <p>
-                Traditional dishes.<br>
-                No unnecessary rules.
-            </p>
-
-        </section>
-
-
-        <section class="recipe" id="carbonara">
-
-            <div class="recipe-image">
-                <img src="images/carbonara.jpg" alt="Classic Carbonara">
-            </div>
-
-            <div class="recipe-content">
-
-                <p class="recipe-number">01 / CLASSIC</p>
-
-                <h2>Classic<br>Carbonara</h2>
-
-                <div class="ingredients">
-
-                    <h3>Ingredients</h3>
-
-                    <ul>
-                        <li>200 g spaghetti</li>
-                        <li>100 g pancetta</li>
-                        <li>2 eggs</li>
-                        <li>50 g Pecorino Romano</li>
-                        <li>Black pepper</li>
-                        <li>Salt</li>
-                    </ul>
-
-                </div>
-
-                <div class="method">
-
-                    <h3>Method</h3>
-
-                    <ol>
-                        <li>Cook the pasta until al dente.</li>
-                        <li>Cook the pancetta until crispy.</li>
-                        <li>Mix eggs with Pecorino Romano.</li>
-                        <li>Combine the hot pasta with the pancetta.</li>
-                        <li>Remove from heat and add the egg mixture.</li>
-                        <li>Stir until creamy and serve immediately.</li>
-                    </ol>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="recipe pizza-recipe" id="pizza-recipe">
-
-            <div class="recipe-image">
-                <img src="images/pizza.jpg" alt="Margherita Pizza">
-            </div>
-
-            <div class="recipe-content">
-
-                <p class="recipe-number">02 / CLASSIC</p>
-
-                <h2>Margherita<br>Pizza</h2>
-
-                <div class="ingredients">
-
-                    <h3>Ingredients</h3>
-
-                    <ul>
-                        <li>Pizza dough</li>
-                        <li>Tomato sauce</li>
-                        <li>Fresh mozzarella</li>
-                        <li>Fresh basil</li>
-                        <li>Olive oil</li>
-                        <li>Salt</li>
-                    </ul>
-
-                </div>
-
-                <div class="method">
-
-                    <h3>Method</h3>
-
-                    <ol>
-                        <li>Prepare the dough.</li>
-                        <li>Spread tomato sauce.</li>
-                        <li>Add mozzarella.</li>
-                        <li>Bake until golden.</li>
-                        <li>Finish with basil and olive oil.</li>
-                    </ol>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="gallery-section" id="gallery">
-
-            <div class="menu-heading">
-                <span>03</span>
-                <h2>ITALIAN GALLERY</h2>
-            </div>
-
-            <div class="recipe-gallery">
-
-                <div class="gallery-item">
-                    <img src="images/carbonara.jpg" alt="Carbonara">
-                    <div class="gallery-caption">Classic Carbonara</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/pizza.jpg" alt="Margherita Pizza">
-                    <div class="gallery-caption">Margherita Pizza</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/bruschetta.jpg" alt="Bruschetta">
-                    <div class="gallery-caption">Bruschetta</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/caprese.jpg" alt="Caprese">
-                    <div class="gallery-caption">Caprese</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/tiramisu.jpg" alt="Tiramisu">
-                    <div class="gallery-caption">Tiramisu</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/panna-cotta.jpg" alt="Panna Cotta">
-                    <div class="gallery-caption">Panna Cotta</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/lasagna.jpg" alt="Lasagna">
-                    <div class="gallery-caption">Lasagna</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/pasta.jpg" alt="Italian Pasta">
-                    <div class="gallery-caption">Italian Pasta</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/italian-dessert.jpg" alt="Italian Dessert">
-                    <div class="gallery-caption">Italian Dessert</div>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="rules-section" id="rules">
-
-            <div class="rules-title">
-
-                <p class="menu-eyebrow">LE AUDACI</p>
-
-                <h2>Three Italian<br>Rules</h2>
-
-            </div>
-
-            <div class="rules">
-
-                <div class="rule">
-                    <span>01</span>
-                    <p>Never overcook pasta.</p>
-                </div>
-
-                <div class="rule">
-                    <span>02</span>
-                    <p>Keep the ingredients simple.</p>
-                </div>
-
-                <div class="rule">
-                    <span>03</span>
-                    <p>Don't be afraid of bold flavors.</p>
-                </div>
-
-            </div>
-
-        </section>
 
     </main>
 
-
+    <!-- Единый подвал -->
     <footer>
-
-        <p>LE AUDACI</p>
-        <p>Italian Food Guide</p>
-        <p>Created by: Assiya · Dariya · Akerke</p>
-        <p>© 2026 LE AUDACI</p>
-
+        <p>&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
     </footer>
 
-</div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
