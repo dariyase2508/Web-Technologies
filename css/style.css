@@ -19,15 +19,17 @@ body {
     background-color: #f9f6f0;
 }
 
-<<<<<<< HEAD
-/*navbar*/
+/* =========================
+   NAVIGATION (FLEXBOX - TASK 1)
+   ========================= */
+
 .nav-menu {
-    background-color: #701516; /* Глубокий бордовый / итальянский стиль */
+    background-color: #701516;
     padding: 15px 20px;
-    display: flex;             /* Включаем Flexbox */
-    justify-content: center;   /* Выравниваем ссылки по центру */
-    align-items: center;       /* Выравниваем по вертикали */
-    gap: 30px;                 /* Отступы между ссылками */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -43,19 +45,11 @@ body {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #f1c40f; /* Золотистый акцент для активной ссылки */
+    color: #f1c40f;
 }
 
-/* ==main== */
-#main-content, 
-#restaurants-page {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-=======
 a {
     text-decoration: none;
->>>>>>> a524ca3f444134097612b8e3eb7910a711709476
 }
 
 h1 {
@@ -629,9 +623,8 @@ th {
     margin-right: 8px;
 }
 
-
 /* =========================
-   AKERKE — TEAM & CONTACT
+   AKERKE — TEAM & CONTACT (FLEXBOX - TASK 2)
    ========================= */
 
 .team-section,
@@ -646,141 +639,6 @@ th {
     text-align: center;
     margin-bottom: 35px;
 }
-
-.team-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.team-card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 25px;
-    text-align: center;
-}
-
-.profile-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-}
-
-.team-card h2 {
-    margin-bottom: 10px;
-}
-
-.contact-image {
-    width: 100%;
-    max-width: 700px;
-    height: 250px;
-    object-fit: cover;
-    margin: 0 auto 30px;
-}
-
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#contact-form {
-    background-color: #ffffff;
-    padding: 30px;
-    border: 1px solid #ddd;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 6px;
-    color: #701516;
-    font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    background-color: #ffffff;
-    font-family: inherit;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
-    outline: none;
-    border-color: #701516;
-}
-
-.contact-form textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.submit-btn {
-    background-color: #701516;
-    color: #ffffff;
-    border: none;
-    padding: 12px 25px;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background-color: #501011;
-}
-
-
-/* =========================
-   OLD NAVIGATION SUPPORT
-   ========================= */
-
-.nav-menu {
-    background-color: #701516;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-menu a {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: #f1c40f;
-}
-
-
-/* =========================
-   FOOTER
-   ========================= */
-
-footer {
-    background-color: #222222;
-    color: #cccccc;
-    text-align: center;
-<<<<<<< HEAD
-    padding: 20px;
-    margin-top: 60px;
-    font-size: 14px;
-}
-
-/* СТИЛИ ДЛЯ СТРАНИЦЫ КОМАНДЫ (team.html)    */
 
 .team-container {
     display: flex;
@@ -815,9 +673,14 @@ footer {
     object-fit: cover;
     margin-bottom: 15px;
 }
-/* ========================================= */
-/* СТИЛИ ДЛЯ ФОРМЫ КОНТАКТОВ (contact.html)  */
-/* ========================================= */
+
+.contact-image {
+    width: 100%;
+    max-width: 700px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto 30px;
+}
 
 .form-container {
     display: flex;
@@ -834,7 +697,7 @@ footer {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Flexbox-отступы между полями ввода */
+    gap: 15px; 
 }
 
 .form-group {
@@ -845,7 +708,7 @@ footer {
 .form-group label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #701516; /* Ваш фирменный бордовый цвет */
+    color: #701516; 
 }
 
 .form-group input, 
@@ -880,9 +743,20 @@ footer {
 
 .submit-btn:hover {
     background-color: #500e10;
-=======
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: #222222;
+    color: #cccccc;
+    text-align: center;
     padding: 30px 20px;
     margin-top: 50px;
+    font-size: 14px;
 }
 
 footer h3 {
@@ -1011,5 +885,4 @@ footer p {
     .choice-section {
         padding: 25px;
     }
->>>>>>> a524ca3f444134097612b8e3eb7910a711709476
 }
