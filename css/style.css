@@ -78,7 +78,55 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
+<<<<<<< HEAD
     -webkit-font-smoothing: antialiased;
+=======
+    color: #333333;
+    background-color: #f9f6f0;
+}
+
+/* =========================
+   NAVIGATION (FLEXBOX - TASK 1)
+   ========================= */
+
+.nav-menu {
+    background-color: #701516;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #f1c40f;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: #701516;
+    font-size: 32px;
+    text-align: center;
+}
+
+h2 {
+    color: #701516;
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 img {
@@ -476,9 +524,63 @@ p {
 }
 
 
+<<<<<<< HEAD
 /* ========================================
    TEAM & CONTACT
    ======================================== */
+=======
+/* =========================
+   RULES
+   ========================= */
+
+.rules-section {
+    padding: 60px 0 30px;
+}
+
+.rules-title {
+    color: #701516;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.rules-title h2 {
+    margin-top: 5px;
+}
+
+.rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.rule {
+    border-top: 2px solid #701516;
+    padding-top: 15px;
+}
+
+.rule span {
+    color: #a37b36;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* =========================
+   AKERKE — TEAM & CONTACT (FLEXBOX - TASK 2)
+   ========================= */
+
+.team-section,
+.contact-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.team-intro,
+.contact-intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
 
 .team-container {
     display: flex;
@@ -511,9 +613,32 @@ p {
     height: 130px;
     margin: 0 auto 16px;
     object-fit: cover;
+<<<<<<< HEAD
     border: 3px solid var(--gold-light);
     border-radius: 50%;
     transition: var(--transition);
+=======
+    margin-bottom: 15px;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 700px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto 30px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 .team-card:hover .profile-img {
@@ -523,11 +648,18 @@ p {
 
 /* Формы контактов */
 #contact-form {
+<<<<<<< HEAD
     padding: 28px;
     background: var(--bg-light);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
+=======
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 #contact-form .form-control,
@@ -539,11 +671,18 @@ p {
     padding: 10px 14px;
 }
 
+<<<<<<< HEAD
 #contact-form .form-control:focus,
 #contact-form .form-select:focus {
     background: white;
     border-color: var(--terracotta);
     box-shadow: 0 0 0 3px var(--terracotta-glow);
+=======
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #701516; 
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 
@@ -565,6 +704,7 @@ p {
     transition: var(--transition);
 }
 
+<<<<<<< HEAD
 .btn-gold:hover, .btn-burgundy:hover, .btn-vibey:hover {
     background: var(--terracotta-dark);
     border-color: var(--terracotta-dark);
@@ -603,6 +743,29 @@ footer {
     text-align: center;
     background: var(--espresso);
     border-top: 3px solid var(--terracotta);
+=======
+.submit-btn:hover {
+    background-color: #500e10;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: #222222;
+    color: #cccccc;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+footer h3 {
+    color: #ffffff;
+    margin-bottom: 5px;
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 footer p {
