@@ -1130,3 +1130,66 @@ footer p {
     position: relative;
     z-index: 100000;
 }
+/* ==========================================
+   ENHANCED CONTACT PAGE STYLE UPGRADE
+   ========================================== */
+
+/* Винтажный фон с ветвями оливы по краям */
+.vintage-bg {
+    background-color: #f5efe6 !important;
+    background-image: 
+        radial-gradient(circle at 5% 0%, rgba(198, 142, 59, 0.09) 0%, transparent 35%),
+        radial-gradient(circle at 95% 60%, rgba(184, 74, 47, 0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.text-espresso {
+    color: #211512;
+}
+
+/* Элементы карт, теней и кастомного скругления */
+.shadow-md {
+    box-shadow: 0 10px 30px rgba(33, 21, 18, 0.08) !important;
+}
+
+/* Кастомный ховер для картинок */
+.group-hover-zoom {
+    overflow: hidden;
+}
+.group-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+.group-hover-zoom:hover img {
+    transform: scale(1.05);
+}
+
+/* Grayscale карта для элегантного вида */
+.grayscale-map {
+    filter: grayscale(80%) contrast(110%) invert(8%);
+    opacity: 0.95;
+    transition: filter 0.3s ease;
+}
+.grayscale-map:hover {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* Красивая кнопка с градиентом от терракотового до золотистого */
+.btn-vibey {
+    background: linear-gradient(135deg, #b84a2f 0%, #c68e3b 100%) !important;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-vibey:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+}
+
+.btn-check:checked + .btn-outline-danger {
+    background-color: #b84a2f !important;
+    border-color: #b84a2f !important;
+    color: #ffffff !important;
+}

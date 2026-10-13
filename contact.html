@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LE AUDACI — Book a Table & Contact Us</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts & Bootstrap Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Bootstrap 5 & Custom CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="vintage-bg">
 
     <!-- TASK 5: Real-time Date and Time Display Header Bar -->
-    <div class="bg-dark text-white py-2 text-center border-bottom border-secondary">
+    <div class="bg-dark text-white py-2 text-center border-bottom border-secondary-subtle">
         <div class="container d-flex justify-content-between align-items-center">
-            <span class="small text-uppercase tracking-wider">LE AUDACI | Italian Gastro Guide</span>
-            <span class="badge bg-danger fs-6 fw-normal" id="currentDateTime">Loading date...</span>
+            <span class="small text-uppercase tracking-wider opacity-75 fs-7"><i class="bi bi-geo-alt-fill me-1 text-danger"></i> LE AUDACI | Italian Gastro Guide</span>
+            <span class="badge bg-danger fs-6 fw-normal px-3 py-1.5 shadow-sm" id="currentDateTime">Loading date...</span>
         </div>
     </div>
 
@@ -36,53 +37,110 @@
             <a href="recipes.html">Recipes</a>
             <a href="team.html">Our Team</a>
             <a href="contact.html" class="active">Contact</a>
-            <!-- TASK 3: Кнопка открытия модального окна -->
-            <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm ms-2">Subscribe</button>
+            <!-- TASK 3: Кнопка вызова модального окна -->
+            <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm ms-2 px-3">Subscribe</button>
         </nav>
     </header>
 
-    <!-- Секция контактов -->
-    <main class="contact-section container py-4">
+    <!-- Главная секция контактов -->
+    <main class="contact-section container py-5">
 
-        <!-- Заголовок страницы -->
+        <!-- Заголовок страницы (Hero Section) -->
         <section class="text-center mb-5 py-2">
-            <p class="eyebrow">RESERVATIONS & INQUIRIES</p>
-            <h1 class="mb-3">Book a Table or Contact Us</h1>
-            <p class="lead max-w-600 mx-auto">
-                Have a question, feedback, or want to reserve a table for a special dinner? Fill out the form below and our team will get in touch.
+            <p class="eyebrow tracking-widest text-uppercase text-danger mb-2">Reservations & Inquiries</p>
+            <h1 class="display-4 fw-bold font-serif mb-3" style="color: var(--espresso, #211512);">Book a Table or Contact Us</h1>
+            <p class="lead max-w-600 mx-auto opacity-75">
+                Have a question, feedback, or want to reserve a table for a special dinner? <br>Fill out the form below and our team will get in touch.
             </p>
         </section>
 
-        <!-- Форма и изображение -->
-        <section class="row g-5 align-items-center mb-5">
-
-            <!-- Фотография интерьера -->
-            <div class="col-12 col-lg-6">
-                <div class="glass-card p-2 overflow-hidden rounded-4">
-                    <img src="images/restaurant4.jpg" class="img-fluid contact-image rounded-3" alt="Italian restaurant interior">
+        <!-- Асимметричный Двухколоночный Экран -->
+        <div class="row g-5 align-items-stretch">
+            
+            <!-- ЛЕВАЯ КОЛОНКА: Атмосфера, Фото и Живые Данные -->
+            <div class="col-12 col-lg-5 d-flex flex-column justify-content-between gap-4">
+                
+                <!-- Интерактивная рамка с фото ресторана -->
+                <div class="glass-card p-2 overflow-hidden rounded-4 shadow-md position-relative group-hover-zoom">
+                    <img src="images/restaurant4.jpg" class="img-fluid contact-image rounded-3 w-100 object-fit-cover" style="height: 280px;" alt="Italian restaurant interior">
+                    <div class="position-absolute top-3 start-3 bg-dark text-white bg-opacity-75 px-3 py-1 rounded-pill small tracking-wider">
+                        <i class="bi bi-camera-fill me-1"></i> Trattoria Roma Ambiance
+                    </div>
                 </div>
-            </div>
 
-            <!-- Форма обратной связи -->
-            <div class="col-12 col-lg-6">
-                <form id="contact-form" class="glass-card p-4 p-md-5">
-
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                <!-- Блок контактной информации "At a Glance" -->
+                <div class="glass-card p-4 rounded-4 shadow-sm flex-grow-1 d-flex flex-column justify-content-center gap-3">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="icon-circle bg-danger bg-opacity-10 text-danger p-2 rounded-3">
+                            <i class="bi bi-geo-alt fs-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1 text-espresso">VISIT US</h5>
+                            <p class="mb-0 text-muted small">Vicolo dei Librai 12, Rome, Italy</p>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <div class="input-group">
-                            <span class="input-group-text">@</span>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                    <hr class="my-2 border-secondary-subtle">
+
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="icon-circle bg-danger bg-opacity-10 text-danger p-2 rounded-3">
+                            <i class="bi bi-telephone fs-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1 text-espresso">CALL US</h5>
+                            <p class="mb-0 text-danger fw-bold">+39 06 123 4567</p>
+                        </div>
+                    </div>
+
+                    <hr class="my-2 border-secondary-subtle">
+
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success p-2 rounded-3">
+                            <i class="bi bi-clock fs-5"></i>
+                        </div>
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h5 class="fw-bold mb-0 text-espresso">HOURS</h5>
+                                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill small px-2">OPEN NOW</span>
+                            </div>
+                            <p class="mb-0 text-muted small">Mon-Sun: 12:00 PM – 11:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мини-карта / Иллюстрация проезда -->
+                <div class="glass-card p-2 rounded-4 shadow-sm overflow-hidden" style="height: 160px;">
+                    <iframe class="w-100 h-100 rounded-3 border-0 grayscale-map" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.1234567!2d12.492!3d41.890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzI0LjAiTiAxMsKwMjknMzEuMiJF!5e0!3m2!1sen!2sit!4v1620000000000!5m2!1sen!2sit" 
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: Роскошная Интерактивная Форма -->
+            <div class="col-12 col-lg-7">
+                <form id="contact-form" class="glass-card p-4 p-md-5 rounded-4 shadow-md h-100 position-relative border border-white border-opacity-50">
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label fw-bold text-espresso small">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white bg-opacity-50 border-end-0"><i class="bi bi-person text-muted"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0 bg-white bg-opacity-50" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label fw-bold text-espresso small">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white bg-opacity-50 border-end-0"><i class="bi bi-envelope text-muted"></i></span>
+                                <input type="email" class="form-control border-start-0 ps-0 bg-white bg-opacity-50" id="email" name="email" placeholder="name@example.com" required>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="reason" class="form-label">Reason for Contact</label>
-                        <select class="form-select" id="reason" name="reason" required>
+                        <label for="reason" class="form-label fw-bold text-espresso small">Reason for Contact</label>
+                        <select class="form-select bg-white bg-opacity-50" id="reason" name="reason" required>
                             <option value="" selected disabled>Choose an option</option>
                             <option value="reservation">Table Reservation</option>
                             <option value="question">General Question</option>
@@ -90,43 +148,51 @@
                         </select>
                     </div>
 
+                    <!-- Продвинутые радио-карточки для метода связи -->
                     <fieldset class="mb-3">
-                        <legend class="form-label fs-6 mb-2">Preferred Contact Method</legend>
-                        <div class="d-flex gap-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="contact-method" id="contact-email" value="email" checked>
-                                <label class="form-check-label" for="contact-email">Email</label>
+                        <legend class="form-label fw-bold text-espresso small mb-2">Preferred Contact Method</legend>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <input class="btn-check" type="radio" name="contact-method" id="contact-email" value="email" checked>
+                                <label class="btn btn-outline-danger w-100 py-2 d-flex align-items-center justify-content-center gap-2 rounded-3 border-secondary-subtle" for="contact-email">
+                                    <i class="bi bi-envelope"></i> Email
+                                </label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="contact-method" id="contact-phone" value="phone">
-                                <label class="form-check-label" for="contact-phone">Phone</label>
+                            <div class="col-6">
+                                <input class="btn-check" type="radio" name="contact-method" id="contact-phone" value="phone">
+                                <label class="btn btn-outline-danger w-100 py-2 d-flex align-items-center justify-content-center gap-2 rounded-3 border-secondary-subtle" for="contact-phone">
+                                    <i class="bi bi-telephone"></i> Phone
+                                </label>
                             </div>
                         </div>
                     </fieldset>
 
                     <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                        <label for="message" class="form-label fw-bold text-espresso small">Message</label>
+                        <textarea class="form-control bg-white bg-opacity-50" id="message" name="message" rows="4" placeholder="How can we help you today? Leave details about your booking (guests, time) or question..." required></textarea>
                     </div>
 
-                    <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" id="updates" name="updates">
-                        <label class="form-check-label" for="updates">
-                            I would like to receive news & special culinary updates from Le Audaci.
+                    <div class="form-check mb-4 bg-white bg-opacity-30 p-3 rounded-3 border border-dashed">
+                        <input class="form-check-input ms-0 me-2 border-danger" type="checkbox" id="updates" name="updates">
+                        <label class="form-check-label text-muted small" for="updates">
+                            I would like to receive news, exclusive events & special culinary updates from Le Audaci.
                         </label>
                     </div>
 
-                    <button type="submit" class="btn-vibey w-100 py-3">Send Message</button>
+                    <button type="submit" class="btn-vibey btn-terracotta w-100 py-3 shadow-md border-0 text-white fw-bold tracking-wider text-uppercase rounded-3">
+                        <i class="bi bi-send-fill me-2"></i> Send Message
+                    </button>
                 </form>
             </div>
-        </section>
+            
+        </div>
     </main>
 
     <!-- TASK 3: Pop-up / Modal Window -->
     <div id="newsletterModal" class="custom-modal-overlay" aria-hidden="true">
-        <div class="custom-modal-card p-4 rounded-4 bg-white shadow-lg">
+        <div class="custom-modal-card p-4 rounded-4 bg-white shadow-lg border border-warning-subtle">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h4 mb-0 fw-bold text-dark">Subscribe to LE AUDACI</h3>
+                <h3 class="h4 mb-0 fw-bold text-dark font-serif"><i class="bi bi-bookmark-star text-danger me-2"></i>Subscribe to LE AUDACI</h3>
                 <button type="button" id="closeModalBtn" class="btn-close" aria-label="Close"></button>
             </div>
             <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
@@ -140,20 +206,20 @@
                     <input type="checkbox" class="form-check-input" id="modalCheck" required>
                     <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
                 </div>
-                <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+                <button type="submit" class="btn btn-danger w-100 py-2.5 fw-semibold text-uppercase tracking-wider">Subscribe Now</button>
             </form>
         </div>
     </div>
 
     <!-- Единый подвал -->
     <footer>
-        <p>&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
+        <p>&copy; 2026 Le Audaci | Group SE-2508. Project Authors: Assiya, Dariya, Akerke</p>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- TASK 3 & 5: Подключение вашего JavaScript файла -->
+    <!-- TASK 3 & 5: JavaScript -->
     <script src="js/popup-datetime.js"></script>
 </body>
 </html>
