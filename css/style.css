@@ -1,39 +1,6 @@
 /* =========================
    GENERAL STYLES
    ========================= */
-/* TASK 3: Custom Modal Overlay Styles */
-.custom-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.custom-modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.custom-modal-card {
-    width: 90%;
-    max-width: 480px;
-    transform: translateY(-20px);
-    transition: transform 0.3s ease;
-}
-
-.custom-modal-overlay.active .custom-modal-card {
-    transform: translateY(0);
-}
 * {
     margin: 0;
     padding: 0;
@@ -917,4 +884,37 @@ footer p {
     .choice-section {
         padding: 25px;
     }
+}
+/* TASK 3: Custom Modal Overlay Styles */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-modal-card {
+    width: 90%;
+    max-width: 460px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.custom-modal-overlay.active .custom-modal-card {
+    transform: translateY(0);
 }
