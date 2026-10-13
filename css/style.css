@@ -64,6 +64,36 @@
     padding: 0;
 }
 
+/* TASK 3: Custom Modal Overlay Styles */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.custom-modal-card {
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    z-index: 100000;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -78,55 +108,7 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
-<<<<<<< HEAD
     -webkit-font-smoothing: antialiased;
-=======
-    color: #333333;
-    background-color: #f9f6f0;
-}
-
-/* =========================
-   NAVIGATION (FLEXBOX - TASK 1)
-   ========================= */
-
-.nav-menu {
-    background-color: #701516;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: #f1c40f;
-}
-
-a {
-    text-decoration: none;
-}
-
-h1 {
-    color: #701516;
-    font-size: 32px;
-    text-align: center;
-}
-
-h2 {
-    color: #701516;
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 img {
@@ -146,7 +128,6 @@ button, input, select, textarea {
 button {
     cursor: pointer;
 }
-
 
 /* ========================================
    SCROLLBAR
@@ -1117,4 +1098,35 @@ footer p {
     .site-header .navbar-nav .nav-link {
         font-size: 0.8rem;
     }
+} 
+/* ==========================================
+   TASK 3: FIX MODAL OVERLAY STYLES{akosya}
+   ========================================== */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.custom-modal-card {
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    z-index: 100000;
 }
