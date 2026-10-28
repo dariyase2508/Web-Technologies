@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle Form Submit inside Modal
     const modalForm = document.getElementById('modalSubscribeForm');
+    document.querySelector
     if (modalForm) {
         modalForm.addEventListener('submit', (e) => {
             e.preventDefault();

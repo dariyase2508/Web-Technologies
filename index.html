@@ -14,21 +14,54 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    
 
     <!-- Единая шапка сайта -->
-    <header class="site-header">
-        <div class="logo">
-            <a href="index.html">LE AUDACI</a>
+   <header class="site-header">
+    <nav class="navbar navbar-expand-lg container-fluid px-4">
+        <a class="navbar-brand logo" href="index.html">LE AUDACI</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto main-nav align-items-lg-center gap-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="restaurants.html">Restaurants</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="recipes.html">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <!-- Ссылка на страницу регистрации для Task 1 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                <!-- Кнопка модального окна для Task 3 -->
+                <li class="nav-item ms-lg-2">
+                    <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm px-3 py-2">Subscribe</button>
+                </li>
+            </ul>
         </div>
-        <nav class="main-nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="menu.html">Menu</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="team.html">Our Team</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    </nav>
+</header>
 
     <!-- Главный контент -->
     <main id="main-content">
@@ -126,15 +159,45 @@
         </section>
 
     </main>
+     <div id="newsletterModal" class="custom-modal-overlay" aria-hidden="true">
+        <div class="custom-modal-card p-4 rounded-4 bg-white shadow-lg">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="h4 mb-0 fw-bold text-dark">Subscribe to LE AUDACI</h3>
+                <button type="button" id="closeModalBtn" class="btn-close" aria-label="Close"></button>
+            </div>
+            <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
+            
+            <form id="modalSubscribeForm">
+                <div class="mb-3">
+                    <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="modalCheck" required>
+                    <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
+                </div>
+                <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+            </form>
+        </div>
+    </div>
 
-    <!-- Единый подвал -->
-    <footer>
-        <p>&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
+   <footer>
+        <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
+            <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                <i class="bi bi-palette-fill me-2"></i>Change Background Color
+            </button>
+
+            <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                🌙 Night Theme
+            </button>
+        </div>
+        
+        <p class="text-center">&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
     </footer>
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/color-changer.js"></script>
+    <script src="js/theme.js"></script>
 
 </body>
 </html>

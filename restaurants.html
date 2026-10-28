@@ -17,18 +17,50 @@
 
     <!-- Единая шапка сайта -->
     <header class="site-header">
-        <div class="logo">
-            <a href="index.html">LE AUDACI</a>
+    <nav class="navbar navbar-expand-lg container-fluid px-4">
+        <a class="navbar-brand logo" href="index.html">LE AUDACI</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto main-nav align-items-lg-center gap-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="restaurants.html">Restaurants</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="recipes.html">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <!-- Ссылка на страницу регистрации для Task 1 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                <!-- Кнопка модального окна для Task 3 -->
+                <li class="nav-item ms-lg-2">
+                    <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm px-3 py-2">Subscribe</button>
+                </li>
+            </ul>
         </div>
-        <nav class="main-nav">
-            <a href="index.html">Home</a>
-            <a href="restaurants.html" class="active">Restaurants</a>
-            <a href="menu.html">Menu</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="team.html">Our Team</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    </nav>
+</header>
 
     <!-- Главный контент -->
     <main id="restaurants-page" class="container py-4">
@@ -40,6 +72,34 @@
             <p class="lead max-w-600 mx-auto">
                 Explore iconic pizzerias, family trattorias, and cozy osterias to experience traditional Italian food and hospitality.
             </p>
+        </section>
+
+<section class="glass-card p-4 mb-5 text-center mx-auto" style="max-width: 800px;">
+            <span class="eyebrow mb-3 d-block">INTERIOR GALLERY</span>
+            
+            <!-- Большое фото с кнопками навигации -->
+            <div class="position-relative mb-3">
+                <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                    <img id="main-restaurant-img" src="images/pizzeria.jpg" class="object-fit-cover w-100 h-100" alt="Main Restaurant View">
+                </div>
+                
+                <!-- Кнопка «Назад» -->
+                <button id="prev-btn" class="position-absolute top-50 start-0 translate-middle-y btn btn-dark bg-opacity-75 text-white border-0 ms-2 px-3 py-2 rounded-circle shadow">
+                    &#10094;
+                </button>
+                
+                <!-- Кнопка «Вперед» -->
+                <button id="next-btn" class="position-absolute top-50 end-0 translate-middle-y btn btn-dark bg-opacity-75 text-white border-0 me-2 px-3 py-2 rounded-circle shadow">
+                    &#10095;
+                </button>
+            </div>
+
+            <!-- Миниатюры (нажатие на них тоже работает) -->
+            <div class="d-flex justify-content-center gap-3">
+                <img src="images/pizzeria.jpg" class="restaurant-thumb img-thumbnail shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;" alt="Thumbnail 1">
+                <img src="images/trattoria.jpg" class="restaurant-thumb img-thumbnail shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;" alt="Thumbnail 2">
+                <img src="images/osteria.jpg" class="restaurant-thumb img-thumbnail shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;" alt="Thumbnail 3">
+            </div>
         </section>
 
         <!-- Быстрые фильтры / Категории -->
@@ -152,14 +212,31 @@
         </section>
 
     </main>
+    
 
     <!-- Единый подвал -->
     <footer>
-        <p>&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
-    </footer>
+    <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
+        <!-- Кнопка случайного цвета фона -->
+        <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+            <i class="bi bi-palette-fill me-2"></i>Change Background Color
+        </button>
+
+        <!-- Кнопка переключения темы -->
+        <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+            🌙 Night Theme
+        </button>
+    </div>
+    
+    <p class="text-center">&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
+</footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/color-changer.js"></script>
+    <script src="js/restaurants.js"></script>
+    <script src="js/theme.js"></script>
+
 
 </body>
 </html>

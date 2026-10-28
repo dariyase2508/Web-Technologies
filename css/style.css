@@ -505,11 +505,6 @@ p {
 }
 
 
-<<<<<<< HEAD
-/* ========================================
-   TEAM & CONTACT
-   ======================================== */
-=======
 /* =========================
    RULES
    ========================= */
@@ -561,7 +556,6 @@ p {
     text-align: center;
     margin-bottom: 35px;
 }
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 
 .team-container {
     display: flex;
@@ -594,11 +588,6 @@ p {
     height: 130px;
     margin: 0 auto 16px;
     object-fit: cover;
-<<<<<<< HEAD
-    border: 3px solid var(--gold-light);
-    border-radius: 50%;
-    transition: var(--transition);
-=======
     margin-bottom: 15px;
 }
 
@@ -619,7 +608,6 @@ p {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 .team-card:hover .profile-img {
@@ -629,18 +617,10 @@ p {
 
 /* Формы контактов */
 #contact-form {
-<<<<<<< HEAD
-    padding: 28px;
-    background: var(--bg-light);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-=======
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px; 
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 #contact-form .form-control,
@@ -652,18 +632,10 @@ p {
     padding: 10px 14px;
 }
 
-<<<<<<< HEAD
-#contact-form .form-control:focus,
-#contact-form .form-select:focus {
-    background: white;
-    border-color: var(--terracotta);
-    box-shadow: 0 0 0 3px var(--terracotta-glow);
-=======
 .form-group label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #701516; 
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 
@@ -685,46 +657,6 @@ p {
     transition: var(--transition);
 }
 
-<<<<<<< HEAD
-.btn-gold:hover, .btn-burgundy:hover, .btn-vibey:hover {
-    background: var(--terracotta-dark);
-    border-color: var(--terracotta-dark);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px var(--terracotta-glow);
-}
-
-.btn-outline-burgundy {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 28px;
-    border: 1px solid var(--terracotta);
-    border-radius: 30px;
-    background: transparent;
-    color: var(--terracotta);
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.btn-outline-burgundy:hover {
-    background: var(--terracotta);
-    color: white;
-    transform: translateY(-2px);
-}
-
-
-/* ========================================
-   FOOTER
-   ======================================== */
-
-footer {
-    margin-top: 50px;
-    padding: 28px 20px;
-    text-align: center;
-    background: var(--espresso);
-    border-top: 3px solid var(--terracotta);
-=======
 .submit-btn:hover {
     background-color: #500e10;
 }
@@ -746,7 +678,6 @@ footer {
 footer h3 {
     color: #ffffff;
     margin-bottom: 5px;
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 footer p {
@@ -1192,4 +1123,4 @@ footer p {
     background-color: #b84a2f !important;
     border-color: #b84a2f !important;
     color: #ffffff !important;
-}}
+}
