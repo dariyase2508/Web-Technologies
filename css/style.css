@@ -1124,3 +1124,166 @@ footer p {
     border-color: #b84a2f !important;
     color: #ffffff !important;
 }
+body.dark-theme,
+body.dark-theme html,
+body.dark-theme #main-content,
+body.dark-theme #restaurants-page,
+body.dark-theme .contact-section,
+body.dark-theme .team-section,
+body.dark-theme .vintage-bg,
+body.dark-theme .container,
+body.dark-theme .container-fluid,
+body.dark-theme main,
+body.dark-theme section {
+    background-color: #181210 !important;
+    background-image: none !important;
+    color: #f8f1e7 !important;
+}
+
+/* 2. Заголовки вне карточек (на самом фоне страницы) */
+body.dark-theme h1:not(.card h1),
+body.dark-theme h2:not(.card h2),
+body.dark-theme h3:not(.card h3),
+body.dark-theme .contact-intro h2,
+body.dark-theme .contact-intro p,
+body.dark-theme .rules-title,
+body.dark-theme .team-intro p {
+    color: #f8f1e7 !important;
+}
+
+/* 3. Карточки, формы и модальные окна (делаем их тёмными, чтобы текст внутри был виден) */
+body.dark-theme .glass-card,
+body.dark-theme .form-container,
+body.dark-theme .menu-card,
+body.dark-theme .team-card,
+body.dark-theme .card,
+body.dark-theme .custom-modal-card,
+body.dark-theme .modal-content,
+body.dark-theme .recipe,
+body.dark-theme .menu-item {
+    background-color: #241c18 !important;
+    border-color: rgba(226, 212, 195, 0.15) !important;
+    color: #f8f1e7 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 4. Текст и заголовки ВНУТРИ тёмных карточек (чтобы не сливались) */
+body.dark-theme .glass-card h1,
+body.dark-theme .glass-card h2,
+body.dark-theme .glass-card h3,
+body.dark-theme .form-container h1,
+body.dark-theme .form-container h2,
+body.dark-theme .form-container h3,
+body.dark-theme .menu-card h3,
+body.dark-theme .team-card h3,
+body.dark-theme .card h3,
+body.dark-theme .custom-modal-card h3,
+body.dark-theme .modal-content h3,
+body.dark-theme .menu-item strong,
+body.dark-theme .recipe h3 {
+    color: #f5efe6 !important;
+}
+
+body.dark-theme .glass-card p,
+body.dark-theme .form-container p,
+body.dark-theme .menu-card p,
+body.dark-theme .team-card p,
+body.dark-theme .card p,
+body.dark-theme .custom-modal-card p,
+body.dark-theme .modal-content p,
+body.dark-theme .menu-item span,
+body.dark-theme .recipe p {
+    color: #cbbab0 !important; /* Мягкий светлый оттенок для описаний */
+}
+
+/* 5. Боковая панель (Sidebar) */
+body.dark-theme .sidebar {
+    background: rgba(24, 18, 16, 0.9) !important;
+    border-color: rgba(226, 212, 195, 0.1) !important;
+}
+
+body.dark-theme .sidebar a {
+    color: #cbbab0 !important;
+}
+
+body.dark-theme .sidebar a:hover,
+body.dark-theme .sidebar a.active {
+    color: #e2b368 !important;
+    background: rgba(198, 142, 59, 0.12) !important;
+}
+
+/* 6. Поля ввода, селекты и текстовые области */
+body.dark-theme .form-control,
+body.dark-theme .form-select,
+body.dark-theme input,
+body.dark-theme textarea {
+    background-color: #181210 !important;
+    color: #f8f1e7 !important;
+    border: 1px solid rgba(226, 212, 195, 0.25) !important;
+}
+
+body.dark-theme .form-control::placeholder,
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #a39284 !important;
+}
+
+body.dark-theme label,
+body.dark-theme .form-group label,
+body.dark-theme .eyebrow {
+    color: #e2b368 !important; /* Теплый золотистый оттенок для подписей */
+}
+body.dark-theme .glass-card strong,
+body.dark-theme .glass-card span,
+body.dark-theme .contact-section strong,
+body.dark-theme .contact-section .eyebrow {
+    color: #e2b368 !important; /* Теплый золотистый цвет */
+}
+
+body.dark-theme .glass-card div,
+body.dark-theme .glass-card p {
+    color: #f8f1e7 !important; /* Яркий светлый текст для адресов и телефонов */
+}
+
+/* 2. Блок чекбокса рассылки (убираем белый фон) */
+body.dark-theme .form-check,
+body.dark-theme .form-check-label,
+body.dark-theme div[class*="bg-white"],
+body.dark-theme .p-3.bg-white {
+    background-color: #241c18 !important;
+    color: #e2b368 !important;
+    border: 1px solid rgba(226, 212, 195, 0.2) !important;
+    border-radius: 8px !important;
+}
+
+/* 3. Аккордеон FAQ (Вопросы и ответы) */
+body.dark-theme .accordion-item,
+body.dark-theme .accordion-header,
+body.dark-theme .accordion-button {
+    background-color: #241c18 !important;
+    color: #f8f1e7 !important;
+    border-color: rgba(226, 212, 195, 0.15) !important;
+}
+
+body.dark-theme .accordion-button:not(.collapsed) {
+    background-color: #302620 !important;
+    color: #e2b368 !important;
+    box-shadow: none !important;
+}
+
+body.dark-theme .accordion-button::after {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) !important; /* Делаем стрелочку золотистой/светлой */
+}
+
+body.dark-theme .accordion-body {
+    background-color: #181210 !important;
+    color: #cbbab0 !important;
+}
+body.dark-theme .contact-section h3,
+body.dark-theme .contact-section strong,
+body.dark-theme .contact-section .eyebrow,
+body.dark-theme card-title,
+body.dark-theme [class*="contact"] h4,
+body.dark-theme [class*="contact"] h5 {
+    color: #e2b368 !important;
+}
