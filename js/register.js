@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // 1. Проверка формата email 
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/, /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailRegex.test(email)) {
                 emailError.textContent = 'Please enter a valid email address format.';
                 isValid = false;

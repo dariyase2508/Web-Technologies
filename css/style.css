@@ -505,11 +505,6 @@ p {
 }
 
 
-<<<<<<< HEAD
-/* ========================================
-   TEAM & CONTACT
-   ======================================== */
-=======
 /* =========================
    RULES
    ========================= */
@@ -561,7 +556,6 @@ p {
     text-align: center;
     margin-bottom: 35px;
 }
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 
 .team-container {
     display: flex;
@@ -594,11 +588,6 @@ p {
     height: 130px;
     margin: 0 auto 16px;
     object-fit: cover;
-<<<<<<< HEAD
-    border: 3px solid var(--gold-light);
-    border-radius: 50%;
-    transition: var(--transition);
-=======
     margin-bottom: 15px;
 }
 
@@ -619,7 +608,6 @@ p {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 .team-card:hover .profile-img {
@@ -629,18 +617,10 @@ p {
 
 /* Формы контактов */
 #contact-form {
-<<<<<<< HEAD
-    padding: 28px;
-    background: var(--bg-light);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-=======
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px; 
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 #contact-form .form-control,
@@ -652,18 +632,10 @@ p {
     padding: 10px 14px;
 }
 
-<<<<<<< HEAD
-#contact-form .form-control:focus,
-#contact-form .form-select:focus {
-    background: white;
-    border-color: var(--terracotta);
-    box-shadow: 0 0 0 3px var(--terracotta-glow);
-=======
 .form-group label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #701516; 
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 
@@ -685,46 +657,6 @@ p {
     transition: var(--transition);
 }
 
-<<<<<<< HEAD
-.btn-gold:hover, .btn-burgundy:hover, .btn-vibey:hover {
-    background: var(--terracotta-dark);
-    border-color: var(--terracotta-dark);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px var(--terracotta-glow);
-}
-
-.btn-outline-burgundy {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 28px;
-    border: 1px solid var(--terracotta);
-    border-radius: 30px;
-    background: transparent;
-    color: var(--terracotta);
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.btn-outline-burgundy:hover {
-    background: var(--terracotta);
-    color: white;
-    transform: translateY(-2px);
-}
-
-
-/* ========================================
-   FOOTER
-   ======================================== */
-
-footer {
-    margin-top: 50px;
-    padding: 28px 20px;
-    text-align: center;
-    background: var(--espresso);
-    border-top: 3px solid var(--terracotta);
-=======
 .submit-btn:hover {
     background-color: #500e10;
 }
@@ -746,7 +678,6 @@ footer {
 footer h3 {
     color: #ffffff;
     margin-bottom: 5px;
->>>>>>> b99b671 (Update CSS styles for assignment 3)
 }
 
 footer p {
@@ -1192,4 +1123,230 @@ footer p {
     background-color: #b84a2f !important;
     border-color: #b84a2f !important;
     color: #ffffff !important;
+}
+
+body.dark-theme {
+    background-color: #121212 !important;
+    color: #f8f9fa !important;
+}
+
+body.dark-theme .navbar {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-theme .glass-card {
+    background: rgba(30, 30, 30, 0.85) !important;
+    color: #f8f9fa !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-theme .card {
+    background-color: #1e1e1e !important;
+    color: #f8f9fa !important;
+}
+
+body.dark-theme .table {
+    color: #f8f9fa !important;
+}
+
+body.dark-theme .table-hover tbody tr:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme .card-title {
+    color: #ffffff !important;
+}
+
+body.dark-theme .text-muted {
+    color: #adb5bd !important;
+}
+body.dark-theme .btn-outline-dark {
+    color: #f8f9fa !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+body.dark-theme .btn-outline-dark:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+/* Базовый вид кастомных кнопок в футере */
+.footer-custom-btn {
+    border: 1px solid #212529 !important;
+    color: #212529 !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+}
+
+.footer-custom-btn:hover {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+}
+
+/* Стили для темной темы */
+body.dark-theme .footer-custom-btn {
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    background-color: transparent !important;
+}
+
+body.dark-theme .footer-custom-btn:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+/* Стили для кнопок в футере и эффект при наведении */
+#color-btn, 
+#themeToggleBtn {
+    border: 1px solid #ffffff !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease-in-out;
+}
+
+#color-btn:hover, 
+#themeToggleBtn:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+/* Единый темный стиль для всех карточек и блоков форм на любой странице */
+body.dark-theme .glass-card,
+body.dark-theme .card,
+body.dark-theme .form-control,
+body.dark-theme .bg-white,
+body.dark-theme form {
+    background-color: #1e1e1e !important;
+    color: #f8f9fa !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Цвет текста внутри инпутов в темной теме */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-theme input::placeholder {
+    color: #adb5bd !important;
+}
+/* Принудительный темный стиль для формы регистрации */
+body.dark-theme .register-card,
+body.dark-theme form input {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-theme .register-card input::placeholder {
+    color: #adb5bd !important;
+}
+/* Полное исправление цвета текста и меток внутри формы в темной теме */
+body.dark-theme .card,
+body.dark-theme form,
+body.dark-theme label,
+body.dark-theme .form-label,
+body.dark-theme p,
+body.dark-theme span {
+    color: #f8f9fa !important;
+}
+/* Автоматический темный стиль для боковой панели (сайдбара) */
+body.dark-theme aside,
+body.dark-theme .sidebar,
+body.dark-theme .col-md-3,
+body.dark-theme .nav-pills {
+    background-color: #1a1a1a !important;
+    color: #f8f9fa !important;
+}
+
+/* Цвет ссылок и текста внутри сайдбара в темной теме */
+body.dark-theme aside a,
+body.dark-theme .sidebar a,
+body.dark-theme .nav-pills .nav-link {
+    color: #adb5bd !important;
+}
+
+body.dark-theme aside a:hover,
+body.dark-theme .sidebar a:hover,
+body.dark-theme .nav-pills .nav-link:hover,
+body.dark-theme .nav-pills .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+/* Исправление контрастности текста внутри карточек в темной теме */
+body.dark-theme .card,
+body.dark-theme .list-group-item,
+body.dark-theme .menu-item {
+    background-color: #1e1e1e !important;
+    color: #f8f9fa !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark-theme .card h1,
+body.dark-theme .card h2,
+body.dark-theme .card h3,
+body.dark-theme .card h4,
+body.dark-theme .card h5,
+body.dark-theme .card p,
+body.dark-theme .card span {
+    color: #f8f9fa !important;
+}
+
+/* Цены и выделенный текст внутри карточек */
+body.dark-theme .card .text-muted,
+body.dark-theme .card small {
+    color: #adb5bd !important;
+}
+/* Принудительный светлый цвет текста для FAQ и аккордеонов в темной теме */
+body.dark-theme .accordion-item,
+body.dark-theme .accordion-button,
+body.dark-theme .accordion-body,
+body.dark-theme .accordion-button::after {
+    color: #f8f9fa !important;
+    background-color: transparent !important;
+}
+
+body.dark-theme .accordion-button:not(.collapsed) {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.07) !important;
+}
+.restaurant-thumb:hover {
+    transform: scale(1.05);
+    border-color: #b02a37 !important;
+}
+
+.restaurant-thumb.active-thumb {
+    border: 2px solid #b02a37 !important;
+}
+#main-restaurant-img {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0 !important;
+}
+/* Аккуратные карточки меню с тенью и плавным ховером */
+#menu-container .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#menu-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Фиксированная и аккуратная высота картинок в меню */
+#menu-container .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+/* Добавляем вертикальный отступ между карточками меню при переносе на новую строку */
+#menu-container > div {
+    margin-bottom: 1.5rem;
 }
