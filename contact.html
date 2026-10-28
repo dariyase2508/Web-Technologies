@@ -166,7 +166,19 @@
                             </div>
                         </div>
                     </fieldset>
-
+<!-- TASK 1: Rating Stars -->
+<div class="mb-3">
+    <label class="form-label fw-bold text-espresso small">Rate your experience with us</label>
+    <div class="d-flex gap-2 fs-4 text-muted" id="ratingContainer" style="cursor: pointer;">
+        <i class="bi bi-star-fill star-icon" data-value="1" style="transition: transform 0.2s;"></i>
+        <i class="bi bi-star-fill star-icon" data-value="2" style="transition: transform 0.2s;"></i>
+        <i class="bi bi-star-fill star-icon" data-value="3" style="transition: transform 0.2s;"></i>
+        <i class="bi bi-star-fill star-icon" data-value="4" style="transition: transform 0.2s;"></i>
+        <i class="bi bi-star-fill star-icon" data-value="5" style="transition: transform 0.2s;"></i>
+    </div>
+    
+    <input type="hidden" id="ratingValue" name="rating" value="0">
+</div>
                     <div class="mb-3">
                         <label for="message" class="form-label fw-bold text-espresso small">Message</label>
                         <textarea class="form-control bg-white bg-opacity-50" id="message" name="message" rows="4" placeholder="How can we help you today? Leave details about your booking (guests, time) or question..." required></textarea>
@@ -179,9 +191,20 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="btn-vibey btn-terracotta w-100 py-3 shadow-md border-0 text-white fw-bold tracking-wider text-uppercase rounded-3">
-                        <i class="bi bi-send-fill me-2"></i> Send Message
-                    </button>
+                    <!-- TASK 2: Hidden Success Message Container -->
+<div id="successMessage" class="alert alert-success d-none mb-4 shadow-sm border-0" role="alert" style="background-color: #e2f0e6; color: #2e5c3e;">
+    <i class="bi bi-check-circle-fill me-2"></i> <strong>Grazie!</strong> Your message has been sent successfully.
+</div>
+
+<!-- TASK 3: Reset Button alongside Submit Button -->
+<div class="d-flex gap-3 mt-4">
+    <button type="button" id="resetFormBtn" class="btn btn-outline-secondary w-50 py-3 rounded-3 fw-bold tracking-wider text-uppercase">
+        <i class="bi bi-eraser-fill me-2"></i> Clear Form
+    </button>
+    <button type="submit" id="submitBtn" class="btn-vibey btn-terracotta w-50 py-3 shadow-md border-0 text-white fw-bold tracking-wider text-uppercase rounded-3">
+        <i class="bi bi-send-fill me-2"></i> Send
+    </button>
+</div>
                 </form>
             </div>
             
@@ -221,5 +244,15 @@
 
     <!-- TASK 3 & 5: JavaScript -->
     <script src="js/popup-datetime.js"></script>
+</body>
+</html>
+<!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS из Assignment 4 -->
+    <script src="js/popup-datetime.js"></script>
+    
+    <!-- ТВОЙ НОВЫЙ JS для Assignment 5 -->
+    <script src="js/contact-advanced.js"></script>
 </body>
 </html>
