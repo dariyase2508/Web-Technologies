@@ -53,3 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
         greeting.textContent = message;
     }
 });
+
+$(document).ready(function(){
+    console.log("jQuery is ready!");
+});
+

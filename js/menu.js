@@ -115,3 +115,105 @@ document.addEventListener('DOMContentLoaded', () => {
     // Инициализация при загрузке страницы (показываем Featured)
     filterByCategory('featured');
 });
+$(document).ready(function() {
+    const $input = $('#searchInput');
+    const $list = $('#autocomplete-list');
+
+    
+    const menuItems = [
+        // Starters / Antipasti
+        { name: "Bruschetta al Pomodoro", category: "Antipasti", target: "#antipasti" },
+        { name: "Caprese Salad", category: "Antipasti", target: "#antipasti" },
+        { name: "Arancini Siciliani", category: "Antipasti", target: "#antipasti" },
+        
+        // Primi Piatti / Pasta
+        { name: "Spaghetti Carbonara", category: "Pasta", target: "#pasta" },
+        { name: "Tagliatelle al Ragù Bolognese", category: "Pasta", target: "#pasta" },
+        { name: "Penne all'Arrabbiata", category: "Pasta", target: "#pasta" },
+        
+        // Wood-Fired Pizza
+        { name: "Pizza Margherita", category: "Pizza", target: "#pizza" },
+        { name: "Quattro Formaggi", category: "Pizza", target: "#pizza" },
+        { name: "Prosciutto e Funghi", category: "Pizza", target: "#pizza" },
+        
+        // Desserts / Dolce
+        { name: "Classic Tiramisù", category: "Dolce", target: "#dolce" },
+        { name: "Vanilla Panna Cotta", category: "Dolce", target: "#dolce" },
+        { name: "Sicilian Cannoli", category: "Dolce", target: "#dolce" }
+    ];
+
+    $input.on('keyup', function() {
+        const query = $(this).val().toLowerCase().trim();
+        $list.empty();
+
+        if (query.length === 0) {
+            $list.hide(); 
+            return;
+        }
+
+        
+        const matches = menuItems.filter(item => item.name.toLowerCase().includes(query));
+
+        if (matches.length > 0) {
+            matches.forEach(item => {
+                $div = $(`<div class="autocomplete-item"><strong>${item.name}</strong> <span class="text-muted small">(${item.category})</span></div>`);
+                
+               
+                $div.on('click', function() {
+                    $input.val(item.name);
+                    $list.hide();
+                    // Плавный скролл к нужной секции меню
+                    $('html, body').animate({
+                        scrollTop: $(item.target).offset().top - 80
+                    }, 500);
+                });
+
+                $list.append($div);
+            });
+            $list.show(); 
+        } else {
+            $list.hide();
+        }
+    });
+
+    
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.search-section').length) {
+            $list.hide();
+        }
+    });
+});
+
+$(document).ready(function() {
+    const $input = $('#searchInput');
+
+    
+    function highlightSearchTerm(keyword) {
+        
+        $('.menu-item h3, .menu-item p').each(function() {
+            var $this = $(this);
+         
+            $this.html($this.text());
+        });
+
+        if (!keyword || keyword.trim() === '') return;
+        
+        var escapedKeyword = keyword.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        var regex = new RegExp('(' + escapedKeyword + ')', 'gi');
+
+        $('.menu-item h3, .menu-item p').each(function() {
+            var $element = $(this);
+            var originalText = $element.text();
+
+            if (regex.test(originalText)) {
+               
+                var newHtml = originalText.replace(regex, '<mark class="search-highlight">$1</mark>');
+                $element.html(newHtml);
+            }
+        });
+    }
+    $input.on('keyup', function() {
+        var keyword = $(this).val();
+        highlightSearchTerm(keyword);
+    });
+});

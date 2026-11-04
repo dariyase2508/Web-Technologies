@@ -1303,3 +1303,147 @@ body.dark-theme [class*="contact"] h5 {
     font-size: 3rem;
     font-weight: 700;
 }
+
+/* Контейнер поиска: не растягиваем на всю ширину, центрируем */
+.search-section {
+    max-width: 500px;
+    margin: 20px auto;
+    position: relative; /* Важно для позиционирования выпадающего списка */
+    padding: 0 15px;
+}
+
+/* Самое поле ввода */
+#searchInput {
+    border-radius: 30px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Вспомогательный выпадающий список (карточки-подсказки) */
+#autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    display: none; /* Скрыт, пока пользователь ничего не вводит */
+    max-height: 280px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+/* Элементы внутри выпадающего списка */
+.autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.2s ease;
+    color: #333;
+    text-align: left;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Стили только для блока поиска в темной теме */
+
+.search-section {
+    max-width: 500px;
+    margin: 20px auto;
+    position: relative;
+    padding: 0 15px;
+}
+
+#searchInput {
+    background-color: rgba(25, 25, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: #888888;
+}
+
+#searchInput:focus {
+    background-color: rgba(30, 30, 30, 1);
+    border-color: #d97777; /* Твой бордовый акцент */
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(217, 119, 119, 0.25);
+}
+
+/* Выпадающий список (подсказки) */
+#autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background: #1e1e1e !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+    max-height: 280px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+.autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease;
+    color: #e0e0e0;
+    text-align: left;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+#searchInput {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #212529;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#searchInput::placeholder {
+    color: #6c757d;
+}
+
+#searchInput:focus {
+    border-color: #d97777;
+    box-shadow: 0 0 0 0.25rem rgba(217, 119, 119, 0.25);
+}
+.search-highlight {
+    background-color: rgba(217, 119, 119, 0.35); /* Полупрозрачный бордово-розовый акцент */
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 4px;
+    border-bottom: 2px solid #d97777;
+}
+
+/* Если включена темная тема, можно сделать подсветку чуть ярче */
+body.dark-theme .search-highlight,
+[data-theme="dark"] .search-highlight,
+.dark .search-highlight {
+    background-color: rgba(217, 119, 119, 0.45);
+    color: #ffffff;
+}
