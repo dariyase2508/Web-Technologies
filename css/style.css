@@ -1057,10 +1057,18 @@ footer p {
 
 .custom-modal-card {
     width: 90%;
+
+    max-width: 460px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.custom-modal-overlay.active .custom-modal-card {
+    transform: translateY(0);
     max-width: 480px;
     position: relative;
     z-index: 100000;
-}
+};
 /* ==========================================
    ENHANCED CONTACT PAGE STYLE UPGRADE
    ========================================== */
@@ -1303,7 +1311,6 @@ body.dark-theme [class*="contact"] h5 {
     font-size: 3rem;
     font-weight: 700;
 }
-
 /* Контейнер поиска: не растягиваем на всю ширину, центрируем */
 .search-section {
     max-width: 500px;
@@ -1352,7 +1359,6 @@ body.dark-theme [class*="contact"] h5 {
 .autocomplete-item:hover {
     background-color: #f8f9fa;
 }
-
 /* Стили только для блока поиска в темной теме */
 
 .search-section {
@@ -1431,19 +1437,4 @@ body.dark-theme [class*="contact"] h5 {
 #searchInput:focus {
     border-color: #d97777;
     box-shadow: 0 0 0 0.25rem rgba(217, 119, 119, 0.25);
-}
-.search-highlight {
-    background-color: rgba(217, 119, 119, 0.35); /* Полупрозрачный бордово-розовый акцент */
-    color: inherit;
-    padding: 0 2px;
-    border-radius: 4px;
-    border-bottom: 2px solid #d97777;
-}
-
-/* Если включена темная тема, можно сделать подсветку чуть ярче */
-body.dark-theme .search-highlight,
-[data-theme="dark"] .search-highlight,
-.dark .search-highlight {
-    background-color: rgba(217, 119, 119, 0.45);
-    color: #ffffff;
 }
