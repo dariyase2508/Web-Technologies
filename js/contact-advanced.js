@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Меняем текст кнопки для эффекта загрузки
             const originalBtnText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Please wait...';
             submitBtn.disabled = true;
 
             // Callback-функция, которая выполнится после "отправки"

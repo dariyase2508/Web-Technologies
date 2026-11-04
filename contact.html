@@ -17,6 +17,8 @@
 </head>
 <body class="vintage-bg">
 
+    <div id="scrollProgress"></div>
+
     <!-- TASK 5: Real-time Date and Time Display Header Bar -->
     <div class="bg-dark text-white py-2 text-center border-bottom border-secondary-subtle">
         <div class="container d-flex justify-content-between align-items-center">
@@ -236,38 +238,34 @@
     </div>
 
     <!-- Единый подвал -->
-   <footer>
-    <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
-        <!-- Кнопка случайного цвета фона -->
-        <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
-            <i class="bi bi-palette-fill me-2"></i>Change Background Color
-        </button>
+    <footer>
+        <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
+            <!-- Кнопка случайного цвета фона -->
+            <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                <i class="bi bi-palette-fill me-2"></i>Change Background Color
+            </button>
 
-        <!-- Кнопка переключения темы -->
-        <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
-            🌙 Night Theme
-        </button>
-    </div>
-    
-    <p class="text-center">&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
-</footer>
+            <!-- Кнопка переключения темы -->
+            <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                🌙 Night Theme
+            </button>
+        </div>
+        
+        <p class="text-center">&copy; 2026 Le Audaci. Project Authors: Assiya, Dariya, Akerke</p>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Existing JavaScript -->
     <script src="js/color-changer.js"></script>
-
-    <!-- TASK 3 & 5: JavaScript -->
     <script src="js/popup-datetime.js"></script>
-</body>
-</html>
-<!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS из Assignment 4 -->
-    <script src="js/popup-datetime.js"></script>
-    
-    <!-- ТВОЙ НОВЫЙ JS для Assignment 5 -->
     <script src="js/contact-advanced.js"></script>
     <script src="js/theme.js"></script>
+
+    <!-- jQuery and UX Animations -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/ux-animations.js"></script>
+
 </body>
 </html>
