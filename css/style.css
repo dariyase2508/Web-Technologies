@@ -1,10 +1,103 @@
+<<<<<<< HEAD
 /* =========================
    GENERAL STYLES
    ========================= */
+=======
+/* =========================================================
+   LE AUDACI — WARM VIBEY ITALIAN GASTROBAR DESIGN
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Базовая теплая итальянская палитра */
+    --bg-main: #f5efe6;
+    --bg-light: #fbf8f3;
+    --bg-card: rgba(255, 250, 242, 0.85);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+
+    /* Тёмные акценты (Эспрессо & Графит) */
+    --espresso: #211512;
+    --espresso-light: #3d2a23;
+
+    /* Терракота & Олива */
+    --terracotta: #b84a2f;
+    --terracotta-dark: #943720;
+    --terracotta-glow: rgba(184, 74, 47, 0.2);
+
+    --olive: #595e3f;
+    --olive-light: #737854;
+
+    /* Золото & Мед */
+    --gold: #c68e3b;
+    --gold-light: #e2b368;
+    --gold-glow: rgba(198, 142, 59, 0.25);
+
+    /* Текст */
+    --text-primary: #231b17;
+    --text-secondary: #6e6157;
+    --text-light: #f8f1e7;
+
+    /* Границы и тени */
+    --border: #e2d4c3;
+    --border-gold: rgba(198, 142, 59, 0.25);
+
+    --shadow-sm: 0 4px 15px rgba(33, 21, 18, 0.05);
+    --shadow-md: 0 10px 30px rgba(33, 21, 18, 0.08);
+    --shadow-hover: 0 18px 40px rgba(33, 21, 18, 0.14);
+
+    /* Шрифты */
+    --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    /* Скругления и анимации */
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+
+    --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+
+>>>>>>> a1f65575a4bb8642cf41ac3741795a0a234b7ec6
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+/* TASK 3: Custom Modal Overlay Styles */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.custom-modal-card {
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    z-index: 100000;
 }
 
 html {
@@ -12,8 +105,16 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(circle at 5% 0%, rgba(198, 142, 59, 0.09) 0%, transparent 35%),
+        radial-gradient(circle at 95% 60%, rgba(184, 74, 47, 0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-body);
     line-height: 1.6;
+<<<<<<< HEAD
     color: #333333;
     background-color: #f9f6f0;
 }
@@ -59,525 +160,396 @@ h1 {
 
 h2 {
     color: #701516;
+=======
+    -webkit-font-smoothing: antialiased;
+>>>>>>> a1f65575a4bb8642cf41ac3741795a0a234b7ec6
 }
 
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--terracotta);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--espresso);
 }
 
 
-/* =========================
-   ASIYA — INDEX & RESTAURANT
-   ========================= */
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
 
-#main-content,
-#restaurants-page {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
+h1, h2, h3 {
+    color: var(--espresso);
+    font-family: var(--font-heading);
+    line-height: 1.15;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+h1 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-.gallery h2 {
-    grid-column: 1 / -1;
+h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+    font-weight: 700;
 }
 
-.gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
 }
 
-.about-site {
-    margin-top: 40px;
+p {
+    color: var(--text-secondary);
 }
 
-.about-site h2,
-.about-site h3 {
-    margin-bottom: 15px;
-}
-
-.about-site ul {
-    padding-left: 20px;
-    margin-top: 10px;
-}
-
-.categories {
-    margin: 25px 0;
-}
-
-.categories a {
-    color: #701516;
-    margin-left: 15px;
-}
-
-.categories a:hover {
-    color: #a37b36;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 20px;
-}
-
-.card-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.card h2 {
-    margin-bottom: 10px;
-}
-
-.card-content p {
-    margin-bottom: 15px;
-}
-
-.card-link {
-    color: #701516;
-    font-weight: bold;
-}
-
-.card-link:hover {
-    color: #a37b36;
-}
-
-.table-section {
-    margin-top: 50px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #ffffff;
-}
-
-th,
-td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color: #701516;
-    color: #ffffff;
+.eyebrow {
+    margin-bottom: 8px;
+    color: var(--terracotta);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 
-/* =========================
-   DARIYA — GRID PAGE LAYOUT
-   ========================= */
-
-.dariya-layout {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
-}
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
 
 .site-header {
-    grid-area: header;
-    background-color: #701516;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 72px;
+    padding: 0 40px;
+    background: rgba(33, 21, 18, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(33, 21, 18, 0.2);
 }
 
 .logo {
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #f7ead8;
+    transition: var(--transition);
+}
+
+.logo a {
+    color: #f7ead8;
+}
+
+.logo:hover, .logo a:hover {
+    color: var(--gold-light);
+    text-shadow: 0 0 12px var(--gold-glow);
 }
 
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 8px;
 }
 
 .main-nav a {
-    color: #ffffff;
-    font-size: 14px;
+    position: relative;
+    padding: 8px 14px;
+    color: #d9cbbd;
+    font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 1px;
+    transition: var(--transition);
 }
 
 .main-nav a:hover,
 .main-nav a.active {
-    color: #f1c40f;
+    color: #f5d49b;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    width: calc(100% - 28px);
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+
+/* ========================================
+   MAIN LAYOUTS & SIDEBAR
+   ======================================== */
+
+#main-content, #restaurants-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px 24px;
+}
+
+.menu-page, .recipes-page {
+    width: 100%;
+    max-width: 1100px;
+    padding: 25px 40px 50px;
+}
+
+.assiya-layout, .dariya-layout {
+    min-height: calc(100vh - 72px);
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-areas: "sidebar main";
+}
+
+.assiya-layout > .sidebar,
+.dariya-layout > .sidebar {
+    grid-area: sidebar;
+}
+
+.assiya-layout > main,
+.dariya-layout > .menu-page,
+.dariya-layout > .recipes-page {
+    grid-area: main;
 }
 
 .sidebar {
-    grid-area: sidebar;
-    padding: 40px 25px;
-    border-right: 1px solid #d8cec0;
-    background-color: #f5efe6;
+    position: sticky;
+    top: 72px;
+    align-self: start;
+    min-height: calc(100vh - 72px);
+    padding: 32px 20px;
+    background: rgba(238, 229, 216, 0.7);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border);
 }
 
-.sidebar h3 {
-    color: #701516;
-    margin-bottom: 20px;
+.sidebar h2 {
+    margin-bottom: 18px;
+    color: var(--espresso);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
 }
 
-.sidebar > a {
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 4px;
+}
+
+.sidebar a {
     display: block;
-    color: #701516;
-    padding: 8px 0;
-    border-bottom: 1px solid #d8cec0;
+    padding: 10px 12px;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
-.sidebar > a:hover {
-    color: #a37b36;
-}
-
-.sidebar-note {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #d8cec0;
-    color: #666666;
-    font-size: 14px;
-}
-
-.dariya-layout > footer {
-    grid-area: footer;
+.sidebar a:hover, .sidebar a.active {
+    color: var(--terracotta);
+    background: rgba(184, 74, 47, 0.08);
+    transform: translateX(4px);
 }
 
 
-/* =========================
-   DARIYA — MENU & RECIPES
-   ========================= */
+/* ========================================
+   GLASS CARDS & CAROUSEL
+   ======================================== */
 
-.menu-page,
-.recipes-page {
-    grid-area: main;
-    max-width: 1100px;
-    width: 100%;
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.glass-card:hover, .hover-scale:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.carousel {
+    overflow: hidden;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 40px 35px;
+    background: var(--espresso);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
-.menu-header,
-.recipes-header {
-    text-align: center;
-    padding: 50px 20px 40px;
-    border-bottom: 1px solid #d8cec0;
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
 }
 
-.menu-header h1,
-.recipes-header h1 {
-    font-size: 48px;
-    color: #701516;
-    margin-bottom: 10px;
-}
-
-.menu-eyebrow {
-    color: #a37b36;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-}
-
-.menu-section {
-    margin: 50px 0;
-}
-
-.menu-heading {
-    font-size: 28px;
-    color: #701516;
-    border-bottom: 1px solid #701516;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-}
-
-.menu-heading span {
-    font-size: 13px;
-    color: #a37b36;
-    letter-spacing: 2px;
-    margin-right: 10px;
-}
-
-.menu-heading h2 {
-    display: inline;
+.recipe-carousel-image {
+    height: 350px !important;
+    object-fit: cover;
 }
 
 
-/* =========================
-   FLEXBOX MENU ITEMS
-   ========================= */
+/* ========================================
+   MENU & CARDS VIBE
+   ======================================== */
 
-.menu-list {
-    display: flex;
-    flex-direction: column;
+.badge-vibey {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    background: rgba(184, 74, 47, 0.12);
+    color: var(--terracotta);
+    border: 1px solid rgba(184, 74, 47, 0.25);
+    margin-bottom: 8px;
+}
+
+.menu-card, #restaurants-page .card, .recipe {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.menu-card:hover, #restaurants-page .card:hover, .recipe:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.menu-card-image, .card-img, .recipe-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-card:hover .menu-card-image, 
+.gallery-item:hover img,
+.recipe:hover .recipe-image {
+    transform: scale(1.04);
+}
+
+.menu-price {
+    margin: 10px 0 14px;
+    color: var(--terracotta);
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .menu-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid #d8cec0;
     gap: 20px;
+    padding: 16px 20px;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
 }
 
-.menu-item h3 {
-    color: #40151d;
-    font-size: 19px;
-    font-weight: 500;
+.menu-item:hover {
+    border-color: var(--terracotta-glow);
+    background: #fffdf9;
+    transform: translateX(4px);
 }
 
-.menu-item p {
-    margin-top: 4px;
-}
-
-.menu-item > span {
-    color: #701516;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-
-/* =========================
-   FLEXBOX CARDS
-   ========================= */
-
-.featured-section {
-    margin: 50px 0;
-}
-
-.menu-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: stretch;
-}
-
-.menu-card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.menu-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-}
-
-.menu-card-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 20px;
-}
-
-.menu-card-content h3 {
-    color: #701516;
-    margin-bottom: 10px;
-}
-
-.menu-card-content p {
-    margin-bottom: 20px;
-}
-
-.card-button {
-    display: inline-block;
-    margin-top: auto;
-    align-self: flex-start;
-    background-color: #701516;
-    color: #ffffff;
-    padding: 9px 16px;
-    font-size: 14px;
-}
-
-.card-button:hover {
-    background-color: #a37b36;
+.menu-item strong {
+    color: var(--terracotta);
+    font-size: 1.05rem;
 }
 
 
-/* =========================
-   CHOICE SECTION
-   ========================= */
+/* ========================================
+   GALLERY
+   ======================================== */
 
-.choice-section {
-    background-color: #701516;
-    color: #ffffff;
-    padding: 35px;
-    margin: 60px 0;
-}
-
-.choice-section h2 {
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.choice-section p {
-    color: #ffffff;
-}
-
-.choice-number {
-    color: #d9b66f;
-    font-size: 13px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.text-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: #d9b66f;
-    font-weight: bold;
-}
-
-.text-link:hover {
-    color: #ffffff;
-}
-
-
-/* =========================
-   RECIPES GRID
-   ========================= */
-
-.recipe {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 45px;
-    padding: 60px 0;
-    border-bottom: 1px solid #d8cec0;
-}
-
-.recipe-image img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-}
-
-.recipe-content h2 {
-    font-size: 32px;
-    color: #701516;
-    margin-bottom: 20px;
-}
-
-.recipe-number {
-    color: #a37b36;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.ingredients {
-    margin: 25px 0;
-}
-
-.ingredients h3,
-.method h3 {
-    color: #701516;
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.ingredients ul {
-    padding-left: 20px;
-}
-
-.ingredients li {
-    margin-bottom: 6px;
-}
-
-.method {
-    margin-top: 25px;
-}
-
-.method ol {
-    padding-left: 20px;
-}
-
-.method li {
-    margin-bottom: 10px;
-}
-
-.pizza-recipe {
-    margin-top: 20px;
-}
-
-
-/* =========================
-   GRID IMAGE GALLERY
-   ========================= */
-
-.gallery-section {
-    padding: 60px 0;
-}
-
-.recipe-gallery {
+.gallery, .recipe-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 16px;
 }
 
 .gallery-item {
     position: relative;
+    height: 220px;
     overflow: hidden;
-    height: 230px;
-    background-color: #ddd;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08);
+    transition: transform 0.5s ease;
 }
 
 .gallery-caption {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 15px;
-    background-color: rgba(112, 21, 22, 0.85);
-    color: #ffffff;
+    inset: auto 0 0 0;
+    padding: 12px;
+    color: white;
+    font-size: 0.88rem;
     text-align: center;
+    background: linear-gradient(to top, rgba(33, 21, 18, 0.85), transparent);
     transform: translateY(100%);
     transition: transform 0.3s ease;
 }
@@ -642,6 +614,7 @@ th {
 .team-container {
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
     align-items: stretch;
     flex-wrap: wrap;
     gap: 30px;
@@ -669,6 +642,35 @@ th {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+=======
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 10px 24px 30px;
+}
+
+.team-card {
+    flex: 1 1 0;
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 16px;
+>>>>>>> a1f65575a4bb8642cf41ac3741795a0a234b7ec6
     object-fit: cover;
     margin-bottom: 15px;
 }
@@ -692,6 +694,12 @@ th {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+.team-card:hover .profile-img {
+    border-color: var(--terracotta);
+    transform: scale(1.05);
+}
+
+/* Формы контактов */
 #contact-form {
     width: 100%;
     display: flex;
@@ -699,9 +707,13 @@ th {
     gap: 15px; 
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
+#contact-form .form-control,
+#contact-form .form-select {
+    color: var(--text-primary);
+    background: #fffaf4;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
 }
 
 .form-group label {
@@ -710,34 +722,23 @@ th {
     color: #701516; 
 }
 
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 14px;
-}
 
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    border-color: #701516;
-    outline: none;
-}
+/* ========================================
+   BUTTONS
+   ======================================== */
 
-.submit-btn {
-    background-color: #701516;
+.btn-gold, .btn-burgundy, .btn-vibey {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 28px;
+    border: 1px solid var(--terracotta);
+    border-radius: 30px;
+    background: var(--terracotta);
     color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
 }
 
 .submit-btn:hover {
@@ -764,126 +765,236 @@ footer h3 {
 }
 
 footer p {
-    margin: 5px 0;
+    color: #cdbfb1;
+    font-size: 0.85rem;
 }
 
 
-/* =========================
-   RESPONSIVE DESIGN
-   ========================= */
+/* ========================================
+   RESPONSIVE (TABLET & MOBILE)
+   ======================================== */
 
 @media (max-width: 900px) {
-
-    .dariya-layout {
+    .dariya-layout, .assiya-layout {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas:
-            "header"
-            "sidebar"
-            "main"
-            "footer";
+        grid-template-areas: "sidebar" "main";
     }
 
     .sidebar {
+        position: static;
+        min-height: auto;
+        padding: 18px 20px;
         border-right: none;
-        border-bottom: 1px solid #d8cec0;
-        padding: 20px;
+        border-bottom: 1px solid var(--border);
     }
 
-    .sidebar > a {
-        display: inline-block;
-        margin-right: 15px;
-        border-bottom: none;
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
-    .sidebar-note {
-        display: none;
+    .menu-page, .recipes-page {
+        padding: 25px 20px 45px;
     }
 
+    .gallery, .recipe-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-container {
+        flex-wrap: wrap;
+    }
+
+    .team-card {
+        flex: 1 1 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 600px) {
     .site-header {
+        padding: 12px 20px;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
 
     .main-nav {
         flex-wrap: wrap;
         justify-content: center;
-    }
-
-    .menu-cards {
-        flex-wrap: wrap;
-    }
-
-    .menu-card {
-        flex: 1 1 45%;
-    }
-
-    .recipe-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .recipe {
-        grid-template-columns: 1fr;
-    }
-
-    .rules {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .site-header {
-        padding: 15px;
-    }
-
-    .main-nav {
-        gap: 12px;
+        gap: 4px;
     }
 
     .main-nav a {
-        font-size: 12px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    #main-content, #restaurants-page {
+        padding: 30px 16px;
+    }
+
+    .gallery, .recipe-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .menu-page,
+    .recipes-page {
+        max-width: 1100px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .menu-card-image {
+        height: 230px;
+    }
+
+    .recipe-image {
+        height: 360px;
+        object-fit: cover;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .dariya-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sidebar"
+            "main";
+    }
+
+    .sidebar {
+        position: static;
+        min-height: auto;
+        width: 100%;
+        padding: 18px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+    }
+
+    .sidebar a {
+        padding: 8px 12px;
     }
 
     .menu-page,
     .recipes-page {
-        padding: 25px 18px;
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 24px 45px;
+    }
+
+    .menu-card-image {
+        height: 220px;
+    }
+
+    .recipe-image {
+        height: 320px;
+    }
+
+    .recipe-carousel-image {
+        height: 300px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .site-header {
+        position: relative;
+        padding: 14px 16px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .main-nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .main-nav a {
+        padding: 6px 8px;
+        font-size: 0.78rem;
+    }
+
+    .menu-page,
+    .recipes-page {
+        padding: 25px 16px 40px;
     }
 
     .menu-header,
     .recipes-header {
-        padding: 35px 10px;
+        margin-bottom: 30px !important;
     }
 
-    .menu-header h1,
-    .recipes-header h1 {
-        font-size: 36px;
+    h1 {
+        font-size: 2.5rem;
     }
 
-    .menu-cards {
-        flex-direction: column;
+    h2 {
+        font-size: 2rem;
     }
 
-    .menu-card {
-        flex: 1 1 100%;
+    .menu-card-image {
+        height: 210px;
     }
 
-    .recipe-gallery {
-        grid-template-columns: 1fr;
+    .recipe {
+        padding: 20px !important;
     }
 
-    .recipe-image img {
-        height: 300px;
+    .recipe-image {
+        height: 240px;
+    }
+
+    .recipe-carousel-image {
+        height: 240px !important;
     }
 
     .menu-item {
-        gap: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+
+    .menu-item strong {
+        align-self: flex-end;
     }
 
     .choice-section {
-        padding: 25px;
+        padding: 30px 20px !important;
     }
+<<<<<<< HEAD
 }
 /* TASK 3: Custom Modal Overlay Styles */
 .custom-modal-overlay {
@@ -900,16 +1011,161 @@ footer p {
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
+=======
+
+    footer {
+        padding: 22px 16px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .main-nav a {
+        font-size: 0.72rem;
+        padding: 5px 6px;
+    }
+
+    .sidebar ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sidebar a {
+        text-align: center;
+        font-size: 0.82rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .menu-card-image {
+        height: 190px;
+    }
+
+    .recipe-image {
+        height: 210px;
+    }
+
+    .recipe-carousel-image {
+        height: 210px !important;
+    }
+
+    .btn-vibey,
+    .btn-burgundy,
+    .btn-outline-burgundy {
+        width: 100%;
+    }
+}
+
+/* Bootstrap Navbar */
+
+.site-header .navbar {
+    width: 100%;
+    min-height: 72px;
+}
+
+.site-header .navbar-brand {
+    color: #f7ead8;
+}
+
+.site-header .navbar-brand:hover {
+    color: var(--gold-light);
+}
+
+.site-header .navbar-nav {
+    gap: 8px;
+}
+
+.site-header .navbar-nav .nav-link {
+    position: relative;
+    padding: 8px 14px;
+    color: #d9cbbd;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.site-header .navbar-nav .nav-link:hover,
+.site-header .navbar-nav .nav-link.active {
+    color: #f5d49b;
+}
+
+.site-header .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-header .navbar-toggler:focus {
+    box-shadow: 0 0 0 2px var(--gold-glow);
+}
+
+.site-header .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+@media (max-width: 991px) {
+    .site-header .navbar-collapse {
+        padding-top: 12px;
+    }
+
+    .site-header .navbar-nav {
+        align-items: center;
+        gap: 2px;
+    }
+
+    .site-header .navbar-nav .nav-link {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header .navbar {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .site-header .navbar-nav .nav-link {
+        font-size: 0.8rem;
+    }
+} 
+/* ==========================================
+   TASK 3: FIX MODAL OVERLAY STYLES{akosya}
+   ========================================== */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+>>>>>>> a1f65575a4bb8642cf41ac3741795a0a234b7ec6
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .custom-modal-overlay.active {
+<<<<<<< HEAD
     opacity: 1;
     visibility: visible;
+=======
+    opacity: 1 !important;
+    visibility: visible !important;
+>>>>>>> a1f65575a4bb8642cf41ac3741795a0a234b7ec6
 }
 
 .custom-modal-card {
     width: 90%;
+<<<<<<< HEAD
     max-width: 460px;
     transform: translateY(-20px);
     transition: transform 0.3s ease;
@@ -917,4 +1173,251 @@ footer p {
 
 .custom-modal-overlay.active .custom-modal-card {
     transform: translateY(0);
+=======
+    max-width: 480px;
+    position: relative;
+    z-index: 100000;
+}
+/* ==========================================
+   ENHANCED CONTACT PAGE STYLE UPGRADE
+   ========================================== */
+
+/* Винтажный фон с ветвями оливы по краям */
+.vintage-bg {
+    background-color: #f5efe6 !important;
+    background-image: 
+        radial-gradient(circle at 5% 0%, rgba(198, 142, 59, 0.09) 0%, transparent 35%),
+        radial-gradient(circle at 95% 60%, rgba(184, 74, 47, 0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.text-espresso {
+    color: #211512;
+}
+
+/* Элементы карт, теней и кастомного скругления */
+.shadow-md {
+    box-shadow: 0 10px 30px rgba(33, 21, 18, 0.08) !important;
+}
+
+/* Кастомный ховер для картинок */
+.group-hover-zoom {
+    overflow: hidden;
+}
+.group-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+.group-hover-zoom:hover img {
+    transform: scale(1.05);
+}
+
+/* Grayscale карта для элегантного вида */
+.grayscale-map {
+    filter: grayscale(80%) contrast(110%) invert(8%);
+    opacity: 0.95;
+    transition: filter 0.3s ease;
+}
+.grayscale-map:hover {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* Красивая кнопка с градиентом от терракотового до золотистого */
+.btn-vibey {
+    background: linear-gradient(135deg, #b84a2f 0%, #c68e3b 100%) !important;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-vibey:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+}
+
+.btn-check:checked + .btn-outline-danger {
+    background-color: #b84a2f !important;
+    border-color: #b84a2f !important;
+    color: #ffffff !important;
+}
+body.dark-theme,
+body.dark-theme html,
+body.dark-theme #main-content,
+body.dark-theme #restaurants-page,
+body.dark-theme .contact-section,
+body.dark-theme .team-section,
+body.dark-theme .vintage-bg,
+body.dark-theme .container,
+body.dark-theme .container-fluid,
+body.dark-theme main,
+body.dark-theme section {
+    background-color: #181210 !important;
+    background-image: none !important;
+    color: #f8f1e7 !important;
+}
+
+/* 2. Заголовки вне карточек (на самом фоне страницы) */
+body.dark-theme h1:not(.card h1),
+body.dark-theme h2:not(.card h2),
+body.dark-theme h3:not(.card h3),
+body.dark-theme .contact-intro h2,
+body.dark-theme .contact-intro p,
+body.dark-theme .rules-title,
+body.dark-theme .team-intro p {
+    color: #f8f1e7 !important;
+}
+
+/* 3. Карточки, формы и модальные окна (делаем их тёмными, чтобы текст внутри был виден) */
+body.dark-theme .glass-card,
+body.dark-theme .form-container,
+body.dark-theme .menu-card,
+body.dark-theme .team-card,
+body.dark-theme .card,
+body.dark-theme .custom-modal-card,
+body.dark-theme .modal-content,
+body.dark-theme .recipe,
+body.dark-theme .menu-item {
+    background-color: #241c18 !important;
+    border-color: rgba(226, 212, 195, 0.15) !important;
+    color: #f8f1e7 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 4. Текст и заголовки ВНУТРИ тёмных карточек (чтобы не сливались) */
+body.dark-theme .glass-card h1,
+body.dark-theme .glass-card h2,
+body.dark-theme .glass-card h3,
+body.dark-theme .form-container h1,
+body.dark-theme .form-container h2,
+body.dark-theme .form-container h3,
+body.dark-theme .menu-card h3,
+body.dark-theme .team-card h3,
+body.dark-theme .card h3,
+body.dark-theme .custom-modal-card h3,
+body.dark-theme .modal-content h3,
+body.dark-theme .menu-item strong,
+body.dark-theme .recipe h3 {
+    color: #f5efe6 !important;
+}
+
+body.dark-theme .glass-card p,
+body.dark-theme .form-container p,
+body.dark-theme .menu-card p,
+body.dark-theme .team-card p,
+body.dark-theme .card p,
+body.dark-theme .custom-modal-card p,
+body.dark-theme .modal-content p,
+body.dark-theme .menu-item span,
+body.dark-theme .recipe p {
+    color: #cbbab0 !important; /* Мягкий светлый оттенок для описаний */
+}
+
+/* 5. Боковая панель (Sidebar) */
+body.dark-theme .sidebar {
+    background: rgba(24, 18, 16, 0.9) !important;
+    border-color: rgba(226, 212, 195, 0.1) !important;
+}
+
+body.dark-theme .sidebar a {
+    color: #cbbab0 !important;
+}
+
+body.dark-theme .sidebar a:hover,
+body.dark-theme .sidebar a.active {
+    color: #e2b368 !important;
+    background: rgba(198, 142, 59, 0.12) !important;
+}
+
+/* 6. Поля ввода, селекты и текстовые области */
+body.dark-theme .form-control,
+body.dark-theme .form-select,
+body.dark-theme input,
+body.dark-theme textarea {
+    background-color: #181210 !important;
+    color: #f8f1e7 !important;
+    border: 1px solid rgba(226, 212, 195, 0.25) !important;
+}
+
+body.dark-theme .form-control::placeholder,
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #a39284 !important;
+}
+
+body.dark-theme label,
+body.dark-theme .form-group label,
+body.dark-theme .eyebrow {
+    color: #e2b368 !important; /* Теплый золотистый оттенок для подписей */
+}
+body.dark-theme .glass-card strong,
+body.dark-theme .glass-card span,
+body.dark-theme .contact-section strong,
+body.dark-theme .contact-section .eyebrow {
+    color: #e2b368 !important; /* Теплый золотистый цвет */
+}
+
+body.dark-theme .glass-card div,
+body.dark-theme .glass-card p {
+    color: #f8f1e7 !important; /* Яркий светлый текст для адресов и телефонов */
+}
+
+/* 2. Блок чекбокса рассылки (убираем белый фон) */
+body.dark-theme .form-check,
+body.dark-theme .form-check-label,
+body.dark-theme div[class*="bg-white"],
+body.dark-theme .p-3.bg-white {
+    background-color: #241c18 !important;
+    color: #e2b368 !important;
+    border: 1px solid rgba(226, 212, 195, 0.2) !important;
+    border-radius: 8px !important;
+}
+
+/* 3. Аккордеон FAQ (Вопросы и ответы) */
+body.dark-theme .accordion-item,
+body.dark-theme .accordion-header,
+body.dark-theme .accordion-button {
+    background-color: #241c18 !important;
+    color: #f8f1e7 !important;
+    border-color: rgba(226, 212, 195, 0.15) !important;
+}
+
+body.dark-theme .accordion-button:not(.collapsed) {
+    background-color: #302620 !important;
+    color: #e2b368 !important;
+    box-shadow: none !important;
+}
+
+body.dark-theme .accordion-button::after {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) !important; /* Делаем стрелочку золотистой/светлой */
+}
+
+body.dark-theme .accordion-body {
+    background-color: #181210 !important;
+    color: #cbbab0 !important;
+}
+body.dark-theme .contact-section h3,
+body.dark-theme .contact-section strong,
+body.dark-theme .contact-section .eyebrow,
+body.dark-theme card-title,
+body.dark-theme [class*="contact"] h4,
+body.dark-theme [class*="contact"] h5 {
+    color: #e2b368 !important;
+}
+
+#scrollProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--terracotta);
+    z-index: 99999;
+}
+
+.statistics .counter {
+    color: var(--terracotta);
+    font-size: 3rem;
+    font-weight: 700;
+>>>>>>> a1f65575a4bb8642cf41ac3741795a0a234b7ec6
 }

@@ -1,0 +1,1195 @@
+/* =========================================================
+   LE AUDACI — WARM VIBEY ITALIAN GASTROBAR DESIGN
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Базовая теплая итальянская палитра */
+    --bg-main: #f5efe6;
+    --bg-light: #fbf8f3;
+    --bg-card: rgba(255, 250, 242, 0.85);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+
+    /* Тёмные акценты (Эспрессо & Графит) */
+    --espresso: #211512;
+    --espresso-light: #3d2a23;
+
+    /* Терракота & Олива */
+    --terracotta: #b84a2f;
+    --terracotta-dark: #943720;
+    --terracotta-glow: rgba(184, 74, 47, 0.2);
+
+    --olive: #595e3f;
+    --olive-light: #737854;
+
+    /* Золото & Мед */
+    --gold: #c68e3b;
+    --gold-light: #e2b368;
+    --gold-glow: rgba(198, 142, 59, 0.25);
+
+    /* Текст */
+    --text-primary: #231b17;
+    --text-secondary: #6e6157;
+    --text-light: #f8f1e7;
+
+    /* Границы и тени */
+    --border: #e2d4c3;
+    --border-gold: rgba(198, 142, 59, 0.25);
+
+    --shadow-sm: 0 4px 15px rgba(33, 21, 18, 0.05);
+    --shadow-md: 0 10px 30px rgba(33, 21, 18, 0.08);
+    --shadow-hover: 0 18px 40px rgba(33, 21, 18, 0.14);
+
+    /* Шрифты */
+    --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    /* Скругления и анимации */
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+
+    --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* TASK 3: Custom Modal Overlay Styles */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.custom-modal-card {
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    z-index: 100000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(circle at 5% 0%, rgba(198, 142, 59, 0.09) 0%, transparent 35%),
+        radial-gradient(circle at 95% 60%, rgba(184, 74, 47, 0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--terracotta);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--espresso);
+}
+
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1, h2, h3 {
+    color: var(--espresso);
+    font-family: var(--font-heading);
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: var(--terracotta);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 72px;
+    padding: 0 40px;
+    background: rgba(33, 21, 18, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(33, 21, 18, 0.2);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #f7ead8;
+    transition: var(--transition);
+}
+
+.logo a {
+    color: #f7ead8;
+}
+
+.logo:hover, .logo a:hover {
+    color: var(--gold-light);
+    text-shadow: 0 0 12px var(--gold-glow);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-nav a {
+    position: relative;
+    padding: 8px 14px;
+    color: #d9cbbd;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #f5d49b;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    width: calc(100% - 28px);
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+
+/* ========================================
+   MAIN LAYOUTS & SIDEBAR
+   ======================================== */
+
+#main-content, #restaurants-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px 24px;
+}
+
+.menu-page, .recipes-page {
+    width: 100%;
+    max-width: 1100px;
+    padding: 25px 40px 50px;
+}
+
+.assiya-layout, .dariya-layout {
+    min-height: calc(100vh - 72px);
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-areas: "sidebar main";
+}
+
+.assiya-layout > .sidebar,
+.dariya-layout > .sidebar {
+    grid-area: sidebar;
+}
+
+.assiya-layout > main,
+.dariya-layout > .menu-page,
+.dariya-layout > .recipes-page {
+    grid-area: main;
+}
+
+.sidebar {
+    position: sticky;
+    top: 72px;
+    align-self: start;
+    min-height: calc(100vh - 72px);
+    padding: 32px 20px;
+    background: rgba(238, 229, 216, 0.7);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border);
+}
+
+.sidebar h2 {
+    margin-bottom: 18px;
+    color: var(--espresso);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 4px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.sidebar a:hover, .sidebar a.active {
+    color: var(--terracotta);
+    background: rgba(184, 74, 47, 0.08);
+    transform: translateX(4px);
+}
+
+
+/* ========================================
+   GLASS CARDS & CAROUSEL
+   ======================================== */
+
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.glass-card:hover, .hover-scale:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.carousel {
+    overflow: hidden;
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--espresso);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.recipe-carousel-image {
+    height: 350px !important;
+    object-fit: cover;
+}
+
+
+/* ========================================
+   MENU & CARDS VIBE
+   ======================================== */
+
+.badge-vibey {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    background: rgba(184, 74, 47, 0.12);
+    color: var(--terracotta);
+    border: 1px solid rgba(184, 74, 47, 0.25);
+    margin-bottom: 8px;
+}
+
+.menu-card, #restaurants-page .card, .recipe {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.menu-card:hover, #restaurants-page .card:hover, .recipe:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.menu-card-image, .card-img, .recipe-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-card:hover .menu-card-image, 
+.gallery-item:hover img,
+.recipe:hover .recipe-image {
+    transform: scale(1.04);
+}
+
+.menu-price {
+    margin: 10px 0 14px;
+    color: var(--terracotta);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.menu-item:hover {
+    border-color: var(--terracotta-glow);
+    background: #fffdf9;
+    transform: translateX(4px);
+}
+
+.menu-item strong {
+    color: var(--terracotta);
+    font-size: 1.05rem;
+}
+
+
+/* ========================================
+   GALLERY
+   ======================================== */
+
+.gallery, .recipe-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 12px;
+    color: white;
+    font-size: 0.88rem;
+    text-align: center;
+    background: linear-gradient(to top, rgba(33, 21, 18, 0.85), transparent);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+
+<<<<<<< HEAD
+/* ========================================
+   TEAM & CONTACT
+   ======================================== */
+=======
+/* =========================
+   RULES
+   ========================= */
+
+.rules-section {
+    padding: 60px 0 30px;
+}
+
+.rules-title {
+    color: #701516;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.rules-title h2 {
+    margin-top: 5px;
+}
+
+.rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.rule {
+    border-top: 2px solid #701516;
+    padding-top: 15px;
+}
+
+.rule span {
+    color: #a37b36;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* =========================
+   AKERKE — TEAM & CONTACT (FLEXBOX - TASK 2)
+   ========================= */
+
+.team-section,
+.contact-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.team-intro,
+.contact-intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 10px 24px 30px;
+}
+
+.team-card {
+    flex: 1 1 0;
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 16px;
+    object-fit: cover;
+<<<<<<< HEAD
+    border: 3px solid var(--gold-light);
+    border-radius: 50%;
+    transition: var(--transition);
+=======
+    margin-bottom: 15px;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 700px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto 30px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
+}
+
+.team-card:hover .profile-img {
+    border-color: var(--terracotta);
+    transform: scale(1.05);
+}
+
+/* Формы контактов */
+#contact-form {
+<<<<<<< HEAD
+    padding: 28px;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+=======
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
+}
+
+#contact-form .form-control,
+#contact-form .form-select {
+    color: var(--text-primary);
+    background: #fffaf4;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+}
+
+<<<<<<< HEAD
+#contact-form .form-control:focus,
+#contact-form .form-select:focus {
+    background: white;
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 3px var(--terracotta-glow);
+=======
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #701516; 
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
+}
+
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-gold, .btn-burgundy, .btn-vibey {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 28px;
+    border: 1px solid var(--terracotta);
+    border-radius: 30px;
+    background: var(--terracotta);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+<<<<<<< HEAD
+.btn-gold:hover, .btn-burgundy:hover, .btn-vibey:hover {
+    background: var(--terracotta-dark);
+    border-color: var(--terracotta-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px var(--terracotta-glow);
+}
+
+.btn-outline-burgundy {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 28px;
+    border: 1px solid var(--terracotta);
+    border-radius: 30px;
+    background: transparent;
+    color: var(--terracotta);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline-burgundy:hover {
+    background: var(--terracotta);
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    margin-top: 50px;
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--espresso);
+    border-top: 3px solid var(--terracotta);
+=======
+.submit-btn:hover {
+    background-color: #500e10;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: #222222;
+    color: #cccccc;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+footer h3 {
+    color: #ffffff;
+    margin-bottom: 5px;
+>>>>>>> b99b671 (Update CSS styles for assignment 3)
+}
+
+footer p {
+    color: #cdbfb1;
+    font-size: 0.85rem;
+}
+
+
+/* ========================================
+   RESPONSIVE (TABLET & MOBILE)
+   ======================================== */
+
+@media (max-width: 900px) {
+    .dariya-layout, .assiya-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sidebar" "main";
+    }
+
+    .sidebar {
+        position: static;
+        min-height: auto;
+        padding: 18px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .menu-page, .recipes-page {
+        padding: 25px 20px 45px;
+    }
+
+    .gallery, .recipe-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-container {
+        flex-wrap: wrap;
+    }
+
+    .team-card {
+        flex: 1 1 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .main-nav a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    #main-content, #restaurants-page {
+        padding: 30px 16px;
+    }
+
+    .gallery, .recipe-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .menu-page,
+    .recipes-page {
+        max-width: 1100px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .menu-card-image {
+        height: 230px;
+    }
+
+    .recipe-image {
+        height: 360px;
+        object-fit: cover;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .dariya-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sidebar"
+            "main";
+    }
+
+    .sidebar {
+        position: static;
+        min-height: auto;
+        width: 100%;
+        padding: 18px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+    }
+
+    .sidebar a {
+        padding: 8px 12px;
+    }
+
+    .menu-page,
+    .recipes-page {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 24px 45px;
+    }
+
+    .menu-card-image {
+        height: 220px;
+    }
+
+    .recipe-image {
+        height: 320px;
+    }
+
+    .recipe-carousel-image {
+        height: 300px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .site-header {
+        position: relative;
+        padding: 14px 16px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .main-nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .main-nav a {
+        padding: 6px 8px;
+        font-size: 0.78rem;
+    }
+
+    .menu-page,
+    .recipes-page {
+        padding: 25px 16px 40px;
+    }
+
+    .menu-header,
+    .recipes-header {
+        margin-bottom: 30px !important;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .menu-card-image {
+        height: 210px;
+    }
+
+    .recipe {
+        padding: 20px !important;
+    }
+
+    .recipe-image {
+        height: 240px;
+    }
+
+    .recipe-carousel-image {
+        height: 240px !important;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+
+    .menu-item strong {
+        align-self: flex-end;
+    }
+
+    .choice-section {
+        padding: 30px 20px !important;
+    }
+
+    footer {
+        padding: 22px 16px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .main-nav a {
+        font-size: 0.72rem;
+        padding: 5px 6px;
+    }
+
+    .sidebar ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sidebar a {
+        text-align: center;
+        font-size: 0.82rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .menu-card-image {
+        height: 190px;
+    }
+
+    .recipe-image {
+        height: 210px;
+    }
+
+    .recipe-carousel-image {
+        height: 210px !important;
+    }
+
+    .btn-vibey,
+    .btn-burgundy,
+    .btn-outline-burgundy {
+        width: 100%;
+    }
+}
+
+/* Bootstrap Navbar */
+
+.site-header .navbar {
+    width: 100%;
+    min-height: 72px;
+}
+
+.site-header .navbar-brand {
+    color: #f7ead8;
+}
+
+.site-header .navbar-brand:hover {
+    color: var(--gold-light);
+}
+
+.site-header .navbar-nav {
+    gap: 8px;
+}
+
+.site-header .navbar-nav .nav-link {
+    position: relative;
+    padding: 8px 14px;
+    color: #d9cbbd;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.site-header .navbar-nav .nav-link:hover,
+.site-header .navbar-nav .nav-link.active {
+    color: #f5d49b;
+}
+
+.site-header .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-header .navbar-toggler:focus {
+    box-shadow: 0 0 0 2px var(--gold-glow);
+}
+
+.site-header .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+@media (max-width: 991px) {
+    .site-header .navbar-collapse {
+        padding-top: 12px;
+    }
+
+    .site-header .navbar-nav {
+        align-items: center;
+        gap: 2px;
+    }
+
+    .site-header .navbar-nav .nav-link {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header .navbar {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .site-header .navbar-nav .nav-link {
+        font-size: 0.8rem;
+    }
+} 
+/* ==========================================
+   TASK 3: FIX MODAL OVERLAY STYLES{akosya}
+   ========================================== */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.custom-modal-card {
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    z-index: 100000;
+}
+/* ==========================================
+   ENHANCED CONTACT PAGE STYLE UPGRADE
+   ========================================== */
+
+/* Винтажный фон с ветвями оливы по краям */
+.vintage-bg {
+    background-color: #f5efe6 !important;
+    background-image: 
+        radial-gradient(circle at 5% 0%, rgba(198, 142, 59, 0.09) 0%, transparent 35%),
+        radial-gradient(circle at 95% 60%, rgba(184, 74, 47, 0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.text-espresso {
+    color: #211512;
+}
+
+/* Элементы карт, теней и кастомного скругления */
+.shadow-md {
+    box-shadow: 0 10px 30px rgba(33, 21, 18, 0.08) !important;
+}
+
+/* Кастомный ховер для картинок */
+.group-hover-zoom {
+    overflow: hidden;
+}
+.group-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+.group-hover-zoom:hover img {
+    transform: scale(1.05);
+}
+
+/* Grayscale карта для элегантного вида */
+.grayscale-map {
+    filter: grayscale(80%) contrast(110%) invert(8%);
+    opacity: 0.95;
+    transition: filter 0.3s ease;
+}
+.grayscale-map:hover {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* Красивая кнопка с градиентом от терракотового до золотистого */
+.btn-vibey {
+    background: linear-gradient(135deg, #b84a2f 0%, #c68e3b 100%) !important;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-vibey:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+}
+
+.btn-check:checked + .btn-outline-danger {
+    background-color: #b84a2f !important;
+    border-color: #b84a2f !important;
+    color: #ffffff !important;
+}
