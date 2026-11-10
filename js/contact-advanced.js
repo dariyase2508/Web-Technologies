@@ -56,9 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // TASK 2: Callbacks (Async Contact Form)
-    // ==========================================
     const successMessage = document.getElementById('successMessage');
     const submitBtn = document.getElementById('submitBtn');
 

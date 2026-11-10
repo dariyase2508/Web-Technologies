@@ -1,7 +1,3 @@
-/* =========================================================
-   LE AUDACI — WARM VIBEY ITALIAN GASTROBAR DESIGN
-   ========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
@@ -64,36 +60,6 @@
     padding: 0;
 }
 
-/* TASK 3: Custom Modal Overlay Styles */
-.custom-modal-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background-color: rgba(0, 0, 0, 0.75) !important;
-    backdrop-filter: blur(4px);
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 99999 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.custom-modal-overlay.active {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.custom-modal-card {
-    width: 90%;
-    max-width: 480px;
-    position: relative;
-    z-index: 100000;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -128,6 +94,7 @@ button, input, select, textarea {
 button {
     cursor: pointer;
 }
+
 
 /* ========================================
    SCROLLBAR
@@ -540,8 +507,9 @@ p {
     margin-right: 8px;
 }
 
+
 /* =========================
-   AKERKE — TEAM & CONTACT (FLEXBOX - TASK 2)
+   TEAM & CONTACT
    ========================= */
 
 .team-section,
@@ -588,7 +556,6 @@ p {
     height: 130px;
     margin: 0 auto 16px;
     object-fit: cover;
-    margin-bottom: 15px;
 }
 
 .contact-image {
@@ -615,7 +582,6 @@ p {
     transform: scale(1.05);
 }
 
-/* Формы контактов */
 #contact-form {
     width: 100%;
     display: flex;
@@ -661,6 +627,16 @@ p {
     background-color: #500e10;
 }
 
+.btn-vibey {
+    background: linear-gradient(135deg, #b84a2f 0%, #c68e3b 100%) !important;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-vibey:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+}
+
 
 /* =========================
    FOOTER
@@ -687,352 +663,9 @@ footer p {
 
 
 /* ========================================
-   RESPONSIVE (TABLET & MOBILE)
+   MODAL OVERLAY & EXTRAS
    ======================================== */
 
-@media (max-width: 900px) {
-    .dariya-layout, .assiya-layout {
-        grid-template-columns: 1fr;
-        grid-template-areas: "sidebar" "main";
-    }
-
-    .sidebar {
-        position: static;
-        min-height: auto;
-        padding: 18px 20px;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .sidebar ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-
-    .menu-page, .recipes-page {
-        padding: 25px 20px 45px;
-    }
-
-    .gallery, .recipe-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .team-container {
-        flex-wrap: wrap;
-    }
-
-    .team-card {
-        flex: 1 1 calc(50% - 12px);
-    }
-}
-
-@media (max-width: 600px) {
-    .site-header {
-        padding: 12px 20px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .main-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4px;
-    }
-
-    .main-nav a {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-    }
-
-    #main-content, #restaurants-page {
-        padding: 30px 16px;
-    }
-
-    .gallery, .recipe-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .team-card {
-        flex: 1 1 100%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-
-/* Desktop */
-@media (min-width: 1200px) {
-    .menu-page,
-    .recipes-page {
-        max-width: 1100px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
-    .menu-card-image {
-        height: 230px;
-    }
-
-    .recipe-image {
-        height: 360px;
-        object-fit: cover;
-    }
-}
-
-/* Tablet */
-@media (max-width: 991px) {
-    .dariya-layout {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "sidebar"
-            "main";
-    }
-
-    .sidebar {
-        position: static;
-        min-height: auto;
-        width: 100%;
-        padding: 18px 20px;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .sidebar ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .sidebar li {
-        margin-bottom: 0;
-    }
-
-    .sidebar a {
-        padding: 8px 12px;
-    }
-
-    .menu-page,
-    .recipes-page {
-        width: 100%;
-        max-width: 100%;
-        padding: 30px 24px 45px;
-    }
-
-    .menu-card-image {
-        height: 220px;
-    }
-
-    .recipe-image {
-        height: 320px;
-    }
-
-    .recipe-carousel-image {
-        height: 300px !important;
-    }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-    .site-header {
-        position: relative;
-        padding: 14px 16px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 1.4rem;
-    }
-
-    .main-nav {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 3px;
-    }
-
-    .main-nav a {
-        padding: 6px 8px;
-        font-size: 0.78rem;
-    }
-
-    .menu-page,
-    .recipes-page {
-        padding: 25px 16px 40px;
-    }
-
-    .menu-header,
-    .recipes-header {
-        margin-bottom: 30px !important;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .menu-card-image {
-        height: 210px;
-    }
-
-    .recipe {
-        padding: 20px !important;
-    }
-
-    .recipe-image {
-        height: 240px;
-    }
-
-    .recipe-carousel-image {
-        height: 240px !important;
-    }
-
-    .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 14px 16px;
-    }
-
-    .menu-item strong {
-        align-self: flex-end;
-    }
-
-    .choice-section {
-        padding: 30px 20px !important;
-    }
-
-    footer {
-        padding: 22px 16px;
-    }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-    .main-nav a {
-        font-size: 0.72rem;
-        padding: 5px 6px;
-    }
-
-    .sidebar ul {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .sidebar a {
-        text-align: center;
-        font-size: 0.82rem;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .menu-card-image {
-        height: 190px;
-    }
-
-    .recipe-image {
-        height: 210px;
-    }
-
-    .recipe-carousel-image {
-        height: 210px !important;
-    }
-
-    .btn-vibey,
-    .btn-burgundy,
-    .btn-outline-burgundy {
-        width: 100%;
-    }
-}
-
-/* Bootstrap Navbar */
-
-.site-header .navbar {
-    width: 100%;
-    min-height: 72px;
-}
-
-.site-header .navbar-brand {
-    color: #f7ead8;
-}
-
-.site-header .navbar-brand:hover {
-    color: var(--gold-light);
-}
-
-.site-header .navbar-nav {
-    gap: 8px;
-}
-
-.site-header .navbar-nav .nav-link {
-    position: relative;
-    padding: 8px 14px;
-    color: #d9cbbd;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.site-header .navbar-nav .nav-link:hover,
-.site-header .navbar-nav .nav-link.active {
-    color: #f5d49b;
-}
-
-.site-header .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.site-header .navbar-toggler:focus {
-    box-shadow: 0 0 0 2px var(--gold-glow);
-}
-
-.site-header .navbar-toggler-icon {
-    filter: invert(1);
-}
-
-@media (max-width: 991px) {
-    .site-header .navbar-collapse {
-        padding-top: 12px;
-    }
-
-    .site-header .navbar-nav {
-        align-items: center;
-        gap: 2px;
-    }
-
-    .site-header .navbar-nav .nav-link {
-        padding: 8px 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-header .navbar {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-    }
-
-    .site-header .navbar-nav .nav-link {
-        font-size: 0.8rem;
-    }
-} 
-/* ==========================================
-   TASK 3: FIX MODAL OVERLAY STYLES{akosya}
-   ========================================== */
 .custom-modal-overlay {
     position: fixed !important;
     top: 0 !important;
@@ -1061,11 +694,7 @@ footer p {
     position: relative;
     z-index: 100000;
 }
-/* ==========================================
-   ENHANCED CONTACT PAGE STYLE UPGRADE
-   ========================================== */
 
-/* Винтажный фон с ветвями оливы по краям */
 .vintage-bg {
     background-color: #f5efe6 !important;
     background-image: 
@@ -1082,12 +711,6 @@ footer p {
     color: #211512;
 }
 
-/* Элементы карт, теней и кастомного скругления */
-.shadow-md {
-    box-shadow: 0 10px 30px rgba(33, 21, 18, 0.08) !important;
-}
-
-/* Кастомный ховер для картинок */
 .group-hover-zoom {
     overflow: hidden;
 }
@@ -1098,7 +721,6 @@ footer p {
     transform: scale(1.05);
 }
 
-/* Grayscale карта для элегантного вида */
 .grayscale-map {
     filter: grayscale(80%) contrast(110%) invert(8%);
     opacity: 0.95;
@@ -1108,22 +730,27 @@ footer p {
     filter: grayscale(0%) contrast(100%);
 }
 
-/* Красивая кнопка с градиентом от терракотового до золотистого */
-.btn-vibey {
-    background: linear-gradient(135deg, #b84a2f 0%, #c68e3b 100%) !important;
-    transition: transform 0.2s ease, filter 0.2s ease;
+#scrollProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--terracotta);
+    z-index: 99999;
 }
 
-.btn-vibey:hover {
-    filter: brightness(110%);
-    transform: translateY(-2px);
+.statistics .counter {
+    color: var(--terracotta);
+    font-size: 3rem;
+    font-weight: 700;
 }
 
-.btn-check:checked + .btn-outline-danger {
-    background-color: #b84a2f !important;
-    border-color: #b84a2f !important;
-    color: #ffffff !important;
-}
+
+/* =========================================================
+   DARK THEME SYSTEM (Optimized for Readability & Contrast)
+   ========================================================= */
+
 body.dark-theme,
 body.dark-theme html,
 body.dark-theme #main-content,
@@ -1140,7 +767,6 @@ body.dark-theme section {
     color: #f8f1e7 !important;
 }
 
-/* 2. Заголовки вне карточек (на самом фоне страницы) */
 body.dark-theme h1:not(.card h1),
 body.dark-theme h2:not(.card h2),
 body.dark-theme h3:not(.card h3),
@@ -1151,7 +777,7 @@ body.dark-theme .team-intro p {
     color: #f8f1e7 !important;
 }
 
-/* 3. Карточки, формы и модальные окна (делаем их тёмными, чтобы текст внутри был виден) */
+/* Dark Theme Cards & Containers */
 body.dark-theme .glass-card,
 body.dark-theme .form-container,
 body.dark-theme .menu-card,
@@ -1167,7 +793,7 @@ body.dark-theme .menu-item {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* 4. Текст и заголовки ВНУТРИ тёмных карточек (чтобы не сливались) */
+/* Headers inside dark cards */
 body.dark-theme .glass-card h1,
 body.dark-theme .glass-card h2,
 body.dark-theme .glass-card h3,
@@ -1180,10 +806,14 @@ body.dark-theme .card h3,
 body.dark-theme .custom-modal-card h3,
 body.dark-theme .modal-content h3,
 body.dark-theme .menu-item strong,
-body.dark-theme .recipe h3 {
-    color: #f5efe6 !important;
+body.dark-theme .recipe h3,
+body.dark-theme .contact-section h3,
+body.dark-theme .contact-section strong,
+body.dark-theme .contact-section .eyebrow {
+    color: #e2b368 !important;
 }
 
+/* Readable Paragraphs & Text inside dark cards */
 body.dark-theme .glass-card p,
 body.dark-theme .form-container p,
 body.dark-theme .menu-card p,
@@ -1193,10 +823,15 @@ body.dark-theme .custom-modal-card p,
 body.dark-theme .modal-content p,
 body.dark-theme .menu-item span,
 body.dark-theme .recipe p {
-    color: #cbbab0 !important; /* Мягкий светлый оттенок для описаний */
+    color: #cbbab0 !important;
 }
 
-/* 5. Боковая панель (Sidebar) */
+body.dark-theme .glass-card div,
+body.dark-theme .glass-card p {
+    color: #f8f1e7 !important;
+}
+
+/* Sidebar in Dark Theme */
 body.dark-theme .sidebar {
     background: rgba(24, 18, 16, 0.9) !important;
     border-color: rgba(226, 212, 195, 0.1) !important;
@@ -1212,7 +847,7 @@ body.dark-theme .sidebar a.active {
     background: rgba(198, 142, 59, 0.12) !important;
 }
 
-/* 6. Поля ввода, селекты и текстовые области */
+/* Forms & Inputs in Dark Theme */
 body.dark-theme .form-control,
 body.dark-theme .form-select,
 body.dark-theme input,
@@ -1231,21 +866,10 @@ body.dark-theme textarea::placeholder {
 body.dark-theme label,
 body.dark-theme .form-group label,
 body.dark-theme .eyebrow {
-    color: #e2b368 !important; /* Теплый золотистый оттенок для подписей */
-}
-body.dark-theme .glass-card strong,
-body.dark-theme .glass-card span,
-body.dark-theme .contact-section strong,
-body.dark-theme .contact-section .eyebrow {
-    color: #e2b368 !important; /* Теплый золотистый цвет */
+    color: #e2b368 !important;
 }
 
-body.dark-theme .glass-card div,
-body.dark-theme .glass-card p {
-    color: #f8f1e7 !important; /* Яркий светлый текст для адресов и телефонов */
-}
-
-/* 2. Блок чекбокса рассылки (убираем белый фон) */
+/* Checkboxes and Special Blocks */
 body.dark-theme .form-check,
 body.dark-theme .form-check-label,
 body.dark-theme div[class*="bg-white"],
@@ -1256,7 +880,7 @@ body.dark-theme .p-3.bg-white {
     border-radius: 8px !important;
 }
 
-/* 3. Аккордеон FAQ (Вопросы и ответы) */
+/* Accordions in Dark Theme */
 body.dark-theme .accordion-item,
 body.dark-theme .accordion-header,
 body.dark-theme .accordion-button {
@@ -1272,34 +896,88 @@ body.dark-theme .accordion-button:not(.collapsed) {
 }
 
 body.dark-theme .accordion-button::after {
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) !important; /* Делаем стрелочку золотистой/светлой */
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) !important;
 }
 
 body.dark-theme .accordion-body {
     background-color: #181210 !important;
     color: #cbbab0 !important;
 }
-body.dark-theme .contact-section h3,
-body.dark-theme .contact-section strong,
-body.dark-theme .contact-section .eyebrow,
-body.dark-theme card-title,
-body.dark-theme [class*="contact"] h4,
-body.dark-theme [class*="contact"] h5 {
-    color: #e2b368 !important;
+
+
+/* ========================================
+   RESPONSIVE MEDIA QUERIES
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .menu-page, .recipes-page {
+        max-width: 1100px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }
 
-#scrollProgress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 4px;
-    background: var(--terracotta);
-    z-index: 99999;
+@media (max-width: 991px) {
+    .dariya-layout, .assiya-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: "sidebar" "main";
+    }
+
+    .sidebar {
+        position: static;
+        min-height: auto;
+        width: 100%;
+        padding: 18px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .gallery, .recipe-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-container {
+        flex-wrap: wrap;
+    }
+
+    .team-card {
+        flex: 1 1 calc(50% - 12px);
+    }
 }
 
-.statistics .counter {
-    color: var(--terracotta);
-    font-size: 3rem;
-    font-weight: 700;
+@media (max-width: 767px) {
+    .site-header {
+        position: relative;
+        padding: 14px 16px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .gallery, .recipe-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
