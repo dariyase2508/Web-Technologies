@@ -690,10 +690,25 @@ footer p {
 
 .custom-modal-card {
     width: 90%;
+
+    max-width: 460px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.custom-modal-overlay.active .custom-modal-card {
+    transform: translateY(0);
     max-width: 480px;
     position: relative;
     z-index: 100000;
+<<<<<<< HEAD
 }
+=======
+};
+/* ==========================================
+   ENHANCED CONTACT PAGE STYLE UPGRADE
+   ========================================== */
+>>>>>>> 683fe018a877b6126517dd8763cfd77ec22e8994
 
 .vintage-bg {
     background-color: #f5efe6 !important;
@@ -951,6 +966,7 @@ body.dark-theme .accordion-body {
     }
 }
 
+<<<<<<< HEAD
 @media (max-width: 767px) {
     .site-header {
         position: relative;
@@ -980,4 +996,137 @@ body.dark-theme .accordion-body {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
+=======
+.statistics .counter {
+    color: var(--terracotta);
+    font-size: 3rem;
+    font-weight: 700;
+}
+/* Контейнер поиска: не растягиваем на всю ширину, центрируем */
+.search-section {
+    max-width: 500px;
+    margin: 20px auto;
+    position: relative; /* Важно для позиционирования выпадающего списка */
+    padding: 0 15px;
+}
+
+/* Самое поле ввода */
+#searchInput {
+    border-radius: 30px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Вспомогательный выпадающий список (карточки-подсказки) */
+#autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    display: none; /* Скрыт, пока пользователь ничего не вводит */
+    max-height: 280px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+/* Элементы внутри выпадающего списка */
+.autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.2s ease;
+    color: #333;
+    text-align: left;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: #f8f9fa;
+}
+/* Стили только для блока поиска в темной теме */
+
+.search-section {
+    max-width: 500px;
+    margin: 20px auto;
+    position: relative;
+    padding: 0 15px;
+}
+
+#searchInput {
+    background-color: rgba(25, 25, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: #888888;
+}
+
+#searchInput:focus {
+    background-color: rgba(30, 30, 30, 1);
+    border-color: #d97777; /* Твой бордовый акцент */
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(217, 119, 119, 0.25);
+}
+
+/* Выпадающий список (подсказки) */
+#autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background: #1e1e1e !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+    max-height: 280px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+.autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease;
+    color: #e0e0e0;
+    text-align: left;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+#searchInput {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #212529;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#searchInput::placeholder {
+    color: #6c757d;
+}
+
+#searchInput:focus {
+    border-color: #d97777;
+    box-shadow: 0 0 0 0.25rem rgba(217, 119, 119, 0.25);
+>>>>>>> 683fe018a877b6126517dd8763cfd77ec22e8994
 }
