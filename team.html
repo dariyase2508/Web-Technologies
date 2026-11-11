@@ -162,57 +162,43 @@
 
     <!-- Единый подвал -->
     <footer>
-        <div class="text-center my-4 d-flex justify-content-center gap-2">
-    <button id="color-btn" class="btn btn-outline-dark px-4 py-2 rounded-pill shadow-sm">
-        <i class="bi bi-palette-fill me-2"></i>Change Background Color
-    </button>
-    <button id="theme-btn" class="btn btn-outline-dark px-4 py-2 rounded-pill shadow-sm">
-        <i class="bi bi-moon-fill me-2"></i>Night Theme
-    </button>
-</div>
-        <div class="text-center my-4">
-            <button id="color-btn" class="btn btn-outline-dark px-4 py-2 rounded-pill shadow-sm">
-                <i class="bi bi-palette-fill me-2"></i>Change Background Color
-            </button>
-        </div>
-        <p>&copy; 2026 Le Audaci | Group SE-2508. Project Authors: Assiya, Dariya, Akerke</p>
-    </footer>
-
-    <!-- Bootstrap JS & Custom Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/popup-datetime.js"></script>
-    <script src="js/team-animations.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const colorBtn = document.getElementById('color-btn');
-            if (colorBtn) {
-                const bgColors = ['#f9f6f0', '#e3f2fd', '#e8f5e9', '#fff3e0', '#f3e5f5', '#faedcd'];
-                colorBtn.addEventListener('click', function() {
-                    const randomIndex = Math.floor(Math.random() * bgColors.length);
-                    document.body.style.backgroundColor = bgColors[randomIndex];
-                });
-            }
-        });
-    </script>
-
-    <!-- TASK 7: Toast Notification Container -->
-    <div id="toast-container"></div>
-<script>
+        <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const themeBtn = document.getElementById('theme-btn');
-        if (themeBtn) {
-            themeBtn.addEventListener('click', function() {
-                document.body.classList.toggle('dark-theme');
-                if (document.body.classList.contains('dark-theme')) {
-                    document.body.style.backgroundColor = '#121212';
-                    document.body.style.color = '#f8f9fa';
-                } else {
-                    document.body.style.backgroundColor = '#f9f6f0';
-                    document.body.style.color = '#211512';
-                }
+        const colorBtn = document.getElementById('color-btn');
+        if (colorBtn) {
+            const bgColors = ['#f9f6f0', '#261c17', '#1a120e', '#3a2e2b', '#2d231e', '#faedcd'];
+            colorBtn.addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * bgColors.length);
+                document.body.style.backgroundColor = bgColors[randomIndex];
             });
         }
     });
-</script></body>
+</script>
+    <!-- Кнопки управления (только один аккуратный блок с уникальными ID) -->
+    <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
+        <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+            <i class="bi bi-palette-fill me-2"></i>Change Background Color
+        </button>
+        <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                    🌙 Night Theme
+        </button>
+    </div>
+    
+    <p>&copy; 2026 Le Audaci | Group SE-2508. Project Authors: Assiya, Dariya, Akerke</p>
+</footer>
+
+<!-- Bootstrap JS & Custom Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/popup-datetime.js"></script>
+<script src="js/team-animations.js"></script>
+<script src="js/main.js"></script>
+<script src="js/color-changer.js"></script>
+<script src="js/theme.js"></script> <!-- Твой отдельный скрипт для темы работает здесь -->
+
+
+
+<!-- TASK 7: Toast Notification Container -->
+<div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
+
+</body>
 </html>
