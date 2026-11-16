@@ -75,33 +75,77 @@
             <p class="text-muted small">Register to save your favorite Italian spots and manage reservations.</p>
         </div>
 
-        <form id="register-form" class="glass-card p-4 p-md-5 rounded-4 shadow-md border border-white border-opacity-50" novalidate>
-            
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="reg-email" class="form-label fw-bold text-espresso small">Email Address</label>
-                <input type="email" class="form-control bg-white bg-opacity-50" id="reg-email" placeholder="name@example.com" required>
-                <small id="reg-email-error" class="text-danger d-block mt-1"></small>
-            </div>
+       
+<form id="register-form" class="glass-card p-4 p-md-5 rounded-4 shadow-md border border-white border-opacity-50" novalidate>
 
-            <!-- Password -->
-            <div class="mb-3">
-                <label for="reg-password" class="form-label fw-bold text-espresso small">Password (min. 6 characters)</label>
-                <input type="password" class="form-control bg-white bg-opacity-50" id="reg-password" placeholder="Enter password" required>
-                <small id="reg-password-error" class="text-danger d-block mt-1"></small>
-            </div>
+    <!-- Full Name -->
+    <div class="mb-3">
+        <label for="reg-name" class="form-label fw-bold text-espresso small">
+            Full Name
+        </label>
+        <input type="text" class="form-control bg-white bg-opacity-50"
+               id="reg-name" placeholder="Enter your full name">
+        <small id="reg-name-error" class="text-danger d-block mt-1"></small>
+    </div>
 
-            <!-- Confirm Password -->
-            <div class="mb-3">
-                <label for="reg-confirm" class="form-label fw-bold text-espresso small">Confirm Password</label>
-                <input type="password" class="form-control bg-white bg-opacity-50" id="reg-confirm" placeholder="Confirm password" required>
-                <small id="reg-confirm-error" class="text-danger d-block mt-1"></small>
-            </div>
+    <!-- Email -->
+    <div class="mb-3">
+        <label for="reg-email" class="form-label fw-bold text-espresso small">
+            Email Address
+        </label>
+        <input type="text" class="form-control bg-white bg-opacity-50"
+               id="reg-email" placeholder="name@example.com">
+        <small id="reg-email-error" class="text-danger d-block mt-1"></small>
+    </div>
 
-            <button type="submit" class="btn w-100 py-3 text-white fw-bold tracking-wider text-uppercase rounded-3 shadow-sm" style="background-color: #d9534f; border: none;">
-                <i class="bi bi-person-plus-fill me-2"></i> Register Now
-            </button>
-        </form>
+    <!-- Phone -->
+    <div class="mb-3">
+        <label for="reg-phone" class="form-label fw-bold text-espresso small">
+            Phone Number
+        </label>
+        <input type="text" class="form-control bg-white bg-opacity-50"
+               id="reg-phone" placeholder="+77001234567">
+        <small id="reg-phone-error" class="text-danger d-block mt-1"></small>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+        <label for="reg-password" class="form-label fw-bold text-espresso small">
+            Password
+        </label>
+        <input type="password" class="form-control bg-white bg-opacity-50"
+               id="reg-password" placeholder="Create a password">
+        <small id="reg-password-error" class="text-danger d-block mt-1"></small>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="mb-3">
+        <label for="reg-confirm" class="form-label fw-bold text-espresso small">
+            Confirm Password
+        </label>
+        <input type="password" class="form-control bg-white bg-opacity-50"
+               id="reg-confirm" placeholder="Repeat your password">
+        <small id="reg-confirm-error" class="text-danger d-block mt-1"></small>
+    </div>
+
+    <!-- Success Message -->
+    <p id="register-success" class="text-success text-center"></p>
+
+    <!-- Submit -->
+    <button type="submit"
+            class="btn w-100 py-3 text-white fw-bold tracking-wider text-uppercase rounded-3 shadow-sm"
+            style="background-color: #d9534f; border: none;">
+        <i class="bi bi-person-plus-fill me-2"></i>
+        Register Now
+    </button>
+
+    <p class="text-center mt-4 mb-0">
+        Already have an account?
+        <a href="login.html" class="fw-bold">Log In</a>
+    </p>
+
+</form>
+
     </main>
 
     <!-- Обязательный Футер -->
@@ -134,6 +178,31 @@
             }
         });
     </script>
-</body>
+
+    <script src="js/register.js"></script>
+     <script src="js/popup-datetime.js"></script>
+
+
+        <div id="newsletterModal" class="custom-modal-overlay" aria-hidden="true">
+        <div class="custom-modal-card p-4 rounded-4 bg-white shadow-lg">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="h4 mb-0 fw-bold text-dark">Subscribe to LE AUDACI</h3>
+                <button type="button" id="closeModalBtn" class="btn-close" aria-label="Close"></button>
+            </div>
+            <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
+            
+            <form id="modalSubscribeForm">
+                <div class="mb-3">
+                    <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="modalCheck" required>
+                    <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
+                </div>
+                <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+            </form>
+        </div>
+    </div> 
 </body>
 </html>

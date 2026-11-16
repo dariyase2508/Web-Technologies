@@ -1,84 +1,80 @@
-// ==========================================
-// TASK 3: POPUP / MODAL FORM LOGIC
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('newsletterModal');
-    const openBtn = document.getElementById('openModalBtn');
-    const closeBtn = document.getElementById('closeModalBtn');
 
-    // Open Modal
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = document.getElementById("newsletterModal");
+    const openBtn = document.getElementById("openModalBtn");
+    const closeBtn = document.getElementById("closeModalBtn");
+    const modalForm = document.getElementById("modalSubscribeForm");
+
+    // Open modal
     if (openBtn && modal) {
-        openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.add('active');
-            modal.setAttribute('aria-hidden', 'false');
+        openBtn.addEventListener("click", function () {
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
         });
     }
 
-    // Close Modal via Close Button (X)
-    if (closeBtn && modal) {
-        closeBtn.addEventListener('click', () => {
-            closeModal();
-        });
+    // Close modal
+    function closeModal() {
+        if (!modal) return;
+
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
     }
 
-    // Close Modal via Overlay Click (outside content)
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    // Close by clicking outside
     if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
                 closeModal();
             }
         });
     }
 
-    // Close Modal with Escape Key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+    // Close with Escape
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
             closeModal();
         }
     });
 
-    function closeModal() {
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
-    }
-
-    // Handle Form Submit inside Modal
-    const modalForm = document.getElementById('modalSubscribeForm');
-    document.querySelector
+    // Subscribe form
     if (modalForm) {
-        modalForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Grazie! Thank you for subscribing to LE AUDACI newsletter.');
-            closeModal();
+        modalForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document
+                .getElementById("subscribeEmail")
+                .value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email.");
+                return;
+            }
+
+            alert("Thank you for subscribing to LE AUDACI!");
+
             modalForm.reset();
+            closeModal();
         });
     }
 
-    // ==========================================
-    // TASK 5: CURRENT DATE AND TIME DISPLAY
-    // ==========================================
+    // Current date and time
     function updateDateTime() {
-        const dateTimeElement = document.getElementById('currentDateTime');
-        if (!dateTimeElement) return;
+        const element = document.getElementById("currentDateTime");
 
-        const now = new Date();
-        const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        };
+        if (!element) return;
 
-        // Formats to: "October 13, 2026, 06:40:00 PM"
-        const formattedDate = now.toLocaleString('en-US', options);
-        dateTimeElement.textContent = formattedDate;
+        element.textContent = new Date().toLocaleString("en-US");
     }
 
-    // Initial call & update every second
     updateDateTime();
     setInterval(updateDateTime, 1000);
+
 });

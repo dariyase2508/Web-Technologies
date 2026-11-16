@@ -419,6 +419,29 @@
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="js/ux-animations.js"></script>
+        <script src="js/popup-datetime.js"></script>
+
+        <div id="newsletterModal" class="custom-modal-overlay" aria-hidden="true">
+        <div class="custom-modal-card p-4 rounded-4 bg-white shadow-lg">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="h4 mb-0 fw-bold text-dark">Subscribe to LE AUDACI</h3>
+                <button type="button" id="closeModalBtn" class="btn-close" aria-label="Close"></button>
+            </div>
+            <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
+            
+            <form id="modalSubscribeForm">
+                <div class="mb-3">
+                    <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="modalCheck" required>
+                    <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
+                </div>
+                <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+            </form>
+        </div>
+    </div> 
 
     </body>
 </html>
