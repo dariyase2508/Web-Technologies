@@ -1193,3 +1193,31 @@ footer p {
     border-color: #b84a2f !important;
     color: #ffffff !important;
 }
+/* =========================================
+   TASK 7 & 8: Toast Notification & Copy Tooltip
+   ========================================= */
+#toast-notification {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    background-color: #211512 !important;
+    color: #ffffff !important;
+    padding: 16px 24px !important;
+    border-radius: 10px !important;
+    border-left: 5px solid #b84a2f !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    display: none;
+    z-index: 999999 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+#toast-notification i {
+    color: #b84a2f;
+    margin-right: 8px;
+}
+
+.copy-tooltip {
+    font-size: 0.85rem;
+    transition: opacity 0.3s ease;
+}
