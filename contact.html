@@ -38,7 +38,6 @@
             <a href="recipes.html">Recipes</a>
             <a href="team.html">Our Team</a>
             <a href="contact.html" class="active">Contact</a>
-            <a href="register.html">Register</a>
             <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm ms-2 px-3">Subscribe</button>
         </nav>
     </header>
@@ -73,14 +72,9 @@
                         <div class="icon-circle bg-danger bg-opacity-10 text-danger p-2 rounded-3">
                             <i class="bi bi-geo-alt fs-5"></i>
                         </div>
-                        <div class="flex-grow-1">
+                        <div>
                             <h5 class="fw-bold mb-1 text-espresso">VISIT US</h5>
-                            <div class="d-flex align-items-center justify-content-between gap-2">
-                                <p class="mb-0 text-muted small code-snippet">Vicolo dei Librai 12, Rome, Italy</p>
-                                <button type="button" class="btn btn-sm btn-outline-danger copy-btn py-0 px-2" title="Copy Address">
-                                    <i class="bi bi-clipboard"></i> <span class="btn-text small">Copy</span>
-                                </button>
-                            </div>
+                            <p class="mb-0 text-muted small">Vicolo dei Librai 12, Rome, Italy</p>
                         </div>
                     </div>
                     <hr class="my-2 border-secondary-subtle">
@@ -89,13 +83,14 @@
                         <div class="icon-circle bg-danger bg-opacity-10 text-danger p-2 rounded-3">
                             <i class="bi bi-telephone fs-5"></i>
                         </div>
-                        <div class="flex-grow-1">
+                        <div>
                             <h5 class="fw-bold mb-1 text-espresso">CALL US</h5>
-                            <div class="d-flex align-items-center justify-content-between gap-2">
-                                <p class="mb-0 text-danger fw-bold code-snippet">+39 06 123 4567</p>
-                                <button type="button" class="btn btn-sm btn-outline-danger copy-btn py-0 px-2" title="Copy Phone">
-                                    <i class="bi bi-clipboard"></i> <span class="btn-text small">Copy</span>
+                            <div class="d-flex align-items-center gap-2">
+                                <p class="mb-0 text-danger fw-bold" id="phone-number">+39 06 123 4567</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary border-0 copy-btn" data-target="#phone-number" title="Copy Phone Number">
+                                    <i class="bi bi-clipboard"></i>
                                 </button>
+                                <span class="copy-tooltip text-success fw-bold ms-1" style="display: none;">Copied!</span>
                             </div>
                         </div>
                     </div>
@@ -128,22 +123,16 @@
                     <div class="row g-3 mb-3">
                         <div class="col-md-6">
                             <label for="name" class="form-label fw-bold text-espresso small">Full Name</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white bg-opacity-50 border-end-0"><i class="bi bi-person text-muted"></i></span>
-                                <input type="text" class="form-control border-start-0 ps-0 bg-white bg-opacity-50" id="name" name="name" placeholder="Enter your full name" required>
-                            </div>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
                         </div>
                         <div class="col-md-6">
                             <label for="email" class="form-label fw-bold text-espresso small">Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white bg-opacity-50 border-end-0"><i class="bi bi-envelope text-muted"></i></span>
-                                <input type="email" class="form-control border-start-0 ps-0 bg-white bg-opacity-50" id="email" name="email" placeholder="name@example.com" required>
-                            </div>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="reason" class="form-label fw-bold text-espresso small">Reason for Contact</label>
-                        <select class="form-select bg-white bg-opacity-50" id="reason" name="reason" required>
+                        <select class="form-select" id="reason" name="reason" required>
                             <option value="" selected disabled>Choose an option</option>
                             <option value="reservation">Table Reservation</option>
                             <option value="question">General Question</option>
@@ -182,7 +171,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label fw-bold text-espresso small">Message</label>
-                        <textarea class="form-control bg-white bg-opacity-50" id="message" name="message" rows="4" placeholder="How can we help you today? Leave details about your booking (guests, time) or question..." required></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="How can we help you today?" required></textarea>
                     </div>
                     <div class="form-check mb-4 bg-white bg-opacity-30 p-3 rounded-3 border border-dashed">
                         <input class="form-check-input ms-0 me-2 border-danger" type="checkbox" id="updates" name="updates">
@@ -223,11 +212,7 @@
                     <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
                     <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="modalCheck" required>
-                    <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
-                </div>
-                <button type="submit" class="btn btn-danger w-100 py-2.5 fw-semibold text-uppercase tracking-wider">Subscribe Now</button>
+                <button type="submit" class="btn btn-danger w-100 py-2.5 fw-semibold text-uppercase">Subscribe Now</button>
             </form>
         </div>
     </div>

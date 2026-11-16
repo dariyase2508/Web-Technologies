@@ -47,14 +47,19 @@ document.addEventListener("DOMContentLoaded", function () {
         modalForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const email = document
-                .getElementById("subscribeEmail")
-                .value.trim();
+            const emailInput = modalForm.querySelector("input[type='email'], input");
+            const checkbox = document.getElementById("modalCheck");
 
+            const email = emailInput ? emailInput.value.trim() : "";
             const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 
             if (!emailRegex.test(email)) {
                 alert("Please enter a valid email.");
+                return;
+            }
+
+            if (checkbox && !checkbox.checked) {
+                alert("Please agree to receive newsletters and updates.");
                 return;
             }
 
@@ -78,3 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(updateDateTime, 1000);
 
 });
+

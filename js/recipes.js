@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".read-more-btn");
-
-    const audioContext = window.AudioContext
-        ? new AudioContext()
-        : null;
+    let audioContext = null;
 
     function playSound() {
-        if (!audioContext) return;
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+
+        // Создаём AudioContext только по пользовательскому клику
+        if (!audioContext) {
+            audioContext = new AudioCtx();
+        }
 
         if (audioContext.state === "suspended") {
             audioContext.resume();
@@ -33,11 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
             const recipe = button.closest(".recipe");
-            const moreText = recipe.querySelector(".more-text");
+            if (!recipe) return;
 
+            const moreText = recipe.querySelector(".more-text");
             if (!moreText) return;
 
-            const isHidden = moreText.style.display === "none";
+            const isHidden = window.getComputedStyle(moreText).display === "none";
 
             moreText.style.display = isHidden ? "block" : "none";
             button.textContent = isHidden ? "Read Less" : "Read More";
