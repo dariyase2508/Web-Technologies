@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (!AudioCtx) return;
 
-        // Создаём AudioContext только по пользовательскому клику
+
         if (!audioContext) {
             audioContext = new AudioCtx();
         }

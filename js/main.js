@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Навигация по меню с клавиатуры (стрелки)
+
     const navLinks = document.querySelectorAll(".main-nav a");
     let currentIndex = -1;
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Не перехватываем стрелки внутри полей ввода или при открытом модальном окне
+
         const modal = document.getElementById("newsletterModal");
         const isModalOpen = modal && (modal.classList.contains("active") || modal.getAttribute("aria-hidden") === "false");
         if (isModalOpen || event.target.matches("input, textarea, select")) {
@@ -36,25 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks[currentIndex].focus();
     });
 
-    // 2. Динамическое приветствие по времени суток
-    const greeting = document.getElementById("greeting");
-
-    if (greeting) {
-        const hour = new Date().getHours();
-        let message;
-
-        switch (true) {
-            case hour >= 5 && hour < 12:
-                message = "Good Morning!";
-                break;
-            case hour >= 12 && hour < 18:
-                message = "Good Afternoon!";
-                break;
-            default:
-                message = "Good Evening!";
-        }
-
-        greeting.textContent = message;
+    // Opening hours badge (Mon-Sun 12:00-23:30, Rome time)
+    const openBadge = document.getElementById("openStatusBadge");
+    if (openBadge) {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Europe/Rome", hour: "2-digit", minute: "2-digit", hour12: false
+        }).formatToParts(new Date());
+        const h = Number(parts.find(p => p.type === "hour").value) % 24;
+        const min = Number(parts.find(p => p.type === "minute").value);
+        const minutes = h * 60 + min;
+        const isOpen = minutes >= 12 * 60 && minutes < 23 * 60 + 30;
+        openBadge.textContent = isOpen ? "OPEN NOW" : "CLOSED";
+        openBadge.className = isOpen
+            ? "badge bg-success-subtle text-success border border-success-subtle rounded-pill small px-2"
+            : "badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill small px-2";
     }
 });
 

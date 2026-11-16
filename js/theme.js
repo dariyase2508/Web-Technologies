@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const bodyElement = document.body;
 
-    // При загрузке проверяем сохраненную тему в localStorage
+
     const savedTheme = localStorage.getItem('site-theme');
     if (savedTheme === 'dark') {
         bodyElement.classList.add('dark-theme');
@@ -13,10 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обработка клика по кнопке
+
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             bodyElement.classList.toggle('dark-theme');
+            bodyElement.style.backgroundColor = '';
             
             if (bodyElement.classList.contains('dark-theme')) {
                 themeToggleBtn.textContent = '☀️ Day Theme';

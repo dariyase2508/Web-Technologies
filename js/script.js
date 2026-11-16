@@ -1,16 +1,16 @@
 $(document).ready(function() {
-    // Функция вызова Toast
+
 window.showToast = function(message) {
     var $toast = $('<div class="toast-item"><i class="bi bi-check-circle-fill text-success me-2"></i>' + message + '</div>');
     $('#toast-container').append($toast);
     
-    // Показываем плашку
+
     $toast.stop(true, true).fadeIn(300).delay(2500).fadeOut(400, function() {
         $(this).remove();
     });
 };
 
-// Привязка к кнопкам копирования (Task 8 + Task 7)
+
 $('.copy-btn').off('click').on('click', function(e) {
     e.preventDefault();
     var $btn = $(this);
@@ -22,15 +22,15 @@ $('.copy-btn').off('click').on('click', function(e) {
 
     if (textToCopy) {
         navigator.clipboard.writeText(textToCopy).then(function() {
-            // Меняем текст кнопки
+
             var originalText = $btn.find('.btn-text').text();
             $btn.find('.btn-text').text('Copied!');
             $btn.removeClass('btn-outline-danger').addClass('btn-success');
 
-            // Вызываем Toast
+
             showToast('Copied to clipboard: ' + textToCopy);
 
-            // Возвращаем исходный вид через 2 секунды
+
             setTimeout(function() {
                 $btn.find('.btn-text').text(originalText);
                 $btn.removeClass('btn-success').addClass('btn-outline-danger');
@@ -38,9 +38,9 @@ $('.copy-btn').off('click').on('click', function(e) {
         });
     }
 });
-    // --- ИНТЕРАКТИВНЫЙ РЕЙТИНГ (ЗВЁЗДОЧКИ) ---
+
     
-    // 1. Наведение мыши на звёздочку (подсветка до выбранной звезды)
+
     $('#ratingContainer .star-icon').on('mouseenter', function() {
         var hoverVal = $(this).data('value');
         $('#ratingContainer .star-icon').each(function() {
@@ -52,7 +52,7 @@ $('.copy-btn').off('click').on('click', function(e) {
         });
     });
 
-    // 2. Увод мыши с блока звёзд (возврат к зафиксированному значению)
+
     $('#ratingContainer').on('mouseleave', function() {
         var currentRating = $('#ratingValue').val();
         $('#ratingContainer .star-icon').each(function() {
@@ -64,17 +64,17 @@ $('.copy-btn').off('click').on('click', function(e) {
         });
     });
 
-    // 3. Клик по звёздочке (фиксация оценки в скрытом поле)
+
     $('#ratingContainer .star-icon').on('click', function() {
         var selectedVal = $(this).data('value');
         $('#ratingValue').val(selectedVal);
         
-        // Всплывающее Toast-уведомление (Task 7)
+
         if (typeof showToast === 'function') {
-            showToast('Вы поставили оценку: ' + selectedVal + ' из 5');
+            showToast('You rated: ' + selectedVal + ' out of 5');
         }
 
-        // Анимация пульсации при клике
+
         $(this).css('transform', 'scale(1.3)');
         var $star = $(this);
         setTimeout(function() {
@@ -82,7 +82,7 @@ $('.copy-btn').off('click').on('click', function(e) {
         }, 200);
     });
 
-    // 4. Очистка формы и сброс рейтинга по кнопке "Clear Form"
+
     $('#resetFormBtn').on('click', function() {
         $('#contact-form')[0].reset();
         $('#ratingValue').val(0);
@@ -90,7 +90,7 @@ $('.copy-btn').off('click').on('click', function(e) {
         $('#successMessage').addClass('d-none');
         
         if (typeof showToast === 'function') {
-            showToast('Форма очищена');
+            showToast('Form cleared');
         }
     });
     // TASK 0: Setup check
@@ -129,7 +129,7 @@ $('.copy-btn').off('click').on('click', function(e) {
                 $btn.removeClass('btn-outline-danger').addClass('btn-success')
                     .html('<i class="bi bi-check-lg"></i> <span class="btn-text small">Copied!</span>');
 
-                showToast('Скопировано: ' + textToCopy);
+                showToast('Copied: ' + textToCopy);
 
                 setTimeout(function() {
                     $btn.removeClass('btn-success').addClass('btn-outline-danger').html(originalHtml);
@@ -165,16 +165,16 @@ $('.copy-btn').off('click').on('click', function(e) {
         var $submitBtn = $form.find('button[type="submit"]');
         var $spinner = $submitBtn.find('.spinner-border');
 
-        // Блокируем кнопку и показываем спиннер
+
         $submitBtn.prop('disabled', true);
         $spinner.removeClass('d-none');
         
-        // Имитация задержки ответа сервера (1.5 сек)
+
         setTimeout(function() {
             $spinner.addClass('d-none');
             $submitBtn.prop('disabled', false);
             $('#successMessage').removeClass('d-none');
-            showToast('Форма успешно отправлена!');
+            showToast('Form submitted successfully!');
             $form[0].reset();
         }, 1500);
     });

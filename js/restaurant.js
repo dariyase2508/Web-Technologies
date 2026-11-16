@@ -63,6 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Инициализация первой картинки без лишнего мигания
+
     updateGallery(0, false);
 });

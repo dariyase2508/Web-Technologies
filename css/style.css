@@ -3,38 +3,38 @@
    ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 :root {
-    /* Базовая теплая итальянская палитра */
+
     --bg-main: #f5efe6;
     --bg-light: #fbf8f3;
     --bg-card: rgba(255, 250, 242, 0.85);
     --bg-card-hover: rgba(255, 255, 255, 0.95);
-    /* Тёмные акценты (Эспрессо & Графит) */
+
     --espresso: #211512;
     --espresso-light: #3d2a23;
-    /* Терракота & Олива */
+
     --terracotta: #b84a2f;
     --terracotta-dark: #943720;
     --terracotta-glow: rgba(184, 74, 47, 0.2);
     --olive: #595e3f;
     --olive-light: #737854;
-    /* Золото & Мед */
+
     --gold: #c68e3b;
     --gold-light: #e2b368;
     --gold-glow: rgba(198, 142, 59, 0.25);
-    /* Текст */
+
     --text-primary: #231b17;
     --text-secondary: #6e6157;
     --text-light: #f8f1e7;
-    /* Границы и тени */
+
     --border: #e2d4c3;
     --border-gold: rgba(198, 142, 59, 0.25);
     --shadow-sm: 0 4px 15px rgba(33, 21, 18, 0.05);
     --shadow-md: 0 10px 30px rgba(33, 21, 18, 0.08);
     --shadow-hover: 0 18px 40px rgba(33, 21, 18, 0.14);
-    /* Шрифты */
+
     --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
     --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-    /* Скругления и анимации */
+
     --radius-lg: 18px;
     --radius-md: 12px;
     --radius-sm: 8px;
@@ -518,7 +518,7 @@ p {
     border-color: var(--terracotta);
     transform: scale(1.05);
 }
-/* Формы контактов */
+
 #contact-form {
     width: 100%;
     display: flex;
@@ -895,7 +895,7 @@ footer p {
 /* ==========================================
    ENHANCED CONTACT PAGE STYLE UPGRADE
    ========================================== */
-/* Винтажный фон с ветвями оливы по краям */
+
 .vintage-bg {
     background-color: #f5efe6 !important;
     background-image:
@@ -909,11 +909,11 @@ footer p {
 .text-espresso {
     color: #211512;
 }
-/* Элементы карт, теней и кастомного скругления */
+
 .shadow-md {
     box-shadow: 0 10px 30px rgba(33, 21, 18, 0.08) !important;
 }
-/* Кастомный ховер для картинок */
+
 .group-hover-zoom {
     overflow: hidden;
 }
@@ -923,7 +923,7 @@ footer p {
 .group-hover-zoom:hover img {
     transform: scale(1.05);
 }
-/* Grayscale карта для элегантного вида */
+
 .grayscale-map {
     filter: grayscale(80%) contrast(110%) invert(8%);
     opacity: 0.95;
@@ -932,7 +932,7 @@ footer p {
 .grayscale-map:hover {
     filter: grayscale(0%) contrast(100%);
 }
-/* Красивая кнопка с градиентом от терракотового до золотистого */
+
 .btn-vibey {
     background: linear-gradient(135deg, #b84a2f 0%, #c68e3b 100%) !important;
     transition: transform 0.2s ease, filter 0.2s ease;
@@ -961,7 +961,7 @@ body.dark-theme section {
     background-image: none !important;
     color: #f8f1e7 !important;
 }
-/* 2. Заголовки вне карточек (на самом фоне страницы) */
+
 body.dark-theme h1:not(.card h1),
 body.dark-theme h2:not(.card h2),
 body.dark-theme h3:not(.card h3),
@@ -971,7 +971,7 @@ body.dark-theme .rules-title,
 body.dark-theme .team-intro p {
     color: #f8f1e7 !important;
 }
-/* 3. Карточки, формы и модальные окна (делаем их тёмными, чтобы текст внутри был виден) */
+
 body.dark-theme .glass-card,
 body.dark-theme .form-container,
 body.dark-theme .menu-card,
@@ -986,7 +986,7 @@ body.dark-theme .menu-item {
     color: #f8f1e7 !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
-/* 4. Текст и заголовки ВНУТРИ тёмных карточек (чтобы не сливались) */
+
 body.dark-theme .glass-card h1,
 body.dark-theme .glass-card h2,
 body.dark-theme .glass-card h3,
@@ -1011,9 +1011,9 @@ body.dark-theme .custom-modal-card p,
 body.dark-theme .modal-content p,
 body.dark-theme .menu-item span,
 body.dark-theme .recipe p {
-    color: #cbbab0 !important; /* Мягкий светлый оттенок для описаний */
+    color: #cbbab0 !important;
 }
-/* 5. Боковая панель (Sidebar) */
+
 body.dark-theme .sidebar {
     background: rgba(24, 18, 16, 0.9) !important;
     border-color: rgba(226, 212, 195, 0.1) !important;
@@ -1026,7 +1026,7 @@ body.dark-theme .sidebar a.active {
     color: #e2b368 !important;
     background: rgba(198, 142, 59, 0.12) !important;
 }
-/* 6. Поля ввода, селекты и текстовые области */
+
 body.dark-theme .form-control,
 body.dark-theme .form-select,
 body.dark-theme input,
@@ -1043,19 +1043,19 @@ body.dark-theme textarea::placeholder {
 body.dark-theme label,
 body.dark-theme .form-group label,
 body.dark-theme .eyebrow {
-    color: #e2b368 !important; /* Теплый золотистый оттенок для подписей */
+    color: #e2b368 !important;
 }
 body.dark-theme .glass-card strong,
 body.dark-theme .glass-card span,
 body.dark-theme .contact-section strong,
 body.dark-theme .contact-section .eyebrow {
-    color: #e2b368 !important; /* Теплый золотистый цвет */
+    color: #e2b368 !important;
 }
 body.dark-theme .glass-card div,
 body.dark-theme .glass-card p {
-    color: #f8f1e7 !important; /* Яркий светлый текст для адресов и телефонов */
+    color: #f8f1e7 !important;
 }
-/* 2. Блок чекбокса рассылки (убираем белый фон) */
+
 body.dark-theme .form-check,
 body.dark-theme .form-check-label,
 body.dark-theme div[class*="bg-white"],
@@ -1065,7 +1065,7 @@ body.dark-theme .p-3.bg-white {
     border: 1px solid rgba(226, 212, 195, 0.2) !important;
     border-radius: 8px !important;
 }
-/* 3. Аккордеон FAQ (Вопросы и ответы) */
+
 body.dark-theme .accordion-item,
 body.dark-theme .accordion-header,
 body.dark-theme .accordion-button {
@@ -1079,7 +1079,7 @@ body.dark-theme .accordion-button:not(.collapsed) {
     box-shadow: none !important;
 }
 body.dark-theme .accordion-button::after {
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) !important; /* Делаем стрелочку золотистой/светлой */
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) !important;
 }
 body.dark-theme .accordion-body {
     background-color: #181210 !important;
@@ -1093,7 +1093,9 @@ body.dark-theme [class*="contact"] h4,
 body.dark-theme [class*="contact"] h5 {
     color: #e2b368 !important;
 }
-#scrollProgress {
+
+#scrollProgress,
+#scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
@@ -1102,25 +1104,26 @@ body.dark-theme [class*="contact"] h5 {
     background: var(--terracotta);
     z-index: 99999;
 }
+
 .statistics .counter {
     color: var(--terracotta);
     font-size: 3rem;
     font-weight: 700;
 }
-/* Контейнер поиска: не растягиваем на всю ширину, центрируем */
+
 .search-section {
     max-width: 500px;
     margin: 20px auto;
-    position: relative; /* Важно для позиционирования выпадающего списка */
+    position: relative;
     padding: 0 15px;
 }
-/* Самое поле ввода */
+
 #searchInput {
     border-radius: 30px;
     padding: 12px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-/* Вспомогательный выпадающий список (карточки-подсказки) */
+
 #autocomplete-list {
     position: absolute;
     top: 100%;
@@ -1130,12 +1133,12 @@ body.dark-theme [class*="contact"] h5 {
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     z-index: 1000;
-    display: none; /* Скрыт, пока пользователь ничего не вводит */
+    display: none;
     max-height: 280px;
     overflow-y: auto;
     margin-top: 5px;
 }
-/* Элементы внутри выпадающего списка */
+
 .autocomplete-item {
     padding: 10px 15px;
     cursor: pointer;
@@ -1150,7 +1153,7 @@ body.dark-theme [class*="contact"] h5 {
 .autocomplete-item:hover {
     background-color: #f8f9fa;
 }
-/* Стили только для блока поиска в темной теме */
+
 .search-section {
     max-width: 500px;
     margin: 20px auto;
@@ -1171,11 +1174,11 @@ body.dark-theme [class*="contact"] h5 {
 }
 #searchInput:focus {
     background-color: rgba(30, 30, 30, 1);
-    border-color: #d97777; /* Твой бордовый акцент */
+    border-color: #d97777;
     color: #ffffff;
     box-shadow: 0 0 0 0.25rem rgba(217, 119, 119, 0.25);
 }
-/* Выпадающий список (подсказки) */
+
 #autocomplete-list {
     position: absolute;
     top: 100%;
@@ -1230,7 +1233,7 @@ body.dark-theme [class*="contact"] h5 {
     align-items: center;
     min-width: 200px;
 }
-/* Делаем заголовки внутри карточек белыми или золотистыми, чтобы они не сливались */
+
 .card h1, 
 .card h2, 
 .card h3, 
@@ -1243,40 +1246,40 @@ body.dark-theme [class*="contact"] h5 {
 .popup-datetime, 
 div[style*="background"], 
 span[style*="background"] {
-    background-color: #1a120e !important; /* Тёмный цвет фона */
-    color: #d4af37 !important;           /* Фирменный золотистый текст */
-    border: 1px solid #3d2c24 !important; /* Аккуратная рамка */
+    background-color: #1a120e !important;
+    color: #d4af37 !important;
+    border: 1px solid #3d2c24 !important;
     font-family: inherit !important;
 }
 
-/* Основной контейнер таблицы */
+
 .table, table {
-    background-color: #261c17 !important; /* Тёмный фон таблицы */
-    color: #ffffff !important;           /* Белый текст по умолчанию */
+    background-color: #261c17 !important;
+    color: #ffffff !important;
     border-radius: 8px;
     overflow: hidden;
     border-color: #3d2c24 !important;
 }
 
-/* Шапка таблицы (Restaurant, City, Type, Specialty Dish) */
+
 .table thead th, table th {
-    background-color: #1a120e !important; /* Еще более темная шапка */
-    color: #d4af37 !important;           /* Брендовый золотистый цвет текста */
+    background-color: #1a120e !important;
+    color: #d4af37 !important;
     border-bottom: 2px solid #4a3830 !important;
     font-weight: 600;
     padding: 12px 16px;
 }
 
-/* Строки и ячейки таблицы */
+
 .table td, table td {
     background-color: #261c17 !important;
-    color: #f8f9fa !important;           /* Светлый читаемый текст */
+    color: #f8f9fa !important;
     border-top: 1px solid #3d2c24 !important;
     padding: 12px 16px;
     vertical-align: middle;
 }
 
-/* Эффект при наведении курсора на строку */
+
 .table-hover tbody tr:hover td, table tbody tr:hover td {
-    background-color: #33241f !important; /* Чуть светлее при наведении */
+    background-color: #33241f !important;
 }

@@ -1,6 +1,6 @@
 (document).ready(function() {
     // ==========================================
-    // 1. ДАННЫЕ И ФИЛЬТРАЦИЯ КАРТОЧЕК МЕНЮ
+
     // ==========================================
     const featuredMenuItems = [
         {
@@ -8,7 +8,7 @@
     $        category: "pasta",
             price: 14,
             description: "Classic Roman pasta prepared with egg yolks, Pecorino Romano, black pepper, and crispy guanciale.",
-            image: "images/carbonara.jpg", // <-- Проверь названия этих 4 файлов в папке images/
+            image: "images/carbonara.jpg",
             badge: "Chef's Choice",
             featured: true
         },
@@ -17,7 +17,7 @@
             category: "pizza",
             price: 15,
             description: "Traditional Neapolitan wood-fired pizza with San Marzano crushed tomatoes, fresh mozzarella, and basil.",
-            image: "images/pizza.jpg", // исправлено с margherita.jpg
+            image: "images/pizza.jpg",
             badge: "Traditional",
             featured: true
         },
@@ -26,7 +26,7 @@
             category: "pasta",
             price: 16,
             description: "Handmade egg tagliatelle served with slow-cooked Bolognese beef and veal ragù.",
-            image: "images/pasta.jpg", // исправлено с tagliatelle.jpg
+            image: "images/pasta.jpg",
             badge: "House Special",
             featured: true
         },
@@ -110,7 +110,7 @@
     filterByCategory('featured');
 
     // ==========================================
-    // 2. ПОИСК, ПОДСВЕТКА И АВТОКОМПЛИТ С КЛАВИАТУРОЙ
+
     // ==========================================
     const $input = $('#searchInput');
     const $list = $('#autocomplete-list');
@@ -177,7 +177,7 @@
         }
     }
 
-    // Единый обработчик input (ловит ввод с клавиатуры, вставку мышью и очистку)
+
     $input.on('input', function() {
         const rawValue = $(this).val();
         const query = rawValue.toLowerCase().trim();
@@ -210,7 +210,7 @@
         }
     });
 
-    // Навигация по подсказкам с клавиатуры (Стрелки Вверх/Вниз, Enter, Escape)
+
     $input.on('keydown', function(e) {
         const $items = $list.find('.autocomplete-item');
 
