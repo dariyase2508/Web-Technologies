@@ -1,11 +1,11 @@
-$(document).ready(function() {
+(document).ready(function() {
     // ==========================================
     // 1. ДАННЫЕ И ФИЛЬТРАЦИЯ КАРТОЧЕК МЕНЮ
     // ==========================================
     const featuredMenuItems = [
         {
             name: "Spaghetti Carbonara",
-            category: "pasta",
+    $        category: "pasta",
             price: 14,
             description: "Classic Roman pasta prepared with egg yolks, Pecorino Romano, black pepper, and crispy guanciale.",
             image: "images/carbonara.jpg", // <-- Проверь названия этих 4 файлов в папке images/
