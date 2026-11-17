@@ -7,6 +7,8 @@ $(document).ready(function () {
 
     const categories = ['featured', 'antipasti', 'pasta', 'pizza', 'dolce'];
 
+    let activeCategory = 'all';
+
     const categoryLinks = $('.category-link');
 
     const sidebarLinks = $(
@@ -19,6 +21,8 @@ $(document).ready(function () {
 
     // Show all categories or only the selected category
     function showCategory(category) {
+
+        activeCategory = category;
 
         if (category === 'all') {
 
@@ -51,6 +55,7 @@ $(document).ready(function () {
         const category = $(this).data('category');
 
         showCategory(category);
+        applyMenuSearch($input.val());
     });
 
     // Sidebar category navigation
@@ -61,6 +66,7 @@ $(document).ready(function () {
         const category = $(this).attr('href').substring(1);
 
         showCategory(category);
+        applyMenuSearch($input.val());
 
         const target = $('#' + category);
 
@@ -83,6 +89,8 @@ $(document).ready(function () {
 
     const $input = $('#searchInput');
     const $list = $('#autocomplete-list');
+    const $searchButton = $('#menuSearchBtn');
+    const $noResults = $('#menuNoResults');
 
     const searchableDishes = [
 
@@ -114,7 +122,7 @@ $(document).ready(function () {
 
     function highlightSearchTerm(keyword) {
 
-        $('.menu-item h3, .menu-item p').each(function () {
+        $('.menu-item h3, .menu-item p, .menu-card h3, .menu-card p').each(function () {
 
             const originalText = $(this).text();
 
@@ -173,6 +181,7 @@ $(document).ready(function () {
         }
 
         highlightSearchTerm(item.name);
+        applyMenuSearch(item.name);
     }
 
 
@@ -211,6 +220,7 @@ $(document).ready(function () {
         activeIndex = -1;
 
         highlightSearchTerm(query);
+        applyMenuSearch(query);
 
         if (query.length === 0) {
 
@@ -274,6 +284,15 @@ $(document).ready(function () {
 
     });
 
+    // Search button
+    $searchButton.on('click', function () {
+
+        applyMenuSearch($input.val());
+
+        $list.hide();
+
+    });
+
 
     // ==========================================
     // 7. KEYBOARD EVENTS
@@ -328,6 +347,14 @@ $(document).ready(function () {
 
         }
 
+        else if (e.key === 'Enter') {
+
+            applyMenuSearch($input.val());
+
+            $list.hide();
+
+        }
+
     });
 
 
@@ -348,3 +375,66 @@ $(document).ready(function () {
     });
 
 });
+
+    // ==========================================
+    // MENU SEARCH FILTERING
+    // ==========================================
+
+    function applyMenuSearch(query) {
+
+        const keyword = query.toLowerCase().trim();
+
+        let visibleCount = 0;
+
+        categories.forEach(function (category) {
+
+            const section = $('#' + category);
+
+            // Check whether this category should be visible
+            const categoryAllowed =
+                activeCategory === 'all' ||
+                activeCategory === category;
+
+            if (!categoryAllowed) {
+                section.hide();
+                return;
+            }
+
+            section.show();
+
+            // Find all dishes inside the category
+            const items = category === 'featured'
+                ? section.find('.menu-card')
+                : section.find('.menu-item');
+
+            items.each(function () {
+
+                const itemText = $(this).text().toLowerCase();
+
+                const matches = itemText.includes(keyword);
+
+                $(this).toggle(matches);
+
+                if (matches) {
+                    visibleCount++;
+                }
+
+            });
+
+            // Hide category if it has no matching dishes
+            if (items.length > 0) {
+
+                const hasVisibleItems = items.filter(':visible').length > 0;
+
+                section.toggle(hasVisibleItems);
+
+            }
+
+        });
+
+        // Display message if nothing was found
+        $noResults.prop('hidden', !keyword || visibleCount > 0);
+
+        // Highlight matching text
+        highlightSearchTerm(keyword);
+    }

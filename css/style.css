@@ -1297,3 +1297,38 @@ mark.search-highlight {
 }
 
 .copy-tooltip { font-size: 0.8rem; white-space: nowrap; }
+
+
+#api-recipes {
+    margin-top: 40px;
+}
+
+#recipeResults .glass-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#recipeResults .glass-card:hover {
+    transform: translateY(-5px);
+}
+
+#recipeResults img {
+    height: 220px;
+    object-fit: cover;
+}
+
+#recipeResults details {
+    line-height: 1.6;
+}
+
+#recipeResults summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#recipeLoading {
+    color: #8b2635;
+}
+
+#recipeSearch {
+    min-width: 0;
+}
