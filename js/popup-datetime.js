@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
         openBtn.addEventListener("click", function () {
             modal.classList.add("active");
             modal.setAttribute("aria-hidden", "false");
+
+            const first = modal.querySelector("input");
+            if (first) first.focus();
         });
     }
 
@@ -20,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         modal.classList.remove("active");
         modal.setAttribute("aria-hidden", "true");
+
+        if (openBtn) openBtn.focus();
     }
 
     if (closeBtn) {

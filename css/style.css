@@ -1279,7 +1279,21 @@ span[style*="background"] {
     vertical-align: middle;
 }
 
-
 .table-hover tbody tr:hover td, table tbody tr:hover td {
     background-color: #33241f !important;
 }
+
+.max-w-600 { max-width: 600px; }
+.max-w-850 { max-width: 850px; }
+
+#main-restaurant-img { transition: opacity 0.2s ease; }
+#main-restaurant-img.fade-out { opacity: 0; }
+
+mark.search-highlight {
+    background: #ffe08a;
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+.copy-tooltip { font-size: 0.8rem; white-space: nowrap; }

@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Save logged-in user
-        localStorage.setItem("leAudaciCurrentUser", JSON.stringify(user));
+        const { password: _pw, ...safeUser } = user;   // убираем пароль
+        localStorage.setItem("leAudaciCurrentUser", JSON.stringify(safeUser));
 
         // Redirect to profile page
         window.location.href = "profile.html";

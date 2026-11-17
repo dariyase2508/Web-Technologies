@@ -91,22 +91,30 @@
                 </div>
                 
 
-                <button id="prev-btn" class="position-absolute top-50 start-0 translate-middle-y btn btn-dark bg-opacity-75 text-white border-0 ms-2 px-3 py-2 rounded-circle shadow">
+                <button id="prev-btn" aria-label="Previous image"
+                        class="position-absolute top-50 start-0 translate-middle-y btn btn-dark bg-opacity-75 text-white border-0 ms-2 px-3 py-2 rounded-circle shadow">
                     &#10094;
                 </button>
-                
 
-                <button id="next-btn" class="position-absolute top-50 end-0 translate-middle-y btn btn-dark bg-opacity-75 text-white border-0 me-2 px-3 py-2 rounded-circle shadow">
+                <button id="next-btn" aria-label="Next image"
+                        class="position-absolute top-50 end-0 translate-middle-y btn btn-dark bg-opacity-75 text-white border-0 me-2 px-3 py-2 rounded-circle shadow">
                     &#10095;
                 </button>
-            </div>
+                </div>
 
+                <div class="d-flex justify-content-center gap-3">
+                    <img src="images/pizzeria.jpg" class="restaurant-thumb img-thumbnail shadow-sm"
+                        style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;"
+                        alt="Pizzeria Brandi interior">
 
-            <div class="d-flex justify-content-center gap-3">
-                <img src="images/pizzeria.jpg" class="restaurant-thumb img-thumbnail shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;" alt="Thumbnail 1">
-                <img src="images/trattoria.jpg" class="restaurant-thumb img-thumbnail shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;" alt="Thumbnail 2">
-                <img src="images/osteria.jpg" class="restaurant-thumb img-thumbnail shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;" alt="Thumbnail 3">
-            </div>
+                    <img src="images/trattoria.jpg" class="restaurant-thumb img-thumbnail shadow-sm"
+                        style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;"
+                        alt="Trattoria da Enzo interior">
+
+                    <img src="images/osteria.jpg" class="restaurant-thumb img-thumbnail shadow-sm"
+                        style="width: 90px; height: 60px; object-fit: cover; cursor: pointer;"
+                        alt="Osteria Santo Spirito interior">
+                </div>
         </section>
 
 
@@ -262,7 +270,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/color-changer.js"></script>
-    <script src="js/restaurants.js"></script>
+    <script src="js/restaurant.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
     <script src="js/auth-nav.js"></script>

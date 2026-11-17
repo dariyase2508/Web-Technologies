@@ -1,13 +1,19 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
+    let currentUser = null;
+    try {
+        currentUser = JSON.parse(localStorage.getItem("leAudaciCurrentUser"));
+    } catch (e) {
+        localStorage.removeItem("leAudaciCurrentUser");   // повреждённые данные
+    }
+
+    const greeting = document.getElementById("greeting");
+    if (greeting && currentUser) {
+        greeting.textContent = "Welcome back, " + currentUser.name + "!";
+    }
+
     const authMenu = document.getElementById("auth-menu-items");
-
     if (!authMenu) return;
-
-    const currentUser = JSON.parse(
-        localStorage.getItem("leAudaciCurrentUser")
-    );
 
     if (currentUser) {
 
