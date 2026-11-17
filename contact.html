@@ -20,31 +20,61 @@
     <!-- TASK 4: Scroll Progress Bar Indicator -->
     <div id="scroll-progress"></div>
     <!-- TASK 5: Real-time Date and Time Display Header Bar -->
-    <div class="bg-dark text-white py-2 text-center border-bottom border-secondary-subtle">
+    <div class="text-white py-2 text-center border-bottom border-secondary"
+     style="background-color: #181210;">
         <div class="container d-flex justify-content-between align-items-center">
             <span class="small text-uppercase tracking-wider opacity-75 fs-7"><i class="bi bi-geo-alt-fill me-1 text-danger"></i> LE AUDACI | Italian Gastro Guide</span>
             <span class="badge bg-danger fs-6 fw-normal px-3 py-1.5 shadow-sm" id="currentDateTime">Loading date...</span>
         </div>
     </div>
+    <!-- Единая шапка сайта -->
+    
+<header class="site-header">
 
-    <header class="site-header">
-        <div class="logo">
-            <a href="index.html">LE AUDACI</a>
+    <!-- Logo Group: Account Icon + Website Logo -->
+    <div class="d-flex align-items-center gap-3">
+
+        <!-- Account Dropdown -->
+        <div class="dropdown" id="auth-menu">
+            <button
+                class="btn btn-outline-light rounded-circle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Account menu">
+
+                <i class="bi bi-person-circle"></i>
+
+            </button>
+
+            <ul class="dropdown-menu" id="auth-menu-items"></ul>
         </div>
-        <nav class="main-nav">
-            <a href="index.html">Home</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="menu.html">Menu</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="team.html">Our Team</a>
-            <a href="contact.html" class="active">Contact</a>
-            <a href="register.html">Register</a>
-            <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm ms-2 px-3">Subscribe</button>
-        </nav>
-    </header>
 
+        <!-- Website Logo -->
+        <a class="navbar-brand logo" href="index.html">
+            LE AUDACI
+        </a>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="menu.html">Menu</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="team.html">Our Team</a>
+        <a href="contact.html" class="active">Contact</a>
+        <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm ms-2 px-3">
+            Subscribe
+        </button>
+    </nav>
+
+</header>
+
+    <!-- Главная секция контактов -->
     <main class="contact-section container py-5">
-
+        <!-- Заголовок страницы (Hero Section) -->
         <section class="text-center mb-5 py-2">
             <p class="eyebrow tracking-widest text-uppercase text-danger mb-2">Reservations & Inquiries</p>
             <h1 class="display-4 fw-bold font-serif mb-3" style="color: var(--espresso, #211512);">Book a Table or Contact Us</h1>
@@ -52,20 +82,20 @@
                 Have a question, feedback, or want to reserve a table for a special dinner? <br>Fill out the form below and our team will get in touch.
             </p>
         </section>
-
+        <!-- Асимметричный Двухколоночный Экран -->
         <div class="row g-5 align-items-stretch">
            
-
+            <!-- ЛЕВАЯ КОЛОНКА: Атмосфера, Фото и Живые Данные -->
             <div class="col-12 col-lg-5 d-flex flex-column justify-content-between gap-4">
                
                 <!-- TASK 9: Lazy Loaded Image Frame -->
                 <div class="glass-card p-2 overflow-hidden rounded-4 shadow-md position-relative group-hover-zoom">
                     <img src="images/placeholder.jpg" data-src="images/restaurant4.jpg" class="img-fluid contact-image rounded-3 w-100 object-fit-cover lazy-img" style="height: 280px;" alt="Italian restaurant interior">
                     <div class="position-absolute top-3 start-3 bg-dark text-white bg-opacity-75 px-3 py-1 rounded-pill small tracking-wider">
-                        <i class="bi bi-camera-fill me-1"></i> Le Audaci Ambiance
+                        <i class="bi bi-camera-fill me-1"></i> Trattoria Roma Ambiance
                     </div>
                 </div>
-
+                <!-- Блок контактной информации "At a Glance" с кнопками копирования (TASK 8) -->
                 <div class="glass-card p-4 rounded-4 shadow-sm flex-grow-1 d-flex flex-column justify-content-center gap-3">
                    
                     <!-- VISIT US + Copy Button -->
@@ -104,20 +134,20 @@
                         <div>
                             <div class="d-flex align-items-center gap-2 mb-1">
                                 <h5 class="fw-bold mb-0 text-espresso">HOURS</h5>
-                                <span id="openStatusBadge" class="badge bg-success-subtle text-success border border-success-subtle rounded-pill small px-2">OPEN NOW</span>
+                                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill small px-2">OPEN NOW</span>
                             </div>
                             <p class="mb-0 text-muted small">Mon-Sun: 12:00 PM – 11:30 PM</p>
                         </div>
                     </div>
                 </div>
-
+                <!-- Мини-карта / Иллюстрация проезда -->
                 <div class="glass-card p-2 rounded-4 shadow-sm overflow-hidden" style="height: 160px;">
                     <iframe class="w-100 h-100 rounded-3 border-0 grayscale-map"
-                        src="https://maps.google.com/maps?q=Vicolo+dei+Librai+12,+Rome,+Italy&output=embed" title="Map: Vicolo dei Librai 12, Rome"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.1234567!2d12.492!3d41.890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzI0LjAiTiAxMsKwMjknMzEuMiJF!5e0!3m2!1sen!2sit!4v1620000000000!5m2!1sen!2sit"
                         allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-
+            <!-- ПРАВАЯ КОЛОНКА: Интерактивная Форма -->
             <div class="col-12 col-lg-7">
                 <form id="contact-form" class="glass-card p-4 p-md-5 rounded-4 shadow-md h-100 position-relative border border-white border-opacity-50">
                    
@@ -140,7 +170,7 @@
                             <option value="feedback">Feedback</option>
                         </select>
                     </div>
-
+                    <!-- Продвинутые радио-карточки -->
                     <fieldset class="mb-3">
                         <legend class="form-label fw-bold text-espresso small mb-2">Preferred Contact Method</legend>
                         <div class="row g-3">
@@ -221,15 +251,16 @@
                 </form>
             </div>
         </div>
-
+    <!-- Единый подвал -->
     <footer>
        <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
-            <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
-                <i class="bi bi-palette-fill me-2"></i>Change Background Color
-            </button>
-            <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
-                🌙 Night Theme
-            </button>
+                <button id="color-btn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                    <i class="bi bi-palette-fill me-2"></i>Change Background Color
+                </button>
+              <button id="themeToggleBtn" style="border: 1px solid #ffffff; background: transparent; color: #ffffff;" class="px-4 py-2 rounded-pill shadow-sm">
+                    🌙 Night Theme
+                </button>
+            </div>
         </div>
         <p>&copy; 2026 Le Audaci | Group SE-2508. Project Authors: Assiya, Dariya, Akerke</p>
     </footer>
@@ -240,8 +271,21 @@
     <script src="js/main.js"></script>
     <script src="js/color-changer.js"></script>
     <script src="js/theme.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
+    <script src="js/auth-nav.js"></script>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorBtn = document.getElementById('color-btn');
+            if (colorBtn) {
+                const bgColors = ['#f9f6f0', '#e3f2fd', '#e8f5e9', '#fff3e0', '#f3e5f5', '#faedcd'];
+                colorBtn.addEventListener('click', function() {
+                    const randomIndex = Math.floor(Math.random() * bgColors.length);
+                    document.body.style.backgroundColor = bgColors[randomIndex];
+                });
+            }
+        });
+    </script>
+   <!-- Контейнер для всплывающих уведомлений (обычно в правом или левом нижнем углу) -->
     <div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
     
 </body>

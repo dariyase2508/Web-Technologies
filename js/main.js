@@ -1,40 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const navLinks = document.querySelectorAll(".main-nav a");
-    let currentIndex = -1;
+    
+const navLinks = document.querySelectorAll(".main-nav a");
+let currentIndex = 0;
 
-    document.addEventListener("keydown", function (event) {
-        if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) {
-            return;
-        }
+document.addEventListener("keydown", function (event) {
 
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") {
+        return;
+    }
 
-        const modal = document.getElementById("newsletterModal");
-        const isModalOpen = modal && (modal.classList.contains("active") || modal.getAttribute("aria-hidden") === "false");
-        if (isModalOpen || event.target.matches("input, textarea, select")) {
-            return;
-        }
+    const modal = document.getElementById("newsletterModal");
 
-        if (navLinks.length === 0) {
-            return;
-        }
+    const isModalOpen = modal && (
+        modal.classList.contains("active") ||
+        modal.getAttribute("aria-hidden") === "false"
+    );
 
-        const focusedIndex = Array.from(navLinks).indexOf(document.activeElement);
-        if (focusedIndex !== -1) {
-            currentIndex = focusedIndex;
-        }
+    // Do not interfere with typing or an open modal
+    if (
+        isModalOpen ||
+        event.target.matches("input, textarea, select") ||
+        navLinks.length === 0
+    ) {
+        return;
+    }
 
-        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-            currentIndex = (currentIndex + 1) % navLinks.length;
-        } else {
-            currentIndex = currentIndex <= 0
-                ? navLinks.length - 1
-                : currentIndex - 1;
-        }
+    if (event.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % navLinks.length;
+    } else {
+        currentIndex = (currentIndex - 1 + navLinks.length) % navLinks.length;
+    }
 
-        event.preventDefault();
-        navLinks[currentIndex].focus();
-    });
+    event.preventDefault();
+    navLinks[currentIndex].focus();
+});
+
 
     // Opening hours badge (Mon-Sun 12:00-23:30, Rome time)
     const openBadge = document.getElementById("openStatusBadge");

@@ -21,50 +21,58 @@
     <body>
     
         <div id="scrollProgress"></div>
+        <div class="text-white py-2 text-center border-bottom border-secondary"
+     style="background-color: #181210;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="small text-uppercase tracking-wider">LE AUDACI | Italian Gastro Guide</span>
+            <span class="badge bg-danger fs-6 fw-normal" id="currentDateTime">Loading date...</span>
+        </div>
+    </div>
 
-        <header class="site-header">
-            <nav class="navbar navbar-expand-lg container-fluid px-4">
-                <a class="navbar-brand logo" href="index.html">LE AUDACI</a>
+        
+<header class="site-header">
 
-                <button class="navbar-toggler" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mainNavbar"
-                        aria-controls="mainNavbar"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- Account Icon + Logo -->
+    <div class="d-flex align-items-center gap-3">
 
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav ms-auto main-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="restaurants.html">Restaurants</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="menu.html">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="recipes.html">Recipes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="team.html">Our Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.html">Register</a>
-                        </li>
-                        <li class="nav-item ms-lg-2">
-                            <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm px-3 py-2">Subscribe</button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+        <div class="dropdown" id="auth-menu">
+            <button
+                class="btn btn-outline-light rounded-circle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Account menu"
+                style="width: 40px; height: 40px; min-width: 40px; padding: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+
+                <i class="bi bi-person-circle"></i>
+            </button>
+
+            <ul class="dropdown-menu" id="auth-menu-items"></ul>
+        </div>
+
+        <a class="navbar-brand logo" href="index.html">
+            LE AUDACI
+        </a>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="team.html">Our Team</a>
+        <a href="contact.html">Contact</a>
+
+        <button type="button" id="openModalBtn"
+                class="btn btn-outline-light btn-sm ms-2 px-3">
+            Subscribe
+        </button>
+    </nav>
+
+</header>
+
 
 
         <div class="search-section">
@@ -80,6 +88,7 @@
             <aside class="sidebar">
                 <h2>Categories</h2>
                 <ul>
+                    <li><a href="#" class="category-link active" data-category="all">All Menu</a></li>
                     <li><a href="#featured">Featured</a></li>
                     <li><a href="#antipasti">Antipasti</a></li>
                     <li><a href="#pasta">Pasta</a></li>
@@ -88,6 +97,7 @@
                 </ul>
             </aside>
             <div class="categories-menu">
+            <a href="#" class="category-link active" data-category="all">All Menu</a>
             <a href="#" class="category-link active" data-category="featured">Featured</a>
             <a href="#" class="category-link" data-category="antipasti">Antipasti</a>
             <a href="#" class="category-link" data-category="pasta">Pasta</a>
@@ -177,7 +187,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <article class="card menu-card h-100 border-0 glass-card">
-                                <img src="images/carbonara.jpg"
+                                <img src="images/pasta.jpg"
                                     class="card-img-top menu-card-image"
                                     alt="Tagliatelle al Ragù">
 
@@ -396,6 +406,27 @@
             </div>
 
         </main>
+        <div id="newsletterModal" class="custom-modal-overlay" aria-hidden="true">
+            <div class="custom-modal-card p-4 rounded-4 bg-white shadow-lg">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="h4 mb-0 fw-bold text-dark">Subscribe to LE AUDACI</h3>
+                    <button type="button" id="closeModalBtn" class="btn-close" aria-label="Close"></button>
+                </div>
+                <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
+                
+                <form id="modalSubscribeForm">
+                    <div class="mb-3">
+                        <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
+                        <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="modalCheck" required>
+                        <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
 
     <footer>
         <div class="text-center my-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
@@ -418,9 +449,13 @@
 
         <script src="js/theme.js"></script>
 
+        <script src="js/popup-datetime.js"></script>
+
         <script src="js/menu.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="js/auth-nav.js"></script>
+
+    
         <script src="js/ux-animations.js"></script>
 
     </body>

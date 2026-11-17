@@ -25,7 +25,8 @@
     <div id="scroll-progress"></div>
 
     <!-- Real-time Date and Time Display Header Bar -->
-    <div class="bg-dark text-white py-2 text-center border-bottom border-secondary">
+    <div class="text-white py-2 text-center border-bottom border-secondary"
+     style="background-color: #181210;">
         <div class="container d-flex justify-content-between align-items-center">
             <span class="small text-uppercase tracking-wider">LE AUDACI | Italian Gastro Guide</span>
             <span class="badge bg-danger fs-6 fw-normal" id="currentDateTime">Loading date...</span>
@@ -33,21 +34,51 @@
     </div>
 
 
-    <header class="site-header">
-        <div class="logo">
-            <a href="index.html">LE AUDACI</a>
+    
+<header class="site-header">
+
+    <!-- Logo Group: Account Icon + Website Logo -->
+    <div class="d-flex align-items-center gap-3">
+
+        <!-- Account Dropdown -->
+        <div class="dropdown" id="auth-menu">
+            <button
+                class="btn btn-outline-light rounded-circle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Account menu">
+
+                <i class="bi bi-person-circle"></i>
+
+            </button>
+
+            <ul class="dropdown-menu" id="auth-menu-items"></ul>
         </div>
-        <nav class="main-nav">
-            <a href="index.html">Home</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="menu.html">Menu</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="team.html" class="active">Our Team</a>
-            <a href="contact.html">Contact</a>
-            <a href="register.html">Register</a>
-            <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm ms-2">Subscribe</button>
-        </nav>
-    </header>
+
+        <!-- Website Logo -->
+        <a class="navbar-brand logo" href="index.html">
+            LE AUDACI
+        </a>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="menu.html">Menu</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="team.html" class="active">Our Team</a>
+        <a href="contact.html">Contact</a>
+        <button type="button" id="openModalBtn"
+        class="btn btn-outline-light btn-sm ms-2 px-3">
+    Subscribe
+</button>
+    </nav>
+
+</header>
+
 
 
     <main class="team-section py-4">
@@ -194,6 +225,7 @@
 <script src="js/main.js"></script>
 <script src="js/color-changer.js"></script>
 <script src="js/theme.js"></script>
+<script src="js/auth-nav.js"></script>
 
 
 

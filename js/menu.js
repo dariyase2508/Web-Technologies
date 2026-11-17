@@ -1,245 +1,350 @@
-(document).ready(function() {
-    // ==========================================
+
+$(document).ready(function () {
 
     // ==========================================
-    const featuredMenuItems = [
-        {
-            name: "Spaghetti Carbonara",
-    $        category: "pasta",
-            price: 14,
-            description: "Classic Roman pasta prepared with egg yolks, Pecorino Romano, black pepper, and crispy guanciale.",
-            image: "images/carbonara.jpg",
-            badge: "Chef's Choice",
-            featured: true
-        },
-       {
-            name: "Margherita Pizza",
-            category: "pizza",
-            price: 15,
-            description: "Traditional Neapolitan wood-fired pizza with San Marzano crushed tomatoes, fresh mozzarella, and basil.",
-            image: "images/pizza.jpg",
-            badge: "Traditional",
-            featured: true
-        },
-        {
-            name: "Tagliatelle al Ragù",
-            category: "pasta",
-            price: 16,
-            description: "Handmade egg tagliatelle served with slow-cooked Bolognese beef and veal ragù.",
-            image: "images/pasta.jpg",
-            badge: "House Special",
-            featured: true
-        },
-        {
-            name: "Tiramisu",
-            category: "dolce",
-            price: 9,
-            description: "Classic Italian dessert made of savoiardi dipped in coffee, layered with whipped mixture of egg yolks and mascarpone.",
-            image: "images/tiramisu.jpg",
-            badge: "Dessert",
-            featured: true
-        }
-    ];
+    // 1. MENU CATEGORY FILTERING
+    // ==========================================
 
-    const container = document.getElementById('menu-container');
-    const categoryLinks = document.querySelectorAll('.category-link');
+    const categories = ['featured', 'antipasti', 'pasta', 'pizza', 'dolce'];
 
-    function renderMenu(items) {
-        if (!container) return;
+    const categoryLinks = $('.category-link');
 
-        if (items.length === 0) {
-            container.innerHTML = '<p class="text-center text-muted">No dishes found in this category.</p>';
+    const sidebarLinks = $(
+        '.sidebar a[href="#featured"], ' +
+        '.sidebar a[href="#antipasti"], ' +
+        '.sidebar a[href="#pasta"], ' +
+        '.sidebar a[href="#pizza"], ' +
+        '.sidebar a[href="#dolce"]'
+    );
+
+    // Show all categories or only the selected category
+    function showCategory(category) {
+
+        if (category === 'all') {
+
+            categories.forEach(function (name) {
+                $('#' + name).show();
+            });
+
+        } else if (categories.includes(category)) {
+
+            categories.forEach(function (name) {
+                $('#' + name).toggle(name === category);
+            });
+
+        } else {
             return;
         }
 
-        container.innerHTML = items.map(item => `
-            <div class="col-12 col-md-6 col-lg-4">
-                <article class="card h-100 glass-card border-0 shadow-sm">
-                    <img src="${item.image}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="${item.name}">
-                    <div class="card-body d-flex flex-column p-4">
-                        <span class="badge bg-danger mb-2 w-auto align-self-start">${item.badge}</span>
-                        <h3 class="card-title h5 mb-2">${item.name}</h3>
-                        <p class="card-text text-muted mb-3">${item.description}</p>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <span class="h5 mb-0 text-danger fw-bold">$${item.price}</span>
-                            <button type="button" class="btn btn-outline-danger btn-sm px-3">Order Now</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        `).join('');
+        categoryLinks.removeClass('active');
+
+        categoryLinks
+            .filter('[data-category="' + category + '"]')
+            .addClass('active');
     }
 
-    function filterByCategory(categoryName) {
-        let filteredItems = [];
+    // Top category navigation
+    categoryLinks.on('click', function (e) {
 
-        switch (categoryName) {
-            case 'featured':
-                filteredItems = featuredMenuItems.filter(item => item.featured);
-                break;
-            case 'antipasti':
-                filteredItems = featuredMenuItems.filter(item => item.category === 'antipasti');
-                break;
-            case 'pasta':
-                filteredItems = featuredMenuItems.filter(item => item.category === 'pasta');
-                break;
-            case 'pizza':
-                filteredItems = featuredMenuItems.filter(item => item.category === 'pizza');
-                break;
-            case 'dolce':
-                filteredItems = featuredMenuItems.filter(item => item.category === 'dolce');
-                break;
-            default:
-                filteredItems = featuredMenuItems;
-        }
+        e.preventDefault();
 
-        renderMenu(filteredItems);
-    }
+        const category = $(this).data('category');
 
-    categoryLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            categoryLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            const selectedCategory = link.getAttribute('data-category');
-            filterByCategory(selectedCategory);
-        });
+        showCategory(category);
     });
 
-    filterByCategory('featured');
+    // Sidebar category navigation
+    sidebarLinks.on('click', function (e) {
+
+        e.preventDefault();
+
+        const category = $(this).attr('href').substring(1);
+
+        showCategory(category);
+
+        const target = $('#' + category);
+
+        if (target.length) {
+
+            $('html, body').animate({
+                scrollTop: target.offset().top - 80
+            }, 400);
+
+        }
+    });
+
+    // Show all menu categories by default
+    showCategory('all');
+
 
     // ==========================================
-
+    // 2. SEARCH AUTOCOMPLETE
     // ==========================================
+
     const $input = $('#searchInput');
     const $list = $('#autocomplete-list');
-    $list.attr('role', 'listbox');
 
     const searchableDishes = [
-        { name: "Bruschetta al Pomodoro", category: "Antipasti", target: "#antipasti" },
-        { name: "Caprese Salad", category: "Antipasti", target: "#antipasti" },
-        { name: "Arancini Siciliani", category: "Antipasti", target: "#antipasti" },
-        { name: "Spaghetti Carbonara", category: "Pasta", target: "#pasta" },
-        { name: "Tagliatelle al Ragù Bolognese", category: "Pasta", target: "#pasta" },
-        { name: "Penne all'Arrabbiata", category: "Pasta", target: "#pasta" },
-        { name: "Pizza Margherita", category: "Pizza", target: "#pizza" },
-        { name: "Quattro Formaggi", category: "Pizza", target: "#pizza" },
-        { name: "Prosciutto e Funghi", category: "Pizza", target: "#pizza" },
-        { name: "Classic Tiramisù", category: "Dolce", target: "#dolce" },
-        { name: "Vanilla Panna Cotta", category: "Dolce", target: "#dolce" },
-        { name: "Sicilian Cannoli", category: "Dolce", target: "#dolce" }
+
+        { name: "Bruschetta al Pomodoro", category: "Antipasti", target: "antipasti" },
+        { name: "Caprese Salad", category: "Antipasti", target: "antipasti" },
+        { name: "Arancini Siciliani", category: "Antipasti", target: "antipasti" },
+
+        { name: "Spaghetti Carbonara", category: "Pasta", target: "pasta" },
+        { name: "Tagliatelle al Ragù Bolognese", category: "Pasta", target: "pasta" },
+        { name: "Penne all'Arrabbiata", category: "Pasta", target: "pasta" },
+
+        { name: "Pizza Margherita", category: "Pizza", target: "pizza" },
+        { name: "Quattro Formaggi", category: "Pizza", target: "pizza" },
+        { name: "Prosciutto e Funghi", category: "Pizza", target: "pizza" },
+
+        { name: "Classic Tiramisù", category: "Dolce", target: "dolce" },
+        { name: "Vanilla Panna Cotta", category: "Dolce", target: "dolce" },
+        { name: "Sicilian Cannoli", category: "Dolce", target: "dolce" }
+
     ];
 
     let currentMatches = [];
     let activeIndex = -1;
 
+
+    // ==========================================
+    // 3. SEARCH HIGHLIGHTING
+    // ==========================================
+
     function highlightSearchTerm(keyword) {
-        $('.menu-item h3, .menu-item p').each(function() {
-            const $this = $(this);
-            $this.html($this.text());
-        });
 
-        if (!keyword || keyword.trim() === '') return;
+        $('.menu-item h3, .menu-item p').each(function () {
 
-        const escapedKeyword = keyword.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-        const regex = new RegExp('(' + escapedKeyword + ')', 'gi');
+            const originalText = $(this).text();
 
-        $('.menu-item h3, .menu-item p').each(function() {
-            const $element = $(this);
-            const originalText = $element.text();
+            // Restore original text before highlighting
+            $(this).text(originalText);
+
+            if (!keyword || !keyword.trim()) {
+                return;
+            }
+
+            // Escape special regular expression characters
+            const escapedKeyword = keyword.trim().replace(
+                /[.*+?^${}()|[\]\\]/g,
+                '\\$&'
+            );
+
+            const regex = new RegExp('(' + escapedKeyword + ')', 'gi');
 
             if (regex.test(originalText)) {
-                const newHtml = originalText.replace(regex, '<mark class="search-highlight">$1</mark>');
-                $element.html(newHtml);
+
+                const highlightedText = originalText.replace(
+                    regex,
+                    '<mark class="search-highlight">$1</mark>'
+                );
+
+                $(this).html(highlightedText);
             }
+
         });
     }
 
+
+    // ==========================================
+    // 4. SELECT AUTOCOMPLETE SUGGESTION
+    // ==========================================
+
     function selectAutocompleteItem(item) {
+
         $input.val(item.name);
+
         $list.hide();
-        activeIndex = -1;
-        highlightSearchTerm(item.name);
 
-        const $target = $(item.target);
-        if ($target.length) {
+        activeIndex = -1;
+
+        // Open the category containing the selected dish
+        showCategory(item.target);
+
+        const target = $('#' + item.target);
+
+        if (target.length) {
+
             $('html, body').animate({
-                scrollTop: $target.offset().top - 80
-            }, 500);
-        }
-    }
+                scrollTop: target.offset().top - 80
+            }, 400);
 
-    function updateActiveItem($items) {
-        $items.removeClass('active bg-light').attr('aria-selected', 'false');
-        if (activeIndex >= 0 && activeIndex < $items.length) {
-            $items.eq(activeIndex).addClass('active bg-light').attr('aria-selected', 'true');
         }
+
+        highlightSearchTerm(item.name);
     }
 
 
-    $input.on('input', function() {
-        const rawValue = $(this).val();
-        const query = rawValue.toLowerCase().trim();
+    // ==========================================
+    // 5. KEYBOARD NAVIGATION
+    // ==========================================
 
-        highlightSearchTerm(rawValue);
-        $list.empty();
-        activeIndex = -1;
+    function updateActiveItem() {
 
-        if (query.length === 0) {
-            currentMatches = [];
-            $list.hide();
-            return;
-        }
-
-        currentMatches = searchableDishes.filter(item => item.name.toLowerCase().includes(query));
-
-        if (currentMatches.length > 0) {
-            currentMatches.forEach((item, index) => {
-                const $div = $(`<div class="autocomplete-item" role="option" aria-selected="false" data-index="${index}"><strong>${item.name}</strong> <span class="text-muted small">(${item.category})</span></div>`);
-
-                $div.on('click', function() {
-                    selectAutocompleteItem(item);
-                });
-
-                $list.append($div);
-            });
-            $list.show();
-        } else {
-            $list.hide();
-        }
-    });
-
-
-    $input.on('keydown', function(e) {
         const $items = $list.find('.autocomplete-item');
 
-        if (e.key === 'Escape') {
+        $items
+            .removeClass('active bg-light')
+            .attr('aria-selected', 'false');
+
+        if (activeIndex >= 0 && activeIndex < $items.length) {
+
+            $items.eq(activeIndex)
+                .addClass('active bg-light')
+                .attr('aria-selected', 'true');
+
+        }
+    }
+
+
+    // ==========================================
+    // 6. SEARCH INPUT
+    // ==========================================
+
+    $input.on('input', function () {
+
+        const query = $(this).val().toLowerCase().trim();
+
+        $list.empty();
+
+        activeIndex = -1;
+
+        highlightSearchTerm(query);
+
+        if (query.length === 0) {
+
+            currentMatches = [];
+
             $list.hide();
-            activeIndex = -1;
+
             return;
         }
 
-        if (!$list.is(':visible') || $items.length === 0) return;
+        // Find matching dishes
+        currentMatches = searchableDishes.filter(function (item) {
 
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            activeIndex = (activeIndex + 1) % $items.length;
-            updateActiveItem($items);
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            activeIndex = (activeIndex - 1 + $items.length) % $items.length;
-            updateActiveItem($items);
-        } else if (e.key === 'Enter' && activeIndex >= 0) {
-            e.preventDefault();
-            selectAutocompleteItem(currentMatches[activeIndex]);
-        }
-    });
+            return item.name.toLowerCase().includes(query);
 
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.search-section').length) {
+        });
+
+        if (currentMatches.length === 0) {
+
             $list.hide();
-            activeIndex = -1;
+
+            return;
         }
+
+        // Create autocomplete suggestions
+        currentMatches.forEach(function (item, index) {
+
+            const $option = $('<div>', {
+
+                class: 'autocomplete-item',
+                role: 'option',
+                'aria-selected': 'false',
+                'data-index': index
+
+            });
+
+            $('<strong>')
+                .text(item.name)
+                .appendTo($option);
+
+            $('<span>', {
+
+                class: 'text-muted small'
+
+            })
+                .text(' (' + item.category + ')')
+                .appendTo($option);
+
+            // Select suggestion when clicked
+            $option.on('click', function () {
+
+                selectAutocompleteItem(item);
+
+            });
+
+            $list.append($option);
+
+        });
+
+        $list.show();
+
     });
+
+
+    // ==========================================
+    // 7. KEYBOARD EVENTS
+    // ==========================================
+
+    $input.on('keydown', function (e) {
+
+        const $items = $list.find('.autocomplete-item');
+
+        // Close suggestions with Escape
+        if (e.key === 'Escape') {
+
+            $list.hide();
+
+            activeIndex = -1;
+
+            return;
+        }
+
+        if (!$list.is(':visible') || !$items.length) {
+            return;
+        }
+
+        // Move down through suggestions
+        if (e.key === 'ArrowDown') {
+
+            e.preventDefault();
+
+            activeIndex = (activeIndex + 1) % $items.length;
+
+            updateActiveItem();
+
+        }
+
+        // Move up through suggestions
+        else if (e.key === 'ArrowUp') {
+
+            e.preventDefault();
+
+            activeIndex = (activeIndex - 1 + $items.length) % $items.length;
+
+            updateActiveItem();
+
+        }
+
+        // Select suggestion with Enter
+        else if (e.key === 'Enter' && activeIndex >= 0) {
+
+            e.preventDefault();
+
+            selectAutocompleteItem(currentMatches[activeIndex]);
+
+        }
+
+    });
+
+
+    // ==========================================
+    // 8. CLOSE AUTOCOMPLETE WHEN CLICKING OUTSIDE
+    // ==========================================
+
+    $(document).on('click', function (e) {
+
+        if (!$(e.target).closest('.search-section').length) {
+
+            $list.hide();
+
+            activeIndex = -1;
+
+        }
+
+    });
+
 });

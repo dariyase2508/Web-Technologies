@@ -19,51 +19,53 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="vintage-bg">
-
-
-    <header class="site-header">
-    <nav class="navbar navbar-expand-lg container-fluid px-4">
-        <a class="navbar-brand logo" href="index.html">LE AUDACI</a>
-
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto main-nav align-items-lg-center gap-lg-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="restaurants.html">Restaurants</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="menu.html">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="recipes.html">Recipes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="team.html">Our Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="register.html">Register</a>
-                </li>
-                
-                <li class="nav-item ms-lg-2">
-                    <button type="button" id="openModalBtn" class="btn btn-outline-light btn-sm px-3 py-2">Subscribe</button>
-                </li>
-            </ul>
+   <div class="text-white py-2 text-center border-bottom border-secondary"
+     style="background-color: #181210;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="small text-uppercase tracking-wider">LE AUDACI | Italian Gastro Guide</span>
+            <span class="badge bg-danger fs-6 fw-normal" id="currentDateTime">Loading date...</span>
         </div>
+    </div>
+
+
+   
+<header class="site-header">
+    <!-- Account Icon + Logo -->
+    <div class="d-flex align-items-center gap-3">
+
+        <div class="dropdown" id="auth-menu">
+            <button
+                class="btn btn-outline-light rounded-circle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Account menu">
+
+                <i class="bi bi-person-circle"></i>
+
+            </button>
+
+            <ul class="dropdown-menu" id="auth-menu-items"></ul>
+        </div>
+
+        <a class="navbar-brand logo" href="index.html">
+            LE AUDACI
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="menu.html">Menu</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="team.html">Our Team</a>
+        <a href="contact.html">Contact</a>
+
+        <button type="button" id="openModalBtn"
+                class="btn btn-outline-light btn-sm ms-2 px-3">
+            Subscribe
+        </button>
     </nav>
 </header>
 
@@ -181,6 +183,8 @@
 
     <script src="js/register.js"></script>
      <script src="js/popup-datetime.js"></script>
+     <script src="js/main.js"></script>
+     <script src="js/auth-nav.js"></script>
 
 
         <div id="newsletterModal" class="custom-modal-overlay" aria-hidden="true">

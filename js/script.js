@@ -11,33 +11,61 @@ window.showToast = function(message) {
 };
 
 
-$('.copy-btn').off('click').on('click', function(e) {
+
+$('.copy-btn').off('click').on('click', function (e) {
     e.preventDefault();
+
     var $btn = $(this);
-    var textToCopy = $btn.siblings('.code-snippet').text().trim();
+    var targetSelector = $btn.attr('data-target');
+    var textToCopy = '';
+
+    if (targetSelector) {
+        textToCopy = $(targetSelector).text().trim();
+    }
+
+    // Support code snippet buttons too
+    if (!textToCopy) {
+        textToCopy = $btn.siblings('.code-snippet').text().trim();
+    }
 
     if (!textToCopy) {
-        textToCopy = $btn.closest('.d-inline-flex, .d-flex').find('.code-snippet').text().trim();
+        showToast('Nothing to copy!');
+        return;
     }
 
-    if (textToCopy) {
-        navigator.clipboard.writeText(textToCopy).then(function() {
+    if (!navigator.clipboard) {
+        showToast('Clipboard is not available. Use HTTPS or localhost.');
+        return;
+    }
 
-            var originalText = $btn.find('.btn-text').text();
-            $btn.find('.btn-text').text('Copied!');
-            $btn.removeClass('btn-outline-danger').addClass('btn-success');
+    navigator.clipboard.writeText(textToCopy)
+        .then(function () {
 
+            var originalHtml = $btn.html();
 
-            showToast('Copied to clipboard: ' + textToCopy);
+            $btn.html('<i class="bi bi-check-lg"></i>')
+                .removeClass('btn-outline-secondary btn-outline-danger')
+                .addClass('btn-success');
 
+            var $tooltip = $btn.siblings('.copy-tooltip');
+            $tooltip.stop(true, true).text('Copied!').fadeIn(200);
 
-            setTimeout(function() {
-                $btn.find('.btn-text').text(originalText);
-                $btn.removeClass('btn-success').addClass('btn-outline-danger');
+            showToast('Copied successfully!');
+
+            setTimeout(function () {
+                $btn.html(originalHtml)
+                    .removeClass('btn-success')
+                    .addClass('btn-outline-secondary');
+
+                $tooltip.fadeOut(200);
             }, 2000);
+
+        })
+        .catch(function () {
+            showToast('Copy failed. Please try again.');
         });
-    }
 });
+
 
     
 
@@ -83,16 +111,24 @@ $('.copy-btn').off('click').on('click', function(e) {
     });
 
 
-    $('#resetFormBtn').on('click', function() {
-        $('#contact-form')[0].reset();
-        $('#ratingValue').val(0);
-        $('#ratingContainer .star-icon').removeClass('text-warning').addClass('text-muted');
-        $('#successMessage').addClass('d-none');
-        
-        if (typeof showToast === 'function') {
-            showToast('Form cleared');
-        }
-    });
+   $('#resetFormBtn').on('click', function() {
+
+    const form = $('#contact-form, #contactForm').first()[0];
+
+    if (form) {
+        form.reset();
+    }
+
+    $('#ratingValue').val(0);
+
+    $('#ratingContainer .star-icon')
+        .removeClass('text-warning')
+        .addClass('text-muted');
+
+    $('#successMessage').addClass('d-none');
+
+    showToast('Form cleared');
+});
     // TASK 0: Setup check
     console.log("jQuery is ready!");
 
@@ -104,39 +140,7 @@ $('.copy-btn').off('click').on('click', function(e) {
         $('#scroll-progress').css('width', scrolled + '%');
     });
 
-    // TASK 7: Notification System (Toast)
-    window.showToast = function(message) {
-        var $toast = $('<div class="toast-item"><i class="bi bi-check-circle-fill me-2"></i>' + message + '</div>');
-        $('#toast-container').append($toast);
-        
-        $toast.fadeIn(300).delay(2500).fadeOut(400, function() {
-            $(this).remove();
-        });
-    };
 
-    // TASK 8: Copy to Clipboard Button
-    $('.copy-btn').on('click', function() {
-        var $btn = $(this);
-        var textToCopy = $btn.siblings('.code-snippet').text().trim();
-
-        if (!textToCopy) {
-            textToCopy = $btn.closest('.copy-box, .d-flex').find('.code-snippet').text().trim();
-        }
-
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(textToCopy).then(function() {
-                var originalHtml = $btn.html();
-                $btn.removeClass('btn-outline-danger').addClass('btn-success')
-                    .html('<i class="bi bi-check-lg"></i> <span class="btn-text small">Copied!</span>');
-
-                showToast('Copied: ' + textToCopy);
-
-                setTimeout(function() {
-                    $btn.removeClass('btn-success').addClass('btn-outline-danger').html(originalHtml);
-                }, 2000);
-            });
-        }
-    });
 
     // TASK 9: Image Lazy Loading
     function lazyLoad() {
@@ -176,6 +180,10 @@ $('.copy-btn').off('click').on('click', function(e) {
             $('#successMessage').removeClass('d-none');
             showToast('Form submitted successfully!');
             $form[0].reset();
+            $('#ratingValue').val(0);
+$('#ratingContainer .star-icon')
+    .removeClass('text-warning')
+    .addClass('text-muted');
         }, 1500);
     });
 });
