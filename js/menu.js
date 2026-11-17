@@ -374,7 +374,6 @@ $(document).ready(function () {
 
     });
 
-});
 
     // ==========================================
     // MENU SEARCH FILTERING
@@ -438,3 +437,6 @@ $(document).ready(function () {
         // Highlight matching text
         highlightSearchTerm(keyword);
     }
+
+
+});
