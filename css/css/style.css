@@ -1332,3 +1332,19 @@ mark.search-highlight {
 #recipeSearch {
     min-width: 0;
 }
+
+/* ---------- Form validation messages (JS-only validation) ---------- */
+small.text-danger[role="alert"] {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+}
+
+/* Lighter red / green keep enough contrast on the dark cards (#241c18) */
+body.dark-theme .text-danger {
+    color: #ff9b9b !important;
+}
+
+body.dark-theme .text-success {
+    color: #86e0a4 !important;
+}

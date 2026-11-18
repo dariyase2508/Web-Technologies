@@ -15,6 +15,7 @@
     <!-- TASK 0: Setup jQuery & Main Script -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/script.js" defer></script>
+    <script src="js/contact-validation.js" defer></script>
 </head>
 <body class="vintage-bg">
     <!-- TASK 4: Scroll Progress Bar Indicator -->
@@ -149,26 +150,34 @@
             </div>
             <!-- ПРАВАЯ КОЛОНКА: Интерактивная Форма -->
             <div class="col-12 col-lg-7">
-                <form id="contact-form" class="glass-card p-4 p-md-5 rounded-4 shadow-md h-100 position-relative border border-white border-opacity-50">
+                <form id="contact-form" novalidate class="glass-card p-4 p-md-5 rounded-4 shadow-md h-100 position-relative border border-white border-opacity-50">
                    
                     <div class="row g-3 mb-3">
                         <div class="col-md-6">
                             <label for="name" class="form-label fw-bold text-espresso small">Full Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" autocomplete="name" aria-describedby="nameError">
+                            <small id="nameError" class="text-danger" role="alert"></small>
                         </div>
                         <div class="col-md-6">
                             <label for="email" class="form-label fw-bold text-espresso small">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                            <input type="text" inputmode="email" autocomplete="email" class="form-control" id="email" name="email" placeholder="name@example.com" aria-describedby="emailError">
+                            <small id="emailError" class="text-danger" role="alert"></small>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="reason" class="form-label fw-bold text-espresso small">Reason for Contact</label>
-                        <select class="form-select" id="reason" name="reason" required>
+                        <select class="form-select" id="reason" name="reason" aria-describedby="reasonError">
                             <option value="" selected disabled>Choose an option</option>
                             <option value="reservation">Table Reservation</option>
                             <option value="question">General Question</option>
                             <option value="feedback">Feedback</option>
                         </select>
+                        <small id="reasonError" class="text-danger" role="alert"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label fw-bold text-espresso small">Phone Number <span class="fw-normal text-muted">(required if you prefer a phone call)</span></label>
+                        <input type="text" inputmode="tel" autocomplete="tel" class="form-control" id="phone" name="phone" placeholder="+77011234567" aria-describedby="phoneError">
+                        <small id="phoneError" class="text-danger" role="alert"></small>
                     </div>
                     <!-- Продвинутые радио-карточки -->
                     <fieldset class="mb-3">
@@ -228,7 +237,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label fw-bold text-espresso small">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="How can we help you today?" required></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="How can we help you today?" aria-describedby="messageError"></textarea>
+                        <small id="messageError" class="text-danger" role="alert"></small>
                     </div>
                     <div class="form-check mb-4 bg-white bg-opacity-30 p-3 rounded-3 border border-dashed">
                         <input class="form-check-input ms-0 me-2 border-danger" type="checkbox" id="updates" name="updates">
@@ -264,16 +274,19 @@
                 </div>
                 <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
                 
-                <form id="modalSubscribeForm">
+                <form id="modalSubscribeForm" novalidate>
                     <div class="mb-3">
                         <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
-                        <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
+                        <input type="text" inputmode="email" autocomplete="email" class="form-control" id="modalEmail" placeholder="name@example.com" aria-describedby="modalEmailError">
+                        <small id="modalEmailError" class="text-danger" role="alert"></small>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="modalCheck" required>
+                        <input type="checkbox" class="form-check-input" id="modalCheck" aria-describedby="modalCheckError">
                         <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
+                        <small id="modalCheckError" class="text-danger d-block" role="alert"></small>
                     </div>
                     <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+                    <div id="modalSuccess" class="text-success small fw-semibold mt-3" role="status"></div>
                 </form>
             </div>
         </div>

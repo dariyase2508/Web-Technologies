@@ -1,19 +1,4 @@
-/**
- * contact-validation.js
- * JS-only validation for the contact form on contact.html
- * (the form has `novalidate`, so the browser's own validation is switched off).
- *
- * Rules:
- *  - Full name: required, at least 2 characters
- *  - Email: required, valid format
- *  - Reason: required
- *  - Phone: required only when "Phone" is the preferred contact method;
- *           if filled in, it must match the phone pattern
- *  - Message: required, at least 10 characters
- *
- * Errors are shown under each field (not in alert() popups).
- * The submit handler in script.js calls window.validateContactForm(form).
- */
+
 (function () {
     "use strict";
 
