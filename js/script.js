@@ -117,6 +117,9 @@ $('.copy-btn').off('click').on('click', function (e) {
 
     if (form) {
         form.reset();
+        if (window.clearContactFormErrors) {
+            window.clearContactFormErrors(form);
+        }
     }
 
     $('#ratingValue').val(0);
@@ -165,6 +168,12 @@ $('.copy-btn').off('click').on('click', function (e) {
     // TASK 6: Loading Spinner on Submit (Contact Form)
     $('#contact-form, #contactForm').on('submit', function(e) {
         e.preventDefault();
+
+        // JS-only validation (js/contact-validation.js); stop here if the form is invalid
+        if (typeof window.validateContactForm === 'function' && !window.validateContactForm(this)) {
+            return;
+        }
+
         var $form = $(this);
         var $submitBtn = $form.find('button[type="submit"]');
         var $spinner = $submitBtn.find('.spinner-border');

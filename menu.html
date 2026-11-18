@@ -435,16 +435,19 @@
                 </div>
                 <p class="text-muted small">Receive exclusive Italian restaurant recommendations, new chef recipes, and special dining offers directly to your inbox.</p>
                 
-                <form id="modalSubscribeForm">
+                <form id="modalSubscribeForm" novalidate>
                     <div class="mb-3">
                         <label for="modalEmail" class="form-label fw-semibold">Email Address</label>
-                        <input type="email" class="form-control" id="modalEmail" placeholder="name@example.com" required>
+                        <input type="text" inputmode="email" autocomplete="email" class="form-control" id="modalEmail" placeholder="name@example.com" aria-describedby="modalEmailError">
+                        <small id="modalEmailError" class="text-danger" role="alert"></small>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="modalCheck" required>
+                        <input type="checkbox" class="form-check-input" id="modalCheck" aria-describedby="modalCheckError">
                         <label class="form-check-label text-muted small" for="modalCheck">I agree to receive newsletters and updates.</label>
+                        <small id="modalCheckError" class="text-danger d-block" role="alert"></small>
                     </div>
                     <button type="submit" class="btn btn-danger w-100 py-2 fw-semibold">Subscribe Now</button>
+                    <div id="modalSuccess" class="text-success small fw-semibold mt-3" role="status"></div>
                 </form>
             </div>
         </div>

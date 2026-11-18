@@ -5,9 +5,10 @@ Group: SE-2508 | Team: Assiya, Dariya, Akerke
 index, restaurants, menu, recipes, team, contact, register, login, profile
 
 ## Features
-- Menu: category filter, search with autocomplete and highlighting
+- Menu: category filter, search with autocomplete and highlighting (last search and category are saved in localStorage)
 - Restaurants: image gallery
-- Contact: form with rating and copy-to-clipboard
+- Contact: form with rating, copy-to-clipboard and JS validation (name, email, phone, message)
+- Recipes: live search through the TheMealDB API, recipes can be saved to localStorage
 - Register / Login / Profile (demo, data stored in localStorage)
 - Day/night theme, background color changer, newsletter modal
 

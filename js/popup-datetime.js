@@ -6,9 +6,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("closeModalBtn");
     const modalForm = document.getElementById("modalSubscribeForm");
 
+    // Inline message elements of the subscribe form (no alert() popups)
+    const emailInput = document.getElementById("modalEmail");
+    const checkbox = document.getElementById("modalCheck");
+    const emailError = document.getElementById("modalEmailError");
+    const checkError = document.getElementById("modalCheckError");
+    const successMessage = document.getElementById("modalSuccess");
+
+    const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    let closeTimer = null;   // auto-close after a successful subscription
+
+    // Remove all validation / success messages from the modal
+    function clearModalMessages() {
+        if (emailError) emailError.textContent = "";
+        if (checkError) checkError.textContent = "";
+        if (successMessage) successMessage.textContent = "";
+        if (emailInput) emailInput.classList.remove("is-invalid");
+        if (checkbox) checkbox.classList.remove("is-invalid");
+    }
+
     // Open modal
     if (openBtn && modal) {
         openBtn.addEventListener("click", function () {
+            clearTimeout(closeTimer);
+            clearModalMessages();
+
             modal.classList.add("active");
             modal.setAttribute("aria-hidden", "false");
 
@@ -21,8 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function closeModal() {
         if (!modal) return;
 
+        clearTimeout(closeTimer);
         modal.classList.remove("active");
         modal.setAttribute("aria-hidden", "true");
+        clearModalMessages();
 
         if (openBtn) openBtn.focus();
     }
@@ -40,38 +64,54 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Close with Escape
+    // Close with Escape (only when the modal is actually open)
     document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
+        if (event.key === "Escape" && modal && modal.classList.contains("active")) {
             closeModal();
         }
     });
 
-    // Subscribe form
-    if (modalForm) {
+    // Subscribe form: JS validation, errors are shown inside the modal
+    if (modalForm && emailInput && checkbox) {
+
+        // Hide an error as soon as the user fixes the field
+        emailInput.addEventListener("input", function () {
+            emailError.textContent = "";
+            emailInput.classList.remove("is-invalid");
+        });
+        checkbox.addEventListener("change", function () {
+            checkError.textContent = "";
+            checkbox.classList.remove("is-invalid");
+        });
+
         modalForm.addEventListener("submit", function (event) {
             event.preventDefault();
+            clearModalMessages();
 
-            const emailInput = modalForm.querySelector("input[type='email'], input");
-            const checkbox = document.getElementById("modalCheck");
+            const email = emailInput.value.trim();
+            let isValid = true;
 
-            const email = emailInput ? emailInput.value.trim() : "";
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
-
-            if (!emailRegex.test(email)) {
-                alert("Please enter a valid email.");
-                return;
+            if (email === "") {
+                emailError.textContent = "Email is required.";
+                emailInput.classList.add("is-invalid");
+                isValid = false;
+            } else if (!EMAIL_REGEX.test(email)) {
+                emailError.textContent = "Please enter a valid email address.";
+                emailInput.classList.add("is-invalid");
+                isValid = false;
             }
 
-            if (checkbox && !checkbox.checked) {
-                alert("Please agree to receive newsletters and updates.");
-                return;
+            if (!checkbox.checked) {
+                checkError.textContent = "Please agree to receive newsletters and updates.";
+                checkbox.classList.add("is-invalid");
+                isValid = false;
             }
 
-            alert("Thank you for subscribing to LE AUDACI!");
+            if (!isValid) return;
 
+            successMessage.textContent = "Thank you for subscribing to LE AUDACI!";
             modalForm.reset();
-            closeModal();
+            closeTimer = setTimeout(closeModal, 1800);
         });
     }
 
@@ -88,4 +128,3 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(updateDateTime, 1000);
 
 });
-

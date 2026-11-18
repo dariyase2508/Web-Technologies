@@ -436,7 +436,55 @@ $(document).ready(function () {
 
         // Highlight matching text
         highlightSearchTerm(keyword);
+
+        // Remember the current search and category
+        saveMenuState();
     }
 
+    // ==========================================
+    // SAVE / RESTORE LAST SEARCH (localStorage)
+    // ==========================================
+
+    const MENU_STATE_KEY = 'leAudaciMenuState';
+
+    // Store the search text and the selected category
+    function saveMenuState() {
+        try {
+            localStorage.setItem(MENU_STATE_KEY, JSON.stringify({
+                query: $input.val().trim(),
+                category: activeCategory
+            }));
+        } catch (e) {
+            // storage is unavailable (private mode, quota) - the menu still works
+        }
+    }
+
+    // On page load, bring back the last search and category
+    (function restoreMenuState() {
+
+        let saved = null;
+
+        try {
+            saved = JSON.parse(localStorage.getItem(MENU_STATE_KEY));
+        } catch (e) {
+            saved = null;
+        }
+
+        if (!saved) return;
+
+        const hasCategory = categories.includes(saved.category);
+
+        if (hasCategory) {
+            showCategory(saved.category);
+        }
+
+        if (typeof saved.query === 'string' && saved.query !== '') {
+            $input.val(saved.query);
+        }
+
+        if (hasCategory || $input.val() !== '') {
+            applyMenuSearch($input.val());
+        }
+    })();
 
 });

@@ -26,8 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let isValid = true;
 
         // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
         if (email === "") {
             emailError.textContent = "Email is required.";
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
             isValid = false;
         }
 
